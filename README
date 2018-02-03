@@ -1,0 +1,29 @@
+Carrie Ravotta (cravott1)
+
+* Screenshots are located in cravott1_mod1.docx and also in the ./screenshots/ folder.
+
+* An Admin Console screen running (with any information on it).
+carrie@carrie-imac:[~/Oracle/wls12.2.1.2/user_projects/domains/car_domain]$ ./startWebLogic.sh
+
+Navigate to http://localhost:7001/console in a web browser.
+
+* WLST STATE command running
+
+wls:/car_domain/serverConfig/>cd ~/Oracle/wls12.2.1.2/
+wls:/car_domain/serverConfig/>./wlst.sh
+wls:/car_domain/serverConfig/>connect('weblogic', 'PWD', 't3://localhost:7001')
+wls:/car_domain/serverConfig/>print serverName
+AdminServer
+wls:/car_domain/serverConfig/> state('AdminServer')
+Current state of "AdminServer" : RUNNING
+
+* WLST SHUTDOWN command
+
+wls:/car_domain/serverConfig/> shutdown()
+Shutting down the server AdminServer with force=false while connected to AdminServer ...
+WLST lost connection to the WebLogic Server that you were connected to.
+This may happen if the server was shut down or partitioned.
+You will have to re-connect to the server once the server is available.
+Disconnected from weblogic server: AdminServer
+Disconnected from weblogic server: AdminServer
+wls:/car_domain/serverConfig/>
