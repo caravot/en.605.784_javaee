@@ -1,0 +1,16 @@
+set derby_home=c:\db-derby-10.14.1.0-bin
+set PATH=%derby_home%\bin;%path%
+set classpath=%derby_home%\lib\derby.jar;%classpath%
+
+CONNECT 'jdbc:derby:c:\JHU;create=true';
+CREATE TABLE STUDENT (FIRST_NAME varchar(40),
+LAST_NAME varchar(40),
+SSN char(11),
+EMAIL varchar(40),
+ADDRESS varchar(40),
+USERID varchar(8),
+PASSWORD varchar(8));
+quit;
+
+
+ij JHU_create.txt
