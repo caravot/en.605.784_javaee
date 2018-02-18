@@ -15,7 +15,6 @@ public class InsertRecords {
     private static String dbURL = "jdbc:derby:JHU;create=true";
     private static Connection conn = null;
     private static Statement stmt = null;
-    private static String csvFile;
 
     public static void main(String[] args) {
         createConnection();
@@ -53,7 +52,8 @@ public class InsertRecords {
     }
 
     private static void insertStudent(String[] row) {
-        String insertQuery = "INSERT INTO STUDENT (FIRST_NAME, LAST_NAME, SSN, EMAIL, ADDRESS, USERID, PASSWORD) values (?,?,?,?,?,?,?)";
+        String insertQuery = "INSERT INTO STUDENT (FIRST_NAME, LAST_NAME, SSN, EMAIL, ADDRESS, USERID, PASSWORD) " +
+                "values (?,?,?,?,?,?,?)";
 
         try {
             PreparedStatement pstmt = conn.prepareStatement(insertQuery);

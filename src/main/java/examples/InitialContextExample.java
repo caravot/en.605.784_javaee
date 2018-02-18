@@ -1,3 +1,4 @@
+package examples;
 
 import javax.naming.*;
 import java.util.*;

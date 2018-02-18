@@ -1,5 +1,125 @@
 
+PART 1 - Creating Derby Database and a client to connect to it.
 
-Used https://www.mockaroo.com/ for the initial student table insert list.
+# Step 1
+- Create database and student table. I accomplished this through the InsertRecords.java file.
 
-Java Insert/DB Connection assistance from https://db.apache.org/derby/integrate/plugin_help/derby_app.html
+# Step 2
+- /src/main/resources/MOCK_DATA.csv for student data was generated using https://www.mockaroo.com/.
+
+# Step 3
+- File to insert/retrieve records from Step 2 CSV file is at /src/main/java/InsertRecords.java
+- Java Insert/DB Connection assistance from https://db.apache.org/derby/integrate/plugin_help/derby_app.html
+
+# Step 4
+
+- Screenshot located in /src/main/resources/step4_datasource.png
+- Username: carrie; password: admin
+
+
+==============================================================================================================
+
+PART 2 - JNDI
+
+# Step 1
+
+java  -classpath /Users/carrie/Documents/Projects/en.605.784_javaee/target/production/en.605.784_javaee:/usr/local/Cellar/derby/10.14.1.0/libexec/lib/derby.jar:/Users/carrie/Oracle/wls12.2.1.2/wlserver/server/lib/weblogic.jar examples.InitialContextExample t3://localhost:7001 weblogic admin1admin
+
+
+- Execute the following JNDI examples programs (adapted from WebLogic Server 8.1 package), InitialContextExample and
+the WebLogicContextExample. Please download the other attachments for this assignment to get source code for
+each of these programs:
+
+        InitialContextExample.java
+        WebLogicContextExample.java
+
+    Save each code on your hard drive. Then compile it with proper directory structure for Java
+    packaging. Then run each code as a client against running WLS instance.
+
+    Note: before running those example programs from DOS shell, make sure to set up CLASSPATH
+    for proper inclusion of JEE and WebLogic jar files. To do that, simply switch to
+    C:\Oracle\Middleware\user_projects\domains\yourDomain\bin directory and run
+    setdomainenv script which will set CLASSPATH up.
+
+While running both programs, capture screen shots of your DOS prompt demonstrating successful execution.
+
+# Step 2
+
+Before you start developing the main program/client, you have to develop Java class called StudentInfo
+that encapsulates the following private properties (Java variables):
+
+    first_name
+    last_name
+    address
+    phone
+    email
+
+All of these properties are of type String.
+
+This StudentInfo class should have accessor methods getXXX(...) to return private properties, one
+method per each variable, so that this class is a Java bean.
+
+At this point you are ready to develop a Java program/client that will bind three StudentInfo objects into
+the WebLogic Server JNDI naming service. Each of them should be an instance of the StudentInfo class
+that you just developed. A client can use rebind( ) method instead of bind( ) to be able to rerun it multiple
+times.
+
+A few tips I would like to give you. As a Java bean, the StudentInfo class has to be of type Serializable.
+Also, since you want WebLogic Server to bind an object to JNDI tree, WebLogic Server has to be able to
+load StudentInfo class. So, you have to include a location (path) of StudentInfo class into CLASSPATH
+before starting WebLogic Server.
+
+    Run this Java program with WebLogic Server. Capture screen shots of your DOS prompt
+    demonstrating successful execution.
+
+Lastly, develop another Java client to lookup all of these bounded objects using the names they have
+been bounded under. To verify that all the objects have the same state as when they were bound by the
+first program simply print out the information provided by the getXXXX(...) methods of the StudentInfo
+class.
+
+Run it and capture screen shots of your DOS prompt demonstrating successful execution.
+
+Note 1: for the purposes of Part 2 of the homework assignment, we are binding three "StudentInfo"
+objects to the WebLogic Server's JNDI tree and then are looking up for them, and we are not going to use
+those StudentInfo objects anywhere within upcoming assignments.
+
+Note 2: I would like to provide here a short instruction on how to run a stand-alone Java application that
+has to connect to the WebLogic Server instance and to bind an object or objects to JNDI tree and/or to
+look up those objects on the JNDI tree. In addition, this instruction is supposed to help students to
+understand how to run Java applications that need to work with the WLS in the future assignments.
+
+So here is what needs to be done.
+
+    * Open DOS shell
+    * Go to you Weblogic Server domain directory (i.e. c:\oracle\middleware\user_projects\domains\lfDomain)
+    and run "startweblogic" script
+    * Wait for the WLS instance to start, then open web browser and go to Admin console
+    (http://localhost:7001/console)
+    * On the left panel, under Domain Structure, open up Environment-Servers, then on the right panel
+    click on AdminServer link
+    * It will open next window, where you need to click on View JNDI tree on the right panel, which will
+    display JNDI tree
+
+At this point please observe the JNDI tree state with the objects bound to it.
+
+Now you are ready to do the next steps related to working with stand-alone Java application.
+
+    * Open another DOS shell
+    * Before anything else, run "setdomainenv" script is located in
+    c:\oracle\middleware\user_projects\domains\lfDomain\bin. This will set up CLASSPATH to
+    include WLS jars and JEE jars that are necessary to compile and to run Java applications that are
+    using WLS
+    * Compile Java code examples provided in this HW
+    * Run each Java application example
+    * Refresh JNDI tree on Admin console and observe "example.one" entry in the JNDI tree that was
+    created by WebLogicContextExample code
+
+# Part 3
+
+Ok, the last step in this assignment.
+
+Take the program you have created in the JDBC part of this assignment (Part 1, Step #3) and modify it to
+use the DataSource object defined in WLS to obtain a connection to the JHU database and to print all
+records from table STUDENT.
+
+Run your program and capture the screen shots with the output produced.
