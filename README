@@ -23,25 +23,17 @@ PART 2 - JNDI
 
 # Step 1
 
-java  -classpath /Users/carrie/Documents/Projects/en.605.784_javaee/target/production/en.605.784_javaee:/usr/local/Cellar/derby/10.14.1.0/libexec/lib/derby.jar:/Users/carrie/Oracle/wls12.2.1.2/wlserver/server/lib/weblogic.jar examples.InitialContextExample t3://localhost:7001 weblogic admin1admin
+- Screenshot of below found in /src/main/resources/part2_step1_InitialContextExample.png
 
+$ ~/Oracle/wls12.2.1.2/user_projects/domains/car_domain/bin/setDomainEnv.sh
+$ javac examples/jndi/InitialContextExample.java
+$ java examples.jndi.InitialContextExample t3://localhost:7001 weblogic admin1admin
 
-- Execute the following JNDI examples programs (adapted from WebLogic Server 8.1 package), InitialContextExample and
-the WebLogicContextExample. Please download the other attachments for this assignment to get source code for
-each of these programs:
+- Screenshot of below found in /src/main/resources/part2_step1_WebLogicContextExample.png
 
-        InitialContextExample.java
-        WebLogicContextExample.java
-
-    Save each code on your hard drive. Then compile it with proper directory structure for Java
-    packaging. Then run each code as a client against running WLS instance.
-
-    Note: before running those example programs from DOS shell, make sure to set up CLASSPATH
-    for proper inclusion of JEE and WebLogic jar files. To do that, simply switch to
-    C:\Oracle\Middleware\user_projects\domains\yourDomain\bin directory and run
-    setdomainenv script which will set CLASSPATH up.
-
-While running both programs, capture screen shots of your DOS prompt demonstrating successful execution.
+$ ~/Oracle/wls12.2.1.2/user_projects/domains/car_domain/bin/setDomainEnv.sh
+$ javac examples/jndi/WebLogicContextExample.java
+$ java examples.jndi.WebLogicContextExample t3://localhost:7001
 
 # Step 2
 

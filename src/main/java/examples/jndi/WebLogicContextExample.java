@@ -1,3 +1,4 @@
+package examples.jndi;
 
 import javax.naming.*;
 import java.util.*;
