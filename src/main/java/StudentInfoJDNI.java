@@ -1,12 +1,13 @@
 import javax.naming.*;
 import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.List;
 
 public class StudentInfoJDNI {
     private static String url = null;
     private static Context ctx = null;
     private static int TOTAL_STUDENTS = 3;
-//    private ArrayList<StudentInfo>;
+    private static List<StudentInfo> studentList = new ArrayList<StudentInfo>();
 
     public static void main(String[] args) {
         if (args.length > 1) {
@@ -17,7 +18,7 @@ public class StudentInfoJDNI {
 
         try {
             createContext();
-            //addStudents();
+            addStudents();
             getStudents();
             closeContext();
         } catch (NamingException e) {
@@ -45,7 +46,9 @@ public class StudentInfoJDNI {
                     "carrie@gmail.com"
             );
 
-            String bindName = "StudentInfo.id_" + i;
+            studentList.add(studentInfo);
+
+            String bindName = "StudentInfo." + studentInfo.getFirst_name();
 
             try {
                 ctx.bind(bindName, studentInfo);
@@ -60,12 +63,10 @@ public class StudentInfoJDNI {
     }
 
     public static void getStudents() throws NamingException {
-        // create three student objects
-        for (int i = 1; i <= TOTAL_STUDENTS; i++) {
-            String bindName = "StudentInfo.id_" + i;
-
-            StudentInfo studentInfo1 = (StudentInfo) ctx.lookup(bindName);
-            System.out.print(studentInfo1.toString() + "\n\n");
+        System.out.println("\n\nSTUDENT INFO RETURNED FROM JNDI\n");
+        for (StudentInfo student : studentList) {
+            StudentInfo jndiStudent = (StudentInfo) ctx.lookup("StudentInfo." + student.getFirst_name());
+            System.out.print(jndiStudent.toString() + "\n\n");
         }
     }
 
