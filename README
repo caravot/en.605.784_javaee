@@ -42,8 +42,6 @@ $ java examples.jndi.WebLogicContextExample t3://localhost:7001
 --------------------------------------------------------------------------------------------------------------
 # Step 2
 
-- JDNI example help provided by
-    https://www.javaworld.com/article/2076888/core-java/jndi-overview--part-1--an-introduction-to-naming-services.html
 -
 
 
