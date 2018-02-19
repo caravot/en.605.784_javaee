@@ -1,22 +1,26 @@
 
-PART 1 - Creating Derby Database and a client to connect to it.
+PART 1 - Derby Database
 
 # Step 1
 - Create database and student table. I accomplished this through the InsertRecords.java file.
 
+--------------------------------------------------------------------------------------------------------------
 # Step 2
 - /src/main/resources/MOCK_DATA.csv for student data was generated using https://www.mockaroo.com/.
 
+--------------------------------------------------------------------------------------------------------------
 # Step 3
 - File to insert/retrieve records from Step 2 CSV file is at /src/main/java/InsertRecords.java
 - Java Insert/DB Connection assistance from https://db.apache.org/derby/integrate/plugin_help/derby_app.html
 
+--------------------------------------------------------------------------------------------------------------
 # Step 4
 
 - Screenshot located in /src/main/resources/step4_datasource.png
 - Username: carrie; password: admin
 
-
+==============================================================================================================
+===+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++==
 ==============================================================================================================
 
 PART 2 - JNDI
@@ -35,21 +39,13 @@ $ ~/Oracle/wls12.2.1.2/user_projects/domains/car_domain/bin/setDomainEnv.sh
 $ javac examples/jndi/WebLogicContextExample.java
 $ java examples.jndi.WebLogicContextExample t3://localhost:7001
 
+--------------------------------------------------------------------------------------------------------------
 # Step 2
 
-Before you start developing the main program/client, you have to develop Java class called StudentInfo
-that encapsulates the following private properties (Java variables):
+- JDNI example help provided by
+    https://www.javaworld.com/article/2076888/core-java/jndi-overview--part-1--an-introduction-to-naming-services.html
+-
 
-    first_name
-    last_name
-    address
-    phone
-    email
-
-All of these properties are of type String.
-
-This StudentInfo class should have accessor methods getXXX(...) to return private properties, one
-method per each variable, so that this class is a Java bean.
 
 At this point you are ready to develop a Java program/client that will bind three StudentInfo objects into
 the WebLogic Server JNDI naming service. Each of them should be an instance of the StudentInfo class
@@ -69,30 +65,11 @@ been bounded under. To verify that all the objects have the same state as when t
 first program simply print out the information provided by the getXXXX(...) methods of the StudentInfo
 class.
 
-Run it and capture screen shots of your DOS prompt demonstrating successful execution.
+    Run it and capture screen shots of your DOS prompt demonstrating successful execution.
 
 Note 1: for the purposes of Part 2 of the homework assignment, we are binding three "StudentInfo"
 objects to the WebLogic Server's JNDI tree and then are looking up for them, and we are not going to use
 those StudentInfo objects anywhere within upcoming assignments.
-
-Note 2: I would like to provide here a short instruction on how to run a stand-alone Java application that
-has to connect to the WebLogic Server instance and to bind an object or objects to JNDI tree and/or to
-look up those objects on the JNDI tree. In addition, this instruction is supposed to help students to
-understand how to run Java applications that need to work with the WLS in the future assignments.
-
-So here is what needs to be done.
-
-    * Open DOS shell
-    * Go to you Weblogic Server domain directory (i.e. c:\oracle\middleware\user_projects\domains\lfDomain)
-    and run "startweblogic" script
-    * Wait for the WLS instance to start, then open web browser and go to Admin console
-    (http://localhost:7001/console)
-    * On the left panel, under Domain Structure, open up Environment-Servers, then on the right panel
-    click on AdminServer link
-    * It will open next window, where you need to click on View JNDI tree on the right panel, which will
-    display JNDI tree
-
-At this point please observe the JNDI tree state with the objects bound to it.
 
 Now you are ready to do the next steps related to working with stand-alone Java application.
 
@@ -106,6 +83,8 @@ Now you are ready to do the next steps related to working with stand-alone Java 
     * Refresh JNDI tree on Admin console and observe "example.one" entry in the JNDI tree that was
     created by WebLogicContextExample code
 
+
+--------------------------------------------------------------------------------------------------------------
 # Part 3
 
 Ok, the last step in this assignment.
