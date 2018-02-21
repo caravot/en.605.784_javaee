@@ -3,10 +3,11 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/application_8.xsd"
              version="8">
-    <module id="en.605.784_javaee-Web">
+
+    <module id="SRS-Web">
         <web>
-            <context-root>en.605.784_javaeeWeb</context-root>
-            <web-uri>en.war</web-uri>
+            <context-root>SRSWeb</context-root>
+            <web-uri>web.war</web-uri>
         </web>
     </module>
 </application>

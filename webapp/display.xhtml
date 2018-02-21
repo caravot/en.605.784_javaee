@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>A Simple JSF Application</title>
+</h:head>
+<h:body>
+<p>
+    This JSF app uses a request-scoped JSF managed bean to display the message below. In order to change the message,
+    you need to modify it in the managed bean's constructor and then recompile the application, redeploy it and run it
+    again.
+    <br/>
+    <br/>
+    #{helloWorldController.hello}
+    <br/>
+    or
+    <br/>
+    <h:outputText id="helloMessage" value="#{helloWorldController.hello}"/>
+</p>
+</h:body>
+</html>
