@@ -12,6 +12,7 @@ public class Database {
     private static javax.sql.DataSource ds = null;
 
     private static void createConnection(String dsName) {
+        System.out.println("Database name of: " + dsName);
         // don't establish new connections if we have some already
         try {
             if (conn == null || conn.isClosed()) {
@@ -28,6 +29,33 @@ public class Database {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    public static void addStudent(StudentInfo student, String dsName) {
+        // open database connection
+        createConnection(dsName);
+
+        String insertQuery = "INSERT INTO STUDENT (FIRST_NAME, LAST_NAME, SSN, EMAIL, ADDRESS, USERID, PASSWORD) " +
+                "values (?,?,?,?,?,?,?)";
+
+        try {
+            PreparedStatement pstmt = conn.prepareStatement(insertQuery);
+
+            pstmt.setString(1, student.getFirst_name());
+            pstmt.setString(2, student.getLast_name());
+            pstmt.setString(3, student.getSsn());
+            pstmt.setString(4, student.getEmail());
+            pstmt.setString(5, student.getAddress());
+            pstmt.setString(6, student.getUserid());
+            pstmt.setString(7, student.getPassword());
+
+            pstmt.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            // close connection when done
+            shutdown();
         }
     }
 
@@ -56,6 +84,8 @@ public class Database {
                     studentInfo.setAddress(resultSet.getString("address"));
                     studentInfo.setSsn(resultSet.getString("ssn"));
                     studentInfo.setEmail(resultSet.getString("email"));
+                    studentInfo.setUserid(resultSet.getString("userid"));
+                    studentInfo.setPassword(resultSet.getString("password"));
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
