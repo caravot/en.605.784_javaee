@@ -31,7 +31,7 @@ public class InsertRecords2 {
 
     private static void createConnection() {
         try {
-            ds = (javax.sql.DataSource) ctx.lookup("jhuDataSource");
+            ds = (javax.sql.DataSource) ctx.lookup("jhuDataSource2");
             conn = ds.getConnection();
         } catch (Exception except) {
             except.printStackTrace();

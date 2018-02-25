@@ -1,27 +1,36 @@
 package ravotta.carrie;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.*;
+import java.util.Hashtable;
 
 public class InsertRecords {
-    private static String dbURL = "jdbc:derby:SRS;create=true";
     private static Connection conn = null;
     private static Statement stmt = null;
+    private static String url = null;
+    private static Context ctx = null;
+    private static javax.sql.DataSource ds = null;
 
     public static void main(String[] args) throws NoSuchMethodException {
+        createContext();
         createConnection();
         buildTables();
         readCSVFile("mock_students.csv", "students");
         readCSVFile("mock_courses.csv", "courses");
         shutdown();
+        closeContext();
     }
 
     private static void createConnection() {
         try {
-            conn = DriverManager.getConnection(dbURL);
+            ds = (javax.sql.DataSource) ctx.lookup("jhuDataSource2");
+            conn = ds.getConnection();
         } catch (Exception except) {
             except.printStackTrace();
         }
@@ -29,13 +38,20 @@ public class InsertRecords {
 
     public static void buildTables() {
         try {
+            Statement stmt = conn.createStatement();
+
+            stmt.execute("DROP TABLE STUDENT");
+            stmt.execute("DROP TABLE COURSES");
+            stmt.execute("DROP TABLE REGISTRAR");
+        } catch (SQLException ex) {
+            // continue to flow
+        }
+
+        try {
             // Get a Statement object.
             Statement stmt = conn.createStatement();
 
             // drop previously created tables
-            stmt.execute("DROP TABLE STUDENT");
-            stmt.execute("DROP TABLE COURSES");
-            stmt.execute("DROP TABLE REGISTRAR");
 
             // Create the STUDENT table
             stmt.execute("CREATE TABLE STUDENT (" +
@@ -60,7 +76,7 @@ public class InsertRecords {
                     "number_students_registered INTEGER," +
                     "UNIQUE(COURSEID))");
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            //ex.printStackTrace();
         }
     }
 
@@ -134,11 +150,43 @@ public class InsertRecords {
                 stmt.close();
             }
             if (conn != null) {
-                DriverManager.getConnection(dbURL);
+                ds.getConnection();
                 conn.close();
             }
         } catch (SQLException sqlExcept) {
             System.out.println(sqlExcept.getMessage());
+        }
+    }
+
+
+    public static void createContext() {
+        try {
+            Hashtable env = new Hashtable();
+
+            // specifies the factory to be used to create the context
+            env.put(Context.INITIAL_CONTEXT_FACTORY, "weblogic.jndi.WLInitialContextFactory");
+
+            if (url != null) {
+                // specifies the URL of the WebLogic Server. Defaults to t3://localhost:7001
+                env.put(Context.PROVIDER_URL, url);
+            }
+
+            ctx = new InitialContext(env);
+            System.out.println("Initial context created");
+        } catch (NamingException e) {
+            System.out.println(e.toString());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void closeContext() {
+        if (ctx != null) {
+            try {
+                ctx.close();
+            } catch (NamingException e) {
+                System.out.println("Failed to close context due to: " + e);
+            }
         }
     }
 }

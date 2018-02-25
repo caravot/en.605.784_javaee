@@ -1,5 +1,6 @@
 package ravotta.carrie;
 
+import javax.enterprise.inject.Model;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Named;
@@ -8,24 +9,13 @@ import java.io.Serializable;
 @Named(value = "studentInfo")
 @SessionScoped
 @ManagedBean
+@Model
 public class StudentInfo implements Serializable {
     private String first_name;
     private String last_name;
     private String address;
-    private String phone;
+    private String ssn;
     private String email;
-
-    public StudentInfo() {
-        System.out.println("Instantiated StudentInfo");
-    }
-
-    public StudentInfo(String first_name, String last_name, String address, String phone, String email) {
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.address = address;
-        this.phone = phone;
-        this.email = email;
-    }
 
     public String getFirst_name() {
         return first_name;
@@ -51,14 +41,6 @@ public class StudentInfo implements Serializable {
         this.address = address;
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -67,13 +49,21 @@ public class StudentInfo implements Serializable {
         this.email = email;
     }
 
+    public String getSsn() {
+        return ssn;
+    }
+
+    public void setSsn(String ssn) {
+        this.ssn = ssn;
+    }
+
     @Override
     public String toString() {
         return "StudentInfo{" +
                 "first_name='" + first_name + '\'' +
                 ", last_name='" + last_name + '\'' +
                 ", address='" + address + '\'' +
-                ", phone='" + phone + '\'' +
+                ", ssn='" + ssn + '\'' +
                 ", email='" + email + '\'' +
                 '}';
     }

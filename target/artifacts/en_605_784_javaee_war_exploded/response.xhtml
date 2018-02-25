@@ -9,8 +9,7 @@
 </h:head>
 <h:body>
 <h:form>
-    <h2>Welcome to the site, #{studentInfo.first_name}, #{studentInfo.last_name}, #{studentInfo.address}!</h2>
-    <p></p>
+    <h2>#{requestScope.message}</h2>
     <h:commandButton id="back" value="Back" action="index"/>
 </h:form>
 </h:body>

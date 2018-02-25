@@ -40,27 +40,27 @@ public class StudentInfoJDNI {
 
         // create three student objects
         for (int i = 1; i <= TOTAL_STUDENTS; i++) {
-            StudentInfo studentInfo = new StudentInfo(
-                    "Student " + i,
-                    "Ravotta",
-                    "8500 Upper Sky Way",
-                    "123-456-7890",
-                    "carrie@gmail.com"
-            );
+//            StudentInfo studentInfo = new StudentInfo(
+//                    "Student " + i,
+//                    "Ravotta",
+//                    "8500 Upper Sky Way",
+//                    "123-456-7890",
+//                    "carrie@gmail.com"
+//            );
 
-            studentList.add(studentInfo);
-
-            String bindName = "StudentInfo." + studentInfo.getFirst_name();
-
-            try {
-                ctx.bind(bindName, studentInfo);
-                System.out.println("Bound '" + bindName + "' for the first time.");
-            } catch (NameAlreadyBoundException e) {
-                System.out.println("Overriding old binding. Rebinding '" + bindName + "'.");
-                ctx.rebind(bindName, studentInfo);
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
-            }
+//            studentList.add(studentInfo);
+//
+//            String bindName = "StudentInfo." + studentInfo.getFirst_name();
+//
+//            try {
+//                ctx.bind(bindName, studentInfo);
+//                System.out.println("Bound '" + bindName + "' for the first time.");
+//            } catch (NameAlreadyBoundException e) {
+//                System.out.println("Overriding old binding. Rebinding '" + bindName + "'.");
+//                ctx.rebind(bindName, studentInfo);
+//            } catch (Exception e) {
+//                System.out.println(e.getMessage());
+//            }
         }
     }
 

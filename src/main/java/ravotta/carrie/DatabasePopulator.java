@@ -12,15 +12,17 @@ public class DatabasePopulator {
     private static javax.sql.DataSource ds = null;
 
     private static void createConnection() {
-        try {
-            Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
-
-            // get jndi
-            Context ctx = new InitialContext();
-            ds = (javax.sql.DataSource) ctx.lookup("jhuDataSource");
-            conn = ds.getConnection();
-        } catch (Exception except) {
-            except.printStackTrace();
+        // don't establish new connections if we have some already
+        if (ctx == null && conn == null) {
+            try {
+                // get jndi
+                Context ctx = new InitialContext();
+                ds = (javax.sql.DataSource) ctx.lookup("jhuDataSource2");
+                conn = ds.getConnection();
+            } catch (Exception except) {
+                System.out.println("DatabasePopulator.createConnection");
+                except.printStackTrace();
+            }
         }
     }
 
@@ -37,23 +39,24 @@ public class DatabasePopulator {
 
             resultSet = pstmt.executeQuery();
         } catch (SQLException sqlExcept) {
-            System.out.print(sqlExcept.getMessage());
+            System.out.println("DatabasePopulator.selectStudent");
             sqlExcept.printStackTrace();
         }
 
         return resultSet;
     }
 
-    private static void shutdown() {
+    public static void shutdown() {
+        System.out.println("Closing DB connection");
         try {
             if (stmt != null) {
                 stmt.close();
             }
             if (conn != null) {
-                ds.getConnection();
                 conn.close();
             }
         } catch (SQLException sqlExcept) {
+            System.out.println("DatabasePopulator.shutdown");
             System.out.println(sqlExcept.getMessage());
         }
     }
