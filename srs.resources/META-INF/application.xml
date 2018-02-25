@@ -5,7 +5,7 @@
              version="8">
     <module id="en.605.784_javaee-Web">
         <web>
-            <context-root>en.605.784_javaeeWeb</context-root>
+            <context-root>SRS</context-root>
             <web-uri>en.war</web-uri>
         </web>
     </module>

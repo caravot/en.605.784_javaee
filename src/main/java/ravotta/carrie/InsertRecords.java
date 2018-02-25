@@ -1,28 +1,21 @@
 package ravotta.carrie;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.Statement;
-import java.sql.SQLException;
-
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.*;
 
 public class InsertRecords {
-    private static String dbURL = "jdbc:derby:JHU;create=true";
+    private static String dbURL = "jdbc:derby:SRS;create=true";
     private static Connection conn = null;
     private static Statement stmt = null;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NoSuchMethodException {
         createConnection();
-//        buildStudentTable();
-//        readCSVFile();
-        selectStudents();
+        buildTables();
+        readCSVFile("mock_students.csv", "students");
+        readCSVFile("mock_courses.csv", "courses");
         shutdown();
     }
 
@@ -34,12 +27,17 @@ public class InsertRecords {
         }
     }
 
-    public static void buildStudentTable() {
+    public static void buildTables() {
         try {
             // Get a Statement object.
             Statement stmt = conn.createStatement();
 
-            // Create the table.
+            // drop previously created tables
+            stmt.execute("DROP TABLE STUDENT");
+            stmt.execute("DROP TABLE COURSES");
+            stmt.execute("DROP TABLE REGISTRAR");
+
+            // Create the STUDENT table
             stmt.execute("CREATE TABLE STUDENT (" +
                     "FIRST_NAME varchar(40)," +
                     "LAST_NAME varchar(40)," +
@@ -47,9 +45,36 @@ public class InsertRecords {
                     "EMAIL varchar(40)," +
                     "ADDRESS varchar(40)," +
                     "USERID varchar(8)," +
-                    "PASSWORD varchar(8))");
+                    "PASSWORD varchar(8)," +
+                    "UNIQUE(FIRST_NAME, LAST_NAME))");
+
+            // Create the COURSES table
+            stmt.execute("CREATE TABLE COURSES (" +
+                    "COURSEID INTEGER," +
+                    "COURSE_NAME varchar(40)," +
+                    "UNIQUE(COURSEID))");
+
+            // Create the REGISTRAR table
+            stmt.execute("CREATE TABLE REGISTRAR (" +
+                    "COURSEID INTEGER," +
+                    "number_students_registered INTEGER," +
+                    "UNIQUE(COURSEID))");
         } catch (SQLException ex) {
-            System.out.println("ERROR: " + ex.getMessage());
+            ex.printStackTrace();
+        }
+    }
+
+    private static void insertCourses(String[] row) {
+        String insertQuery = "INSERT INTO COURSES (COURSEID, COURSE_NAME) values (?,?)";
+
+        try {
+            PreparedStatement pstmt = conn.prepareStatement(insertQuery);
+            pstmt.setString(1, row[0]);
+            pstmt.setString(2, row[1]);
+
+            pstmt.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -71,8 +96,8 @@ public class InsertRecords {
         }
     }
 
-    private static void readCSVFile() {
-        String csvFile = InsertRecords.class.getClassLoader().getResource("MOCK_DATA.csv").getFile();
+    private static void readCSVFile(String fileName, String tableName) {
+        String csvFile = InsertRecords.class.getClassLoader().getResource(fileName).getFile();
         BufferedReader br = null;
         String line = "";
         String cvsSplitBy = ",";
@@ -81,7 +106,11 @@ public class InsertRecords {
             br = new BufferedReader(new FileReader(csvFile));
 
             while ((line = br.readLine()) != null) {
-                insertStudent(line.split(cvsSplitBy));
+                if (tableName.equals("students")) {
+                    insertStudent(line.split(cvsSplitBy));
+                } else if (tableName.equals("courses")) {
+                    insertCourses(line.split(cvsSplitBy));
+                }
             }
 
         } catch (FileNotFoundException e) {
@@ -96,57 +125,6 @@ public class InsertRecords {
                     e.printStackTrace();
                 }
             }
-        }
-    }
-
-    private static void selectStudents() {
-        try {
-            stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            ResultSet results = stmt.executeQuery("SELECT * FROM STUDENT ORDER BY FIRST_NAME");
-            ResultSetMetaData rsmd = results.getMetaData();
-            int numberCols = rsmd.getColumnCount();
-
-            for (int i = 1; i <= numberCols; i++) {
-                System.out.print(rsmd.getColumnLabel(i) + "\t\t");
-            }
-
-            System.out.println("\n-------------------------------------------------");
-            System.out.println("\n\t\tGET STUDENTS TRAVERSING FORWARD (USERID DESC");
-            System.out.println("\n-------------------------------------------------");
-
-            while (results.next()) {
-              String rowResult = "";
-
-                for (int i = 1; i <= 7; i++) {
-                    String tmp = results.getString(i);
-
-                    rowResult += tmp + "\t\t";
-                }
-
-                System.out.println(rowResult);
-            }
-
-            System.out.println("\n-------------------------------------------------");
-            System.out.println("\n\t\tGET STUDENTS TRAVERSING BACKWARD (USERID ASC)");
-            System.out.println("\n-------------------------------------------------");
-
-            // move cursor to last record
-            results.last();
-            while (results.previous()) {
-                String rowResult = "";
-
-                for (int i = 1; i <= 7; i++) {
-                    String tmp = results.getString(i);
-
-                    rowResult += tmp + "\t\t";
-                }
-
-                System.out.println(rowResult);
-            }
-            results.close();
-            stmt.close();
-        } catch (SQLException sqlExcept) {
-            sqlExcept.printStackTrace();
         }
     }
 

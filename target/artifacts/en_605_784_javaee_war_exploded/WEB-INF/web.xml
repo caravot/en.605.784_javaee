@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://java.sun.com/xml/ns/javaee"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
-            http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0">
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
@@ -26,23 +25,37 @@
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
 
-    <login-config>
-        <auth-method>FORM</auth-method>
-        <form-login-config>
-            <form-login-page>/faces/login.jspx</form-login-page>
-            <form-error-page>/faces/error.jspx</form-error-page>
-        </form-login-config>
-    </login-config>
-    <!--<filter>-->
-        <!--<filter-name>LoginFilter</filter-name>-->
-        <!--<filter-class>com.mkyong.LoginFilter</filter-class>-->
-    <!--</filter>-->
-    <!--<filter-mapping>-->
-        <!--<filter-name>LoginFilter</filter-name>-->
-        <!--<url-pattern>/secured/*</url-pattern>-->
-    <!--</filter-mapping>-->
+    <!-- Registration Controller Servlet controls all actions -->
+    <servlet>
+        <servlet-name>RegistrationController</servlet-name>
+        <servlet-class>ravotta.carrie.RegistrationController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegistrationController</servlet-name>
+        <url-pattern>/registration</url-pattern>
+    </servlet-mapping>
 
+    <!-- Login servlet for verify user access -->
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>ravotta.carrie.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+    <!-- database jhuDataSource-->
+    <resource-ref>
+        <res-ref-name>jdbc/jhuDS</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+        <res-sharing-scope>Shareable</res-sharing-scope>
+    </resource-ref>
+
+
+    <!-- Default display page -->
     <welcome-file-list>
-        <welcome-file>/welcome.jspx</welcome-file>
+        <welcome-file>/login.html</welcome-file>
     </welcome-file-list>
 </web-app>

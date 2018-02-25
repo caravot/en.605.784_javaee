@@ -20,9 +20,11 @@ public class InsertRecords2 {
     public static void main(String[] args) {
         createContext();
         createConnection();
-        buildStudentTable();
-        readCSVFile();
-        selectStudents();
+        buildTable1();
+        buildTable2();
+        buildTable3();
+        readCSVFile("mock_students.csv", "students");
+        readCSVFile("mock_courses.csv", "courses");
         shutdown();
         closeContext();
     }
@@ -36,12 +38,12 @@ public class InsertRecords2 {
         }
     }
 
-    public static void buildStudentTable() {
+    public static void buildTable1() {
         try {
             // Get a Statement object.
             Statement stmt = conn.createStatement();
 
-            // Create the table.
+            // Create the STUDENT table
             stmt.execute("CREATE TABLE STUDENT (" +
                     "FIRST_NAME varchar(40)," +
                     "LAST_NAME varchar(40)," +
@@ -52,6 +54,48 @@ public class InsertRecords2 {
                     "PASSWORD varchar(8))");
         } catch (SQLException ex) {
             System.out.println("ERROR: " + ex.getMessage());
+        }
+    }
+
+    public static void buildTable2() {
+        try {
+            // Get a Statement object.
+            Statement stmt = conn.createStatement();
+
+            // Create the COURSES table
+            stmt.execute("CREATE TABLE COURSES (" +
+                    "COURSEID int," +
+                    "COURSE_NAME varchar(40))");
+        } catch (SQLException ex) {
+            System.out.println("ERROR: " + ex.getMessage());
+        }
+    }
+
+    public static void buildTable3() {
+        try {
+            // Get a Statement object.
+            Statement stmt = conn.createStatement();
+
+            // Create the REGISTRAR table
+            stmt.execute("CREATE TABLE REGISTRAR (" +
+                    "COURSEID int," +
+                    "number_students_registered int)");
+        } catch (SQLException ex) {
+            System.out.println("ERROR: " + ex.getMessage());
+        }
+    }
+
+    private static void insertCourses(String[] row) {
+        String insertQuery = "INSERT INTO COURSES (COURSEID, COURSE_NAME) values (?,?)";
+
+        try {
+            PreparedStatement pstmt = conn.prepareStatement(insertQuery);
+            pstmt.setString(1, row[0]);
+            pstmt.setString(2, row[1]);
+
+            pstmt.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -73,8 +117,8 @@ public class InsertRecords2 {
         }
     }
 
-    private static void readCSVFile() {
-        String csvFile = InsertRecords2.class.getClassLoader().getResource("MOCK_DATA.csv").getFile();
+    private static void readCSVFile(String fileName, String tableName) {
+        String csvFile = InsertRecords.class.getClassLoader().getResource(fileName).getFile();
         BufferedReader br = null;
         String line = "";
         String cvsSplitBy = ",";
@@ -83,7 +127,11 @@ public class InsertRecords2 {
             br = new BufferedReader(new FileReader(csvFile));
 
             while ((line = br.readLine()) != null) {
-                insertStudent(line.split(cvsSplitBy));
+                if (tableName.equals("students")) {
+                    insertStudent(line.split(cvsSplitBy));
+                } else if (tableName.equals("courses")) {
+                    insertCourses(line.split(cvsSplitBy));
+                }
             }
 
         } catch (FileNotFoundException e) {
@@ -104,7 +152,7 @@ public class InsertRecords2 {
     private static void selectStudents() {
         try {
             stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            ResultSet results = stmt.executeQuery("SELECT * FROM STUDENT ORDER BY FIRST_NAME");
+            ResultSet results = stmt.executeQuery("SELECT * FROM STUDENT ORDER BY FIRST_NAME LIMIT 1");
             ResultSetMetaData rsmd = results.getMetaData();
             int numberCols = rsmd.getColumnCount();
 

@@ -1,13 +1,23 @@
 package ravotta.carrie;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.inject.Named;
 import java.io.Serializable;
 
+@Named(value = "studentInfo")
+@SessionScoped
+@ManagedBean
 public class StudentInfo implements Serializable {
     private String first_name;
     private String last_name;
     private String address;
     private String phone;
     private String email;
+
+    public StudentInfo() {
+        System.out.println("Instantiated StudentInfo");
+    }
 
     public StudentInfo(String first_name, String last_name, String address, String phone, String email) {
         this.first_name = first_name;

@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Student Registration System (SRS)</title>
+</head>
+<body>
+        <h1>Welcome to the Student Registration System</h1>
+        <p>If you already have an account, please log in.</p>
+
+        <!--<h:messages errorStyle="color: red" infoStyle="color: green" globalOnly="true"/>-->
+        <br/>
+
+        <form id="loginForm" method="post" action="registration">
+            <input type="hidden" name="action" value="login">
+            User Id:
+            <input type="text" name="userid" id="userid" value="10" size="15" maxlength="8"/>
+            <br/>
+            Password:
+            <input type="text" name="password" id="password" value="OGpqyho" size="15" maxlength="8"/>
+            <br/>
+            <br/>
+            <button type="submit">Log In</button>
+            <button type="reset">Reset</button>
+        </form>
+
+        <h2>For new users, please register first</h2>
+        <a href="calc.xhtml"><button>Register</button></a>
+</body>
+</html>

@@ -23,16 +23,17 @@ Author: J. Juneau
                 Below is the list of authors. Click on the author's last name
                 for more information regarding the author.
             </p>
-            <h:graphicImage id="javarecipes" style="width: 100px; height: 120px" library="image"
-                            name="java7recipes.png"/>
             <br/>
-            <h:dataTable id="authorTable" border="1" value="#{faceletsAuthorController.authorList}"
+            <h:dataTable id="authorTable"
+                         border="1"
+                         value="#{faceletsAuthorController.authorList}"
                          var="author">
                 <f:facet name="header">
                     Java 7 Recipes Authors
                 </f:facet>
                 <h:column>
-                    <h:commandLink id="authorName" action="#{faceletsAuthorController.displayAuthor(author.last)}"
+                    <h:commandLink id="authorName"
+                                   action="#{faceletsAuthorController.displayAuthor(author.last)}"
                                    value="#{author.first} #{author.last}"/>
                 </h:column>
             </h:dataTable>
