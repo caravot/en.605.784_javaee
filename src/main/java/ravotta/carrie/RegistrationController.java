@@ -1,34 +1,24 @@
 package ravotta.carrie;
 
+import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+@SessionScoped
 public class RegistrationController extends HttpServlet {
     private String message;
+    private String DATASOURCE_NAME;
 
-    public void init() throws ServletException {
-        // Do required initialization
-        message = "Hello World";
-    }
-
-    public void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
-        // Set response content type
-        response.setContentType("text/html");
-
-        // Actual logic goes here.
-        System.out.println("<h1>" + message + "</h1>");
-    }
-
-    public void destroy() {
-        // do nothing.
+    @Override
+    public void init(ServletConfig servletConfig) throws ServletException {
+        DATASOURCE_NAME = servletConfig.getInitParameter("DATASOURCE_NAME");
     }
 
     public void action(String action) {
@@ -52,7 +42,13 @@ public class RegistrationController extends HttpServlet {
         }
     }
 
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        // do nothing for now
+    }
+
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getSession().setAttribute("DATASOURCE_NAME", DATASOURCE_NAME);
         // get the action parameter to see where we redirect next
         String action = request.getParameter("action");
 
@@ -69,5 +65,20 @@ public class RegistrationController extends HttpServlet {
 //            RequestDispatcher rd=request.getRequestDispatcher("/index.xhtml");
 //            rd.include(request, response);
 //        }
+    }
+
+    @Override
+    public ServletConfig getServletConfig() {
+        return null;
+    }
+
+    @Override
+    public String getServletInfo() {
+        return null;
+    }
+
+    @Override
+    public void destroy() {
+        // do nothing
     }
 }

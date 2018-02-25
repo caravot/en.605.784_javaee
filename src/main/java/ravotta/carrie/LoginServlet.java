@@ -8,11 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 public class LoginServlet extends HttpServlet {
-    private static DatabasePopulator databasePopulator;
+    private static Database database;
+    private int loginAttemptsLeft;
 
     @Inject
     StudentInfo studentInfo;
@@ -33,9 +32,11 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     public void init(ServletConfig servletConfig) throws ServletException {
-        if (databasePopulator == null) {
-            databasePopulator = new DatabasePopulator();
+        if (database == null) {
+            database = new Database();
         }
+
+        loginAttemptsLeft = Integer.parseInt(servletConfig.getInitParameter("MAX_LOGIN_ATTEMPTS"));
     }
 
     @Override
@@ -43,30 +44,32 @@ public class LoginServlet extends HttpServlet {
         String userid = request.getParameter("userid");
         String password = request.getParameter("password");
 
+        String datasource_name = (String)request.getSession().getAttribute("DATASOURCE_NAME");
+
         // valid userid/password input; verify exist in database
         if (validateForm(userid, password)) {
-            ResultSet resultSet = databasePopulator.selectStudent(userid, password);
+            studentInfo = database.selectStudent(userid, password, datasource_name);
 
-            try {
-                if (resultSet.next()) {
-                    studentInfo.setFirst_name(resultSet.getString("first_name"));
-                    studentInfo.setLast_name(resultSet.getString("last_name"));
-                    studentInfo.setAddress(resultSet.getString("address"));
-                    studentInfo.setSsn(resultSet.getString("ssn"));
-                    studentInfo.setEmail(resultSet.getString("email"));
-
-                    request.setAttribute("message",
-                            "Welcome to the site, " + studentInfo.getFirst_name() + " " + studentInfo.getLast_name());
-                } else {
-                    request.setAttribute("message", "Sorry, you don't have an account. You must register first.");
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
+            if (studentInfo != null) {
+                request.setAttribute("message",
+                        "Welcome to the site, " + studentInfo.getFirst_name() + " " + studentInfo.getLast_name());
+            } else {
+                request.setAttribute("message", "Sorry, you don't have an account. You must register first.");
             }
         }
-        // invalid username/password; let user try again
+        // invalid login
         else {
-            request.setAttribute("message", "Invalid userid/password input. Please try again.");
+            // decrease login attempts user has left
+            loginAttemptsLeft--;
+
+            // invalid username/password; let user try again
+            if (loginAttemptsLeft > 0) {
+                request.setAttribute("message", "Invalid userid/password input. Please try again.");
+            }
+            // out of login attempts; kill session
+            else if (loginAttemptsLeft == 0) {
+                request.setAttribute("message", "You have reached the maximum allowed attempts. Closing session.");
+            }
         }
 
         RequestDispatcher rd = request.getRequestDispatcher("/response.xhtml");
@@ -86,6 +89,6 @@ public class LoginServlet extends HttpServlet {
     @Override
     public void destroy() {
         // close connection when shutting down
-        databasePopulator.shutdown();
+        database.shutdown();
     }
 }

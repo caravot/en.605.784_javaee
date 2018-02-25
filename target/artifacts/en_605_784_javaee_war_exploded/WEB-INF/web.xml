@@ -34,6 +34,11 @@
     <servlet>
         <servlet-name>RegistrationController</servlet-name>
         <servlet-class>ravotta.carrie.RegistrationController</servlet-class>
+        <init-param>
+            <param-name>DATASOURCE_NAME</param-name>
+            <param-value>jhuDataSource2</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>RegistrationController</servlet-name>
@@ -44,20 +49,16 @@
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>ravotta.carrie.LoginServlet</servlet-class>
+        <init-param>
+            <param-name>MAX_LOGIN_ATTEMPTS</param-name>
+            <param-value>3</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
-
-    <!-- database jhuDataSource-->
-    <resource-ref>
-        <res-ref-name>jdbc/jhuDS</res-ref-name>
-        <res-type>javax.sql.DataSource</res-type>
-        <res-auth>Container</res-auth>
-        <res-sharing-scope>Shareable</res-sharing-scope>
-    </resource-ref>
-
 
     <!-- Default display page -->
     <welcome-file-list>
