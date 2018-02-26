@@ -13,12 +13,20 @@ import java.io.IOException;
 @SessionScoped
 public class RegistrationServlet extends HttpServlet {
     private static Database database;
+    private StudentInfo studentInfoTmp;
 
     @Inject
     StudentInfo studentInfo;
 
     @Override
     public void init(ServletConfig servletConfig) throws ServletException {
+        if (database == null) {
+            database = new Database();
+        }
+
+        if (studentInfoTmp == null) {
+            studentInfoTmp = new StudentInfo();
+        }
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -32,10 +40,12 @@ public class RegistrationServlet extends HttpServlet {
         String datasource_name = (String)request.getSession().getAttribute("DATASOURCE_NAME");
 
         if (action.equals("registration_formA")) {
-            studentInfo.setFirst_name(request.getParameter("first_name"));
-            studentInfo.setLast_name(request.getParameter("last_name"));
-            studentInfo.setLast_name(request.getParameter("last_name"));
-            studentInfo.setSsn(request.getParameter("ssn"));
+            studentInfoTmp.setFirst_name(request.getParameter("first_name"));
+            studentInfoTmp.setLast_name(request.getParameter("last_name"));
+            studentInfoTmp.setUserid(request.getParameter("userid"));
+            studentInfoTmp.setPassword(request.getParameter("password"));
+            studentInfoTmp.setEmail(request.getParameter("email"));
+            studentInfoTmp.setSsn(request.getParameter("ssn"));
 
             RequestDispatcher rd=request.getRequestDispatcher("/registration_b.xhtml");
             rd.include(request, response);
@@ -44,18 +54,17 @@ public class RegistrationServlet extends HttpServlet {
             address += " " + request.getParameter("city");
             address += ", " + request.getParameter("state");
             address += " " + request.getParameter("zip");
-            address = address.substring(0, Math.min(address.length(), 40));
+            studentInfoTmp.setAddress(address.substring(0, Math.min(address.length(), 40)));
 
-            // add student to database
-            database = new Database();
+            database.addStudent(studentInfoTmp, datasource_name);
 
-            database.addStudent(studentInfo, datasource_name);
+            request.setAttribute("userid", studentInfoTmp.getUserid());
+            request.setAttribute("password", studentInfoTmp.getPassword());
 
-            // close connection when shutting down
-            database.shutdown();
-
-            RequestDispatcher rd = request.getRequestDispatcher("/response.xhtml");
-            rd.include(request, response);
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("login");
+            requestDispatcher.forward(request, response);
+//            RequestDispatcher rd = request.getRequestDispatcher("/response.xhtml");
+//            rd.include(request, response);
         }
     }
 

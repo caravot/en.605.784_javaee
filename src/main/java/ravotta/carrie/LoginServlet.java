@@ -35,7 +35,6 @@ public class LoginServlet extends HttpServlet {
         if (database == null) {
             database = new Database();
         }
-
         loginAttemptsLeft = Integer.parseInt(servletConfig.getInitParameter("MAX_LOGIN_ATTEMPTS"));
     }
 
@@ -44,6 +43,15 @@ public class LoginServlet extends HttpServlet {
         String userid = request.getParameter("userid");
         String password = request.getParameter("password");
 
+        if (userid == null) {
+            userid = (String)request.getAttribute("userid");
+        }
+
+        if (password == null) {
+            password = (String) request.getAttribute("password");
+        }
+
+        System.out.println("LoginServlet: " + userid + ":::" + password);
         String datasource_name = (String)request.getSession().getAttribute("DATASOURCE_NAME");
 
         // valid userid/password input; verify exist in database
@@ -88,7 +96,5 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     public void destroy() {
-        // close connection when shutting down
-        database.shutdown();
     }
 }
