@@ -1,4 +1,6 @@
-package ravotta.carrie;
+package examples;
+
+import ravotta.carrie.StudentInfo;
 
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;

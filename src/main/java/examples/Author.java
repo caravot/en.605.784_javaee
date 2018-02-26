@@ -1,4 +1,4 @@
-package ravotta.carrie;
+package examples;
 
 /**
  * Recipe 4-1

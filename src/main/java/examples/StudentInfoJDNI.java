@@ -1,4 +1,6 @@
-package ravotta.carrie;
+package examples;
+
+import ravotta.carrie.StudentInfo;
 
 import javax.naming.*;
 import java.util.ArrayList;

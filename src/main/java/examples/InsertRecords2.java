@@ -1,4 +1,6 @@
-package ravotta.carrie;
+package examples;
+
+import ravotta.carrie.InsertRecords;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;

@@ -1,4 +1,4 @@
-package ravotta.carrie;
+package examples;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;

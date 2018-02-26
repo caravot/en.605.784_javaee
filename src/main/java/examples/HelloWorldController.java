@@ -1,4 +1,4 @@
-package ravotta.carrie;//package edu.jhu.jee.felikson.leonid;
+package examples;//package edu.jhu.jee.felikson.leonid;
 
 import java.io.Serializable;
 import javax.inject.Named;

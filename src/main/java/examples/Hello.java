@@ -1,4 +1,4 @@
-package ravotta.carrie;
+package examples;
 
 import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ManagedBean;

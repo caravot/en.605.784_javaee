@@ -1,7 +1,6 @@
 package ravotta.carrie;
 
 import javax.faces.bean.SessionScoped;
-import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -13,10 +12,7 @@ import java.io.IOException;
 @SessionScoped
 public class RegistrationServlet extends HttpServlet {
     private static Database database;
-    private StudentInfo studentInfoTmp;
-
-    @Inject
-    StudentInfo studentInfo;
+    private StudentInfo studentInfo;
 
     @Override
     public void init(ServletConfig servletConfig) throws ServletException {
@@ -24,8 +20,8 @@ public class RegistrationServlet extends HttpServlet {
             database = new Database();
         }
 
-        if (studentInfoTmp == null) {
-            studentInfoTmp = new StudentInfo();
+        if (studentInfo == null) {
+            studentInfo = new StudentInfo();
         }
     }
 
@@ -40,12 +36,12 @@ public class RegistrationServlet extends HttpServlet {
         String datasource_name = (String)request.getSession().getAttribute("DATASOURCE_NAME");
 
         if (action.equals("registration_formA")) {
-            studentInfoTmp.setFirst_name(request.getParameter("first_name"));
-            studentInfoTmp.setLast_name(request.getParameter("last_name"));
-            studentInfoTmp.setUserid(request.getParameter("userid"));
-            studentInfoTmp.setPassword(request.getParameter("password"));
-            studentInfoTmp.setEmail(request.getParameter("email"));
-            studentInfoTmp.setSsn(request.getParameter("ssn"));
+            studentInfo.setFirst_name(request.getParameter("first_name"));
+            studentInfo.setLast_name(request.getParameter("last_name"));
+            studentInfo.setUserid(request.getParameter("userid"));
+            studentInfo.setPassword(request.getParameter("password"));
+            studentInfo.setEmail(request.getParameter("email"));
+            studentInfo.setSsn(request.getParameter("ssn"));
 
             RequestDispatcher rd=request.getRequestDispatcher("/registration_b.xhtml");
             rd.include(request, response);
@@ -54,17 +50,15 @@ public class RegistrationServlet extends HttpServlet {
             address += " " + request.getParameter("city");
             address += ", " + request.getParameter("state");
             address += " " + request.getParameter("zip");
-            studentInfoTmp.setAddress(address.substring(0, Math.min(address.length(), 40)));
+            studentInfo.setAddress(address.substring(0, Math.min(address.length(), 40)));
 
-            database.addStudent(studentInfoTmp, datasource_name);
+            database.addStudent(studentInfo, datasource_name);
 
-            request.setAttribute("userid", studentInfoTmp.getUserid());
-            request.setAttribute("password", studentInfoTmp.getPassword());
+            request.setAttribute("userid", studentInfo.getUserid());
+            request.setAttribute("password", studentInfo.getPassword());
 
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("login");
             requestDispatcher.forward(request, response);
-//            RequestDispatcher rd = request.getRequestDispatcher("/response.xhtml");
-//            rd.include(request, response);
         }
     }
 
