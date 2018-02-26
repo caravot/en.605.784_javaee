@@ -1,20 +1,16 @@
 package ravotta.carrie;
 
-import javax.inject.Inject;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class LoginServlet extends HttpServlet {
     private static Database database;
     private int loginAttemptsLeft;
-
-    @Inject
-    StudentInfo studentInfo;
 
     private boolean validateForm(String userid, String password) {
         // length of both vars should be 8 characters
@@ -51,18 +47,24 @@ public class LoginServlet extends HttpServlet {
             password = (String) request.getAttribute("password");
         }
 
-        System.out.println("LoginServlet: " + userid + ":::" + password);
         String datasource_name = (String)request.getSession().getAttribute("DATASOURCE_NAME");
 
         // valid userid/password input; verify exist in database
         if (validateForm(userid, password)) {
-            studentInfo = database.selectStudent(userid, password, datasource_name);
+            StudentInfo studentInfo = database.selectStudent(userid, password, datasource_name);
 
             if (studentInfo != null) {
-                request.setAttribute("message",
-                        "Welcome to the site, " + studentInfo.getFirst_name() + " " + studentInfo.getLast_name());
+                String message = "<h2>Welcome to the site, " +
+                        studentInfo.getFirst_name() + " " + studentInfo.getLast_name() + "</h2>" +
+                        "<h2>Select your next action</h2>" +
+                        "<form id=\"loginForm\" method=\"post\" action=\"registrationcontroller\">" +
+                        "<input type=\"radio\" name=\"action\" value=\"courses\"/> Register for the course<br />" +
+                        "<input type=\"radio\" name=\"action\" value=\"logout\"/> Logout<br />" +
+                        "<button type=\"submit\">Submit</button>";
+
+                writeResponse(response, message);
             } else {
-                request.setAttribute("message", "Sorry, you don't have an account. You must register first.");
+                writeResponse(response, "</h2>Sorry, you don't have an account. You must register first.</h2>");
             }
         }
         // invalid login
@@ -72,16 +74,22 @@ public class LoginServlet extends HttpServlet {
 
             // invalid username/password; let user try again
             if (loginAttemptsLeft > 0) {
-                request.setAttribute("message", "Invalid userid/password input. Please try again.");
+                writeResponse(response, "<h2>Invalid userid/password input. Please try again.</h2>");
             }
             // out of login attempts; kill session
             else if (loginAttemptsLeft == 0) {
-                request.setAttribute("message", "You have reached the maximum allowed attempts. Closing session.");
+                writeResponse(response, "<h2>You have reached the maximum allowed attempts. Closing session.</h2>");
             }
         }
+    }
 
-        RequestDispatcher rd = request.getRequestDispatcher("/response.xhtml");
-        rd.include(request, response);
+    public void writeResponse(HttpServletResponse response, String message) throws IOException {
+        // set content type and other response header fields first
+        response.setContentType("text/html");
+
+        // then write the data of the response
+        PrintWriter out = response.getWriter();
+        out.println(message);
     }
 
     @Override

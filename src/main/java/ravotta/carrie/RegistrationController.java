@@ -41,6 +41,10 @@ public class RegistrationController extends HttpServlet {
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("registration");
             requestDispatcher.forward(request, response);
         }
+        else if (action.equals("courses")) {
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/CoursesJSP.jsp");
+            requestDispatcher.include(request, response);
+        }
     }
 
     @Override
