@@ -6,6 +6,8 @@ import javax.naming.NamingException;
 import java.sql.*;
 import java.util.Hashtable;
 
+// TABLE NAMES: STUDENT, COURSES, REGISTRAR
+
 public class tmp {
     private static Connection conn = null;
     private static Statement stmt = null;
@@ -15,7 +17,7 @@ public class tmp {
     public static void main(String[] args) throws NoSuchMethodException {
         createContext();
         createConnection();
-        queryDelete();
+//        queryDelete();
         querySelect();
         shutdown();
         closeContext();
@@ -36,7 +38,7 @@ public class tmp {
     public static void querySelect() {
         try {
             stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            String insertQuery = "SELECT * FROM STUDENT";
+            String insertQuery = "SELECT * FROM REGISTRAR";
             PreparedStatement pstmt = conn.prepareStatement(insertQuery);
             ResultSet results = pstmt.executeQuery();
 
@@ -53,7 +55,7 @@ public class tmp {
                 while (results.next()) {
                     String rowResult = "";
 
-                    for (int i = 1; i <= 7; i++) {
+                    for (int i = 1; i <= numberCols; i++) {
                         String tmp = results.getString(i);
 
                         rowResult += tmp + "\t\t";

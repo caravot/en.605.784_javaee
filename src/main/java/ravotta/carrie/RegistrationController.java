@@ -24,26 +24,37 @@ public class RegistrationController extends HttpServlet {
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // set datasource name for other servlets
         request.getSession().setAttribute("DATASOURCE_NAME", DATASOURCE_NAME);
 
         // get the action parameter to see where we redirect next
         String action = request.getParameter("action");
 
+        // login the user
         if (action.equals("login")) {
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("login");
             requestDispatcher.forward(request, response);
         }
+        // display first part of the registration form
         else if (action.equals("registration_formA")) {
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("registration");
             requestDispatcher.forward(request, response);
         }
+        // display second part of the registration form
         else if (action.equals("registration_formB")) {
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("registration");
             requestDispatcher.forward(request, response);
         }
+        // show courses
         else if (action.equals("courses")) {
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("/CoursesJSP.jsp");
             requestDispatcher.include(request, response);
+        }
+        // logout
+        else if (action.equals("logout")) {
+            request.getSession().invalidate();
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/login.html");
+            requestDispatcher.forward(request, response);
         }
     }
 

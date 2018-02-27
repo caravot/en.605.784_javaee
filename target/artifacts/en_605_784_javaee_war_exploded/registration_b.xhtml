@@ -13,14 +13,12 @@
         <h:panelGrid columns="2">
             <h:outputLabel for="address">Address:</h:outputLabel>
             <h:inputText id="address"
-                         required="true"
-                         requiredMessage="Error: An address is required."/>
+                         required="true"/>
 
             <h:outputLabel for="city">City, State:</h:outputLabel>
             <h:panelGrid columns="3">
                 <h:inputText id="city"
-                         required="true"
-                         requiredMessage="Error: A city/state are required."/>,
+                         required="true"/>,
                 <h:selectOneMenu id="state">
                     <f:selectItem itemValue="DE" itemLabel="Delaware" />
                     <f:selectItem itemValue="MD" itemLabel="Maryland" />
@@ -32,7 +30,6 @@
             <h:outputLabel for="zip">ZIP/Postal Code:</h:outputLabel>
             <h:inputText id="zip"
                          required="true"
-                         requiredMessage="Error: A zip code is required."
                          maxlength="6"/>
         </h:panelGrid>
         <p></p>

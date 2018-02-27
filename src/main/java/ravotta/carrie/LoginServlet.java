@@ -28,17 +28,24 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     public void init(ServletConfig servletConfig) throws ServletException {
+        // create new database class if it doesn't exist
         if (database == null) {
             database = new Database();
         }
+
+        // set max login attempts
         loginAttemptsLeft = Integer.parseInt(servletConfig.getInitParameter("MAX_LOGIN_ATTEMPTS"));
     }
 
     @Override
     public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String dsName = (String)request.getSession().getAttribute("DATASOURCE_NAME");
+
+        StudentInfo studentInfo = null;
         String userid = request.getParameter("userid");
         String password = request.getParameter("password");
 
+        // some userid/password parameters are sent via added request attributes
         if (userid == null) {
             userid = (String)request.getAttribute("userid");
         }
@@ -47,25 +54,29 @@ public class LoginServlet extends HttpServlet {
             password = (String) request.getAttribute("password");
         }
 
-        String datasource_name = (String)request.getSession().getAttribute("DATASOURCE_NAME");
+        // verify if the userid exists in the database
+        boolean userIdExists = database.validUserid(userid, dsName);
 
-        // valid userid/password input; verify exist in database
-        if (validateForm(userid, password)) {
-            StudentInfo studentInfo = database.selectStudent(userid, password, datasource_name);
+        // valid input; verify exist in database
+        if (userIdExists && validateForm(userid, password)) {
+            studentInfo = database.selectStudent(userid, password, dsName);
+        }
 
-            if (studentInfo != null) {
-                String message = "<h2>Welcome to the site, " +
-                        studentInfo.getFirst_name() + " " + studentInfo.getLast_name() + "</h2>" +
-                        "<h2>Select your next action</h2>" +
-                        "<form id=\"loginForm\" method=\"post\" action=\"registrationcontroller\">" +
-                        "<input type=\"radio\" name=\"action\" value=\"courses\"/> Register for the course<br />" +
-                        "<input type=\"radio\" name=\"action\" value=\"logout\"/> Logout<br />" +
-                        "<button type=\"submit\">Submit</button>";
+        // user exists; display selection options
+        if (studentInfo != null) {
+            String message = "<h2>Welcome to the site, " +
+                studentInfo.getFirst_name() + " " + studentInfo.getLast_name() + "</h2>" +
+                "<h2>Select your next action</h2>" +
+                "<form id=\"loginForm\" method=\"post\" action=\"registrationcontroller\">" +
+                "<input type=\"radio\" name=\"action\" value=\"courses\" checked=\"checked\"/> Register for the course<br />" +
+                "<input type=\"radio\" name=\"action\" value=\"logout\"/> Logout<br />" +
+                "<button type=\"submit\">Submit</button>";
 
-                writeResponse(response, message);
-            } else {
-                writeResponse(response, "</h2>Sorry, you don't have an account. You must register first.</h2>");
-            }
+            writeResponse(response, message);
+        }
+        // user doesn't exist
+        else if (!userIdExists) {
+            writeResponse(response, "</h2>Sorry, you don't have an account. You must register first.</h2>");
         }
         // invalid login
         else {
@@ -79,6 +90,7 @@ public class LoginServlet extends HttpServlet {
             // out of login attempts; kill session
             else if (loginAttemptsLeft == 0) {
                 writeResponse(response, "<h2>You have reached the maximum allowed attempts. Closing session.</h2>");
+                request.getSession().invalidate();
             }
         }
     }

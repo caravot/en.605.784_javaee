@@ -1,2 +1,7 @@
 
-Mock data provided by https://www.mockaroo.com/
+* Mock data provided by https://www.mockaroo.com/
+* Mock data files found in /resources
+* To clear the database, recreate the tables, and insert the mock data run /src/main/java/ravotta/carrie/InsertRecords.java
+* Screenshots under /screenshots
+* Used libraries and the WLS application.xml file under /srs.resources
+*

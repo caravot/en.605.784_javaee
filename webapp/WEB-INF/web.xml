@@ -38,6 +38,10 @@
             <param-name>DATASOURCE_NAME</param-name>
             <param-value>jhuDataSource2</param-value>
         </init-param>
+        <init-param>
+            <param-name>WLS_URL</param-name>
+            <param-value>/Users/carrie/Documents/Projects/JHU</param-value>
+        </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
@@ -58,6 +62,20 @@
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+    <!-- Registration for course JSP -->
+    <servlet>
+        <servlet-name>RegistrationSupportBean</servlet-name>
+        <jsp-file>/RegistrarCourse.jsp</jsp-file>
+        <init-param>
+            <param-name>CourseCapacity</param-name>
+            <param-value>5</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegistrationSupportBean</servlet-name>
+        <url-pattern>/RegistrarCourse.jsp</url-pattern>
     </servlet-mapping>
 
     <!-- Login servlet for verify user access -->

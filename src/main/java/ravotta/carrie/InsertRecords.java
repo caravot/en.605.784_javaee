@@ -62,7 +62,7 @@ public class InsertRecords {
                     "ADDRESS varchar(40)," +
                     "USERID varchar(8)," +
                     "PASSWORD varchar(8)," +
-                    "UNIQUE(FIRST_NAME, LAST_NAME))");
+                    "UNIQUE(USERID))");
 
             // Create the COURSES table
             stmt.execute("CREATE TABLE COURSES (" +
