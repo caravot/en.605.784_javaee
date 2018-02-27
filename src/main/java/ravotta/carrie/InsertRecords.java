@@ -10,6 +10,9 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.Hashtable;
 
+/**
+ * Recreate the database
+ */
 public class InsertRecords {
     private static Connection conn = null;
     private static Statement stmt = null;
@@ -17,6 +20,12 @@ public class InsertRecords {
     private static Context ctx = null;
     private static javax.sql.DataSource ds = null;
 
+    /**
+     * Run all functions to recreate database
+     *
+     * @param args
+     * @throws NoSuchMethodException
+     */
     public static void main(String[] args) throws NoSuchMethodException {
         createContext();
         createConnection();
@@ -27,6 +36,9 @@ public class InsertRecords {
         closeContext();
     }
 
+    /**
+     * Create connection to the database
+     */
     private static void createConnection() {
         try {
             ds = (javax.sql.DataSource) ctx.lookup("jhuDataSource2");
@@ -36,7 +48,12 @@ public class InsertRecords {
         }
     }
 
+
+    /**
+     * Drop tables if they exist and recreate them
+     */
     public static void buildTables() {
+        // try to drop the tables
         try {
             Statement stmt = conn.createStatement();
 
@@ -50,8 +67,6 @@ public class InsertRecords {
         try {
             // Get a Statement object.
             Statement stmt = conn.createStatement();
-
-            // drop previously created tables
 
             // Create the STUDENT table
             stmt.execute("CREATE TABLE STUDENT (" +
@@ -76,10 +91,14 @@ public class InsertRecords {
                     "number_students_registered INTEGER," +
                     "UNIQUE(COURSEID))");
         } catch (SQLException ex) {
-            //ex.printStackTrace();
         }
     }
 
+    /**
+     * Insert courses
+     *
+     * @param row
+     */
     private static void insertCourses(String[] row) {
         String insertQuery = "INSERT INTO COURSES (COURSEID, COURSE_NAME) values (?,?)";
 
@@ -94,6 +113,11 @@ public class InsertRecords {
         }
     }
 
+    /**
+     * Insert a single student record
+     *
+     * @param row
+     */
     private static void insertStudent(String[] row) {
         String insertQuery = "INSERT INTO STUDENT (FIRST_NAME, LAST_NAME, SSN, EMAIL, ADDRESS, USERID, PASSWORD) " +
                 "values (?,?,?,?,?,?,?)";
@@ -112,6 +136,12 @@ public class InsertRecords {
         }
     }
 
+    /**
+     * Read a CSV file of data and insert into appropriate table
+     *
+     * @param fileName name of the CSV file to read
+     * @param tableName name of the table to insert into
+     */
     private static void readCSVFile(String fileName, String tableName) {
         String csvFile = InsertRecords.class.getClassLoader().getResource(fileName).getFile();
         BufferedReader br = null;
@@ -144,6 +174,9 @@ public class InsertRecords {
         }
     }
 
+    /**
+     * Close database connection
+     */
     private static void shutdown() {
         try {
             if (stmt != null) {
@@ -159,6 +192,9 @@ public class InsertRecords {
     }
 
 
+    /**
+     * Make connection to WLS
+     */
     public static void createContext() {
         try {
             Hashtable env = new Hashtable();
@@ -180,6 +216,9 @@ public class InsertRecords {
         }
     }
 
+    /**
+     * Close connection to WLS
+     */
     public static void closeContext() {
         if (ctx != null) {
             try {

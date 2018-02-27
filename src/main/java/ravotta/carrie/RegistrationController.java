@@ -9,23 +9,38 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Provides control when registering a new student
+ */
 @SessionScoped
 public class RegistrationController extends HttpServlet {
     private String DATASOURCE_NAME;
+    private String WLS_URL;
 
+    /**
+     * Initialize the servlet
+     *
+     * @param servletConfig
+     * @throws ServletException
+     */
     @Override
     public void init(ServletConfig servletConfig) throws ServletException {
         DATASOURCE_NAME = servletConfig.getInitParameter("DATASOURCE_NAME");
+        WLS_URL = servletConfig.getInitParameter("WLS_URL");
     }
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        // do nothing for now
-    }
-
+    /**
+     * Handle post action from other objects
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // set datasource name for other servlets
         request.getSession().setAttribute("DATASOURCE_NAME", DATASOURCE_NAME);
+        request.getSession().setAttribute("WLS_URL", WLS_URL);
 
         // get the action parameter to see where we redirect next
         String action = request.getParameter("action");

@@ -6,6 +6,7 @@
 
 <%-- get datasource name from session --%>
 <% coursesBean.dsName = (String)request.getSession().getAttribute("DATASOURCE_NAME"); %>
+<% coursesBean.wlsUrl = (String)request.getSession().getAttribute("WLS_URL"); %>
 
 <html>
 <head>

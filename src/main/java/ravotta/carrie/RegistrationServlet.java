@@ -9,11 +9,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Handle registration of a new student
+ */
 @SessionScoped
 public class RegistrationServlet extends HttpServlet {
+    // database commands
     private static Database database;
+
+    // student to track through registration process
     private StudentInfo studentInfo;
 
+    /**
+     * Initialize the servlet
+     *
+     * @param servletConfig
+     * @throws ServletException
+     */
     @Override
     public void init(ServletConfig servletConfig) throws ServletException {
         // create new database class if it doesn't exist
@@ -27,14 +39,18 @@ public class RegistrationServlet extends HttpServlet {
         }
     }
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        // do nothing for now
-    }
-
+    /**
+     * Handle post action request and save registration form parts
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
         String dsName = (String)request.getSession().getAttribute("DATASOURCE_NAME");
+        String wlsUrl = (String)request.getSession().getAttribute("WLS_URL");
 
         // process part A of registration form
         if (action.equals("registration_formA")) {
@@ -68,7 +84,7 @@ public class RegistrationServlet extends HttpServlet {
             studentInfo.setAddress(address.substring(0, Math.min(address.length(), 40)));
 
             // add new student to the database
-            database.addStudent(studentInfo, dsName);
+            database.addStudent(studentInfo, dsName, wlsUrl);
 
             // auto login the user
             request.setAttribute("userid", studentInfo.getUserid());
@@ -80,6 +96,13 @@ public class RegistrationServlet extends HttpServlet {
         }
     }
 
+    /**
+     * Validate the variables are 8 characters and do not have spaces
+     *
+     * @param userid
+     * @param password
+     * @return if the two variables are valid
+     */
     private boolean validateForm(String userid, String password) {
         // length of both vars should be 8 characters
         if (userid.length() != 8 || password.length() != 8) {

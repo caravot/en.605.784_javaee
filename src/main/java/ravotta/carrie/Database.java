@@ -5,21 +5,39 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
 
+/**
+ * All database methods/commands
+ */
 public class Database {
     private static Connection conn = null;
     private static Statement stmt = null;
     private static Context ctx = null;
     private static javax.sql.DataSource ds = null;
 
-    private static void createConnection(String dsName) {
+    /**
+     * Create connection to the database
+     *
+     * @param dsName Datasource name
+     */
+    private static void createConnection(String dsName, String wlsUrl) {
         // don't establish new connections if we have some already
         try {
             if (conn == null || conn.isClosed()) {
                 try {
                     // get jndi for datasource
                     if (ctx == null) {
+                        Hashtable env = new Hashtable();
+
+                        // specifies the factory to be used to create the context
+                        env.put(Context.INITIAL_CONTEXT_FACTORY, "weblogic.jndi.WLInitialContextFactory");
+
+                        // specifies the URL of the WebLogic Server
+                        env.put(Context.PROVIDER_URL, wlsUrl);
+
+                        ctx = new InitialContext(env);
                         ctx = new InitialContext();
                     }
                     ds = (javax.sql.DataSource) ctx.lookup(dsName);
@@ -34,12 +52,14 @@ public class Database {
     }
 
     /**
-     * @param student
-     * @param dsName
+     * Add a student to the database
+     *
+     * @param student Student bean
+     * @param dsName Datasource name
      */
-    public static void addStudent(StudentInfo student, String dsName) {
+    public static void addStudent(StudentInfo student, String dsName, String wlsUrl) {
         // open database connection
-        createConnection(dsName);
+        createConnection(dsName, wlsUrl);
 
         String insertQuery = "INSERT INTO STUDENT (FIRST_NAME, LAST_NAME, SSN, EMAIL, ADDRESS, USERID, PASSWORD) " +
                 "values (?,?,?,?,?,?,?)";
@@ -64,11 +84,18 @@ public class Database {
         }
     }
 
-    public static boolean validUserid(String userid, String dsName) {
+    /**
+     * Determine if userid exists in the database
+     *
+     * @param userid Userid to lookup
+     * @param dsName Datasource name
+     * @return boolean if userid exists
+     */
+    public static boolean validUserid(String userid, String dsName, String wlsUrl) {
         ResultSet resultSet;
 
         // open database connection
-        createConnection(dsName);
+        createConnection(dsName, wlsUrl);
 
         try {
             stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -95,11 +122,19 @@ public class Database {
         return false;
     }
 
-    public static StudentInfo selectStudent(String userid, String password, String dsName) {
+    /**
+     * Select a student from the database
+     *
+     * @param userid Userid to query for
+     * @param password Password to query for
+     * @param dsName Datasource name
+     * @return StudentInfo object of the student looked up
+     */
+    public static StudentInfo selectStudent(String userid, String password, String dsName, String wlsUrl) {
         ResultSet resultSet;
 
         // open database connection
-        createConnection(dsName);
+        createConnection(dsName, wlsUrl);
 
         StudentInfo studentInfo = null;
 
@@ -136,12 +171,18 @@ public class Database {
         return studentInfo;
     }
 
-    public static List<String> selectCourses(String dsName) {
+    /**
+     * Get all courses from database
+     *
+     * @param dsName Datasource name
+     * @return List<String> of courses
+     */
+    public static List<String> selectCourses(String dsName, String wlsUrl) {
         ResultSet resultSet;
         List<String> courseList = new ArrayList<String>();
 
         // open database connection
-        createConnection(dsName);
+        createConnection(dsName, wlsUrl);
 
         try {
             stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -167,9 +208,16 @@ public class Database {
         return courseList;
     }
 
-    public static void addRegistrar(String courseid, int totalRegistered, String dsName) {
+    /**
+     * Register a student for a course
+     *
+     * @param courseid Courseid to register to
+     * @param totalRegistered New value of total students registered
+     * @param dsName Datasource name
+     */
+    public static void addRegistrar(String courseid, int totalRegistered, String dsName, String wlsUrl) {
         // open database connection
-        createConnection(dsName);
+        createConnection(dsName, wlsUrl);
 
         try {
             String q;
@@ -193,12 +241,19 @@ public class Database {
         }
     }
 
-    public static int selectRegistrar(String courseid, String dsName) {
+    /**
+     * Get registration information for a course
+     *
+     * @param courseid Courseid to query for
+     * @param dsName Datasource name
+     * @return number of students registered already
+     */
+    public static int selectRegistrar(String courseid, String dsName, String wlsUrl) {
         ResultSet resultSet;
         int studentsRegistered = 0;
 
         // open database connection
-        createConnection(dsName);
+        createConnection(dsName, wlsUrl);
 
         try {
             stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -225,6 +280,9 @@ public class Database {
         return studentsRegistered;
     }
 
+    /**
+     * Disconnect from the database
+     */
     public static void shutdown() {
         try {
             if (stmt != null) {
@@ -238,6 +296,9 @@ public class Database {
         }
     }
 
+    /**
+     * Close connection to WLS
+     */
     public static void closeContext() {
         if (ctx != null) {
             try {

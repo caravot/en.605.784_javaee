@@ -6,6 +6,9 @@ import javax.faces.bean.SessionScoped;
 import javax.inject.Named;
 import java.io.Serializable;
 
+/**
+ * Student information
+ */
 @Named(value = "studentInfo")
 @SessionScoped
 @ManagedBean
