@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
@@ -6,6 +7,7 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:jsf="http://xmlns.jcp.org/jsf">
+
 <ui:composition template="template.xhtml">
     <ui:define name="title">
         <h:outputText value="Student Registration System (SRS)"></h:outputText>
@@ -18,10 +20,12 @@
         <h:form prependId="false">
             <input type="hidden" name="action" value="login"/>
             User Id:
-            <input type="text" name="userid" id="userid" value="" size="15" maxlength="8"/>
+            <p><h:inputText id="name" size="30" maxlength="30"
+                            p:autofocus="true" p:required="true" p:type="text"/></p>
             <br/>
             Password:
-            <input type="text" name="password" id="password" value="" size="15" maxlength="8"/>
+            <p><h:inputText id="password" size="15" maxlength="8"
+                            p:autofocus="true" p:required="true" p:type="password"/></p>
             <br/>
             <br/>
             <p>
@@ -34,26 +38,4 @@
         </h:form>
     </ui:define>
 </ui:composition>
-<!--<body>-->
-<!--<h1>Welcome to the Student Registration System</h1>-->
-<!--<p>If you already have an account, please log in.</p>-->
-
-<!--<br/>-->
-
-<!--<form id="loginForm" method="post" action="registrationcontroller">-->
-<!--<input type="hidden" name="action" value="login">-->
-<!--User Id:-->
-<!--<input type="text" name="userid" id="userid" value="" size="15" maxlength="8"/>-->
-<!--<br/>-->
-<!--Password:-->
-<!--<input type="text" name="password" id="password" value="" size="15" maxlength="8"/>-->
-<!--<br/>-->
-<!--<br/>-->
-<!--<button type="submit">Log In</button>-->
-<!--<button type="reset">Reset</button>-->
-<!--</form>-->
-
-<!--<h2>For new users, please register first</h2>-->
-<!--<a href="registration_a.xhtml"><button>Register</button></a>-->
-<!--</body>-->
 </html>
