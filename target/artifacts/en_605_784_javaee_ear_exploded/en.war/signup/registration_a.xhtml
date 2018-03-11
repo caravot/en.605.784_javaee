@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<f:view>
+    <h2>Registration Form A</h2>
+    <h:form prependId="false">
+        <h:inputHidden id="action" value="registration_formA"/>
+
+        <h:panelGrid columns="2">
+            <h:outputLabel for="userid">User Id:</h:outputLabel>
+            <h:inputText id="userid"
+                         value="#{studentInfo.userid}"
+                         required="true"
+                         maxlength="8"/>
+
+            <h:outputLabel for="password">Password:</h:outputLabel>
+            <h:inputSecret id="password"
+                         required="true"
+                         maxlength="8"/>
+
+            <h:outputLabel for="password_verify">Password (repeat):</h:outputLabel>
+            <h:inputSecret id="password_verify"
+                         required="true"
+                         maxlength="8"/>
+
+            <h:outputLabel for="first_name">First name:</h:outputLabel>
+            <h:inputText id="first_name"
+                         value="#{studentInfo.first_name}"
+                         required="true"
+                         maxlength="8"/>
+
+            <h:outputLabel for="last_name">Last name:</h:outputLabel>
+            <h:inputText id="last_name"
+                         value="#{studentInfo.last_name}"
+                         required="true"
+                         maxlength="8"/>
+
+            <h:outputLabel for="email">Social Security Number:</h:outputLabel>
+            <h:inputText id="ssn"
+                         value="#{studentInfo.ssn}"
+                         required="true"
+                         maxlength="8"/>
+
+            <h:outputLabel for="email">Email:</h:outputLabel>
+            <h:inputText id="email"
+                         value="#{studentInfo.email}"
+                         required="true"
+                         maxlength="40"/>
+        </h:panelGrid>
+        <p></p>
+        <h:outputText value="Please fill all fields."
+                      rendered="#{facesContext.validationFailed}" />
+        <p></p>
+        <h:commandButton id="next" value="Next" action="registration_b"/>
+    </h:form>
+</f:view>
+</html>

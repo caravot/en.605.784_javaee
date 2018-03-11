@@ -3,8 +3,10 @@ package ravotta.carrie;
 import javax.enterprise.inject.Model;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.flow.FlowScoped;
 import javax.inject.Named;
 import java.io.Serializable;
+import javax.validation.constraints;
 
 /**
  * Student information
@@ -13,6 +15,7 @@ import java.io.Serializable;
 @SessionScoped
 @ManagedBean
 @Model
+@FlowScoped("signup")
 public class StudentInfo implements Serializable {
     private String first_name;
     private String last_name;
@@ -38,6 +41,7 @@ public class StudentInfo implements Serializable {
         this.userid = userid;
     }
 
+    @Size(min=3, max=10, message="Min 3 and max 10")
     public String getFirst_name() {
         return first_name;
     }

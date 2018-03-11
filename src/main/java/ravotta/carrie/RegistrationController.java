@@ -1,6 +1,6 @@
 package ravotta.carrie;
 
-import javax.enterprise.context.SessionScoped;
+import javax.faces.bean.SessionScoped;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -38,7 +38,7 @@ public class RegistrationController extends HttpServlet {
      * @throws IOException
      */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // set datasource name for other servlets
+        // set data source name for other servlets
         request.getSession().setAttribute("DATASOURCE_NAME", DATASOURCE_NAME);
         request.getSession().setAttribute("WLS_URL", WLS_URL);
 
