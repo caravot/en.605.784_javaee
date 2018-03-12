@@ -1,12 +1,10 @@
 package ravotta.carrie;
 
-import javax.enterprise.inject.Model;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.flow.FlowScoped;
 import javax.inject.Named;
 import java.io.Serializable;
-import javax.validation.constraints;
 
 /**
  * Student information
@@ -14,16 +12,53 @@ import javax.validation.constraints;
 @Named(value = "studentInfo")
 @SessionScoped
 @ManagedBean
-@Model
 @FlowScoped("signup")
 public class StudentInfo implements Serializable {
-    private String first_name;
-    private String last_name;
+    private String first_name = "Carrie";
+    private String last_name = "Ravotta";
+    private String ssn = "555555555";
+    private String email = "carrie@gmail.com";
+    private String userid = "weblogic";
+    private String password = "asdfghjk";
     private String address;
-    private String ssn;
-    private String email;
-    private String userid;
-    private String password;
+
+    // store address sub-attributes seperately to reference in form later
+    private String street = "2334 Chapel Hill";
+    private String city = "Laurel";
+    private String state = "MD";
+    private String zip = "55555";
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getZip() {
+        return zip;
+    }
+
+    public void setZip(String zip) {
+        this.zip = zip;
+    }
 
     public String getPassword() {
         return password;
@@ -41,7 +76,6 @@ public class StudentInfo implements Serializable {
         this.userid = userid;
     }
 
-    @Size(min=3, max=10, message="Min 3 and max 10")
     public String getFirst_name() {
         return first_name;
     }
@@ -82,6 +116,23 @@ public class StudentInfo implements Serializable {
         this.ssn = ssn;
     }
 
+    public String addStudent() {
+        // database commands
+        Database database = new Database();
+        String address = this.street;
+        address += " " + this.city;
+        address += ", " + this.state;
+        address += " " + this.zip;
+
+        // concat all address fields together and trim to 40 characters (DB limit)
+        this.setAddress(address.substring(0, Math.min(address.length(), 40)));
+
+        // add new student to the database
+        database.addStudent(this);
+
+        return "return";
+    }
+
     @Override
     public String toString() {
         return "StudentInfo{" +
@@ -89,6 +140,8 @@ public class StudentInfo implements Serializable {
                 ", last_name='" + last_name + '\'' +
                 ", address='" + address + '\'' +
                 ", ssn='" + ssn + '\'' +
+                ", userid='" + userid + '\'' +
+                ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 '}';
     }

@@ -18,6 +18,6 @@ public class CoursesSupportBean {
     public List<String> getCourses() {
         database = new Database();
 
-        return database.selectCourses(dsName, wlsUrl);
+        return database.selectCourses();
     }
 }

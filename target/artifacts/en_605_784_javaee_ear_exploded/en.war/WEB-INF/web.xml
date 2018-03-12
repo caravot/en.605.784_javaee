@@ -57,7 +57,7 @@
             <param-name>MAX_LOGIN_ATTEMPTS</param-name>
             <param-value>3</param-value>
         </init-param>
-        <load-on-startup>1</load-on-startup>
+        <load-on-startup>0</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>

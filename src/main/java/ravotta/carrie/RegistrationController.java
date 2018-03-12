@@ -1,6 +1,7 @@
 package ravotta.carrie;
 
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ApplicationScoped;
+import javax.inject.Named;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -12,21 +13,40 @@ import java.io.IOException;
 /**
  * Provides control when registering a new student
  */
-@SessionScoped
+//@SessionScoped
+@ApplicationScoped
+@Named
 public class RegistrationController extends HttpServlet {
-    private String DATASOURCE_NAME;
-    private String WLS_URL;
+//    @Inject
+//    StudentInfo studentInfo;
 
     /**
      * Initialize the servlet
      *
-     * @param servletConfig
+     * @param config
      * @throws ServletException
      */
     @Override
-    public void init(ServletConfig servletConfig) throws ServletException {
-        DATASOURCE_NAME = servletConfig.getInitParameter("DATASOURCE_NAME");
-        WLS_URL = servletConfig.getInitParameter("WLS_URL");
+    public void init(ServletConfig config) throws ServletException {
+        super.init(config);
+
+        Database database = new Database(
+                config.getInitParameter("DATASOURCE_NAME"),
+                config.getInitParameter("WLS_URL")
+        );
+    }
+
+
+    /**
+     * Handle get action and pass to post action
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        this.doPost(request, response);
     }
 
     /**
@@ -38,26 +58,13 @@ public class RegistrationController extends HttpServlet {
      * @throws IOException
      */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // set data source name for other servlets
-        request.getSession().setAttribute("DATASOURCE_NAME", DATASOURCE_NAME);
-        request.getSession().setAttribute("WLS_URL", WLS_URL);
-
         // get the action parameter to see where we redirect next
         String action = request.getParameter("action");
 
         // login the user
         if (action.equals("login")) {
+            System.out.println("here");
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("login");
-            requestDispatcher.forward(request, response);
-        }
-        // display first part of the registration form
-        else if (action.equals("registration_formA")) {
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher("registration");
-            requestDispatcher.forward(request, response);
-        }
-        // display second part of the registration form
-        else if (action.equals("registration_formB")) {
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher("registration");
             requestDispatcher.forward(request, response);
         }
         // show courses
@@ -68,7 +75,8 @@ public class RegistrationController extends HttpServlet {
         // logout
         else if (action.equals("logout")) {
             request.getSession().invalidate();
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/login.html");
+            request.logout();
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/index.xhtml");
             requestDispatcher.forward(request, response);
         }
     }

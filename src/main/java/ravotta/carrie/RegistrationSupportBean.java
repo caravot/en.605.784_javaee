@@ -41,11 +41,11 @@ public class RegistrationSupportBean {
         database = new Database();
 
         // get number of students currently registered
-        int currentRegistered = database.selectRegistrar(courseId, dsName, wlsUrl);
+        int currentRegistered = database.selectRegistrar(courseId);
 
         // registration is still open; add student
         if (currentRegistered < CourseCapacity) {
-            database.addRegistrar(courseId, currentRegistered + 1, dsName, wlsUrl);
+            database.addRegistrar(courseId, currentRegistered + 1);
 
             return "You have been registered to " + courseId + " " + courseName;
         }

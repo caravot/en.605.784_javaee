@@ -11,7 +11,7 @@
             <vdl-document>/signup/registration_a.xhtml</vdl-document>
         </view>
         <flow-return id="return">
-            <from-outcome>/index</from-outcome>
+            <from-outcome>/login</from-outcome>
         </flow-return>
     </flow-definition>
 </faces-config>

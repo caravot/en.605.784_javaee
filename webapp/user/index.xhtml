@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<body>
+<ui:composition template="/template.xhtml">
+    <ui:define name="content">
+        <h2>Welcome to the site, studentInfo.getFirst_name() studentInfo.getLast_name() </h2>
+        <h2>Select your next action</h2>
+        <form id="loginForm" method="post" action="registrationcontroller">
+            <input type="radio" name="action" value="courses" checked="checked"/> Register for the course<br/>
+            <input type="radio" name="action" value="logout"/> Logout<br/>
+            <button type="submit">Submit</button>
+        </form>
+
+        <p>
+            Click
+            <a href="#{facesContext.externalContext.requestContextPath}/index.xhtml">Here</a>
+            to go back.
+        </p>
+    </ui:define>
+</ui:composition>
+</body>
+</html>

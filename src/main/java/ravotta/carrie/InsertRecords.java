@@ -29,9 +29,11 @@ public class InsertRecords {
     public static void main(String[] args) throws NoSuchMethodException {
         createContext();
         createConnection();
-        buildTables();
-        readCSVFile("mock_students.csv", "students");
-        readCSVFile("mock_courses.csv", "courses");
+//        removeStudents();
+        getStudents();
+//        buildTables();
+//        readCSVFile("mock_students.csv", "students");
+//        readCSVFile("mock_courses.csv", "courses");
         shutdown();
         closeContext();
     }
@@ -171,6 +173,52 @@ public class InsertRecords {
                     e.printStackTrace();
                 }
             }
+        }
+    }
+
+    public static void removeStudents() {
+        ResultSet resultSet;
+
+        try {
+            stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            String insertQuery = "DELETE FROM STUDENT WHERE FIRST_NAME = ?";
+            PreparedStatement pstmt = conn.prepareStatement(insertQuery);
+            pstmt.setString(1, "Carrie");
+
+            pstmt.execute();
+        } catch (SQLException sqlExcept) {
+            sqlExcept.printStackTrace();
+        }
+    }
+
+    public static void getStudents() {
+        ResultSet resultSet;
+        StudentInfo studentInfo = null;
+
+        try {
+            stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            String insertQuery = "SELECT * FROM STUDENT";
+            PreparedStatement pstmt = conn.prepareStatement(insertQuery);
+
+            resultSet = pstmt.executeQuery();
+
+            try {
+                while (resultSet.next()) {
+                    studentInfo = new StudentInfo();
+                    studentInfo.setFirst_name(resultSet.getString("first_name"));
+                    studentInfo.setLast_name(resultSet.getString("last_name"));
+                    studentInfo.setAddress(resultSet.getString("address"));
+                    studentInfo.setSsn(resultSet.getString("ssn"));
+                    studentInfo.setEmail(resultSet.getString("email"));
+                    studentInfo.setUserid(resultSet.getString("userid"));
+                    studentInfo.setPassword(resultSet.getString("password"));
+                    System.out.println(studentInfo.toString());
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } catch (SQLException sqlExcept) {
+            sqlExcept.printStackTrace();
         }
     }
 

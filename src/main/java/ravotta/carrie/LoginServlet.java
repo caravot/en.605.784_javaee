@@ -1,5 +1,6 @@
 package ravotta.carrie;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -14,6 +15,9 @@ import java.io.PrintWriter;
 public class LoginServlet extends HttpServlet {
     // database commands
     private static Database database;
+
+    // keep track of authentication
+    NavigationController navigationController;
 
     // attempts left to attempt login
     private int loginAttemptsLeft;
@@ -31,29 +35,10 @@ public class LoginServlet extends HttpServlet {
             database = new Database();
         }
 
+        navigationController = new NavigationController();
+
         // set max login attempts
         loginAttemptsLeft = Integer.parseInt(servletConfig.getInitParameter("MAX_LOGIN_ATTEMPTS"));
-    }
-
-    /**
-     * Validate the variables are 8 characters and do not have spaces
-     *
-     * @param userid
-     * @param password
-     * @return if the two variables are valid
-     */
-    private boolean validateForm(String userid, String password) {
-        // length of both vars should be 8 characters
-        if (userid.length() != 8 || password.length() != 8) {
-            return false;
-        }
-
-        // both vars cannot contain a space
-        if (userid.contains(" ") || password.contains(" ")) {
-            return false;
-        }
-
-        return true;
     }
 
     /**
@@ -66,9 +51,6 @@ public class LoginServlet extends HttpServlet {
      */
     @Override
     public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String dsName = (String)request.getSession().getAttribute("DATASOURCE_NAME");
-        String wlsUrl = (String)request.getSession().getAttribute("WLS_URL");
-
         StudentInfo studentInfo = null;
         String userid = request.getParameter("userid");
         String password = request.getParameter("password");
@@ -82,24 +64,29 @@ public class LoginServlet extends HttpServlet {
         }
 
         // verify if the userid exists in the database
-        boolean userIdExists = database.validUserid(userid, dsName, wlsUrl);
+        boolean userIdExists = database.validUserid(userid);
 
         // valid input; verify exist in database
-        if (userIdExists && validateForm(userid, password)) {
-            studentInfo = database.selectStudent(userid, password, dsName, wlsUrl);
+        if (userIdExists) {
+            studentInfo = database.selectStudent(userid, password);
         }
 
         // user exists; display selection options
         if (studentInfo != null) {
-            String message = "<h2>Welcome to the site, " +
-                studentInfo.getFirst_name() + " " + studentInfo.getLast_name() + "</h2>" +
-                "<h2>Select your next action</h2>" +
-                "<form id=\"loginForm\" method=\"post\" action=\"registrationcontroller\">" +
-                "<input type=\"radio\" name=\"action\" value=\"courses\" checked=\"checked\"/> Register for the course<br />" +
-                "<input type=\"radio\" name=\"action\" value=\"logout\"/> Logout<br />" +
-                "<button type=\"submit\">Submit</button>";
+            System.out.println("herefrestesrt");
+            navigationController.setAuthenticated(true);
 
-            writeResponse(response, message);
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/index.xhtml");
+            requestDispatcher.forward(request, response);
+//            String message = "<h2>Welcome to the site, " +
+//                studentInfo.getFirst_name() + " " + studentInfo.getLast_name() + "</h2>" +
+//                "<h2>Select your next action</h2>" +
+//                "<form id=\"loginForm\" method=\"post\" action=\"registrationcontroller\">" +
+//                "<input type=\"radio\" name=\"action\" value=\"courses\" checked=\"checked\"/> Register for the course<br />" +
+//                "<input type=\"radio\" name=\"action\" value=\"logout\"/> Logout<br />" +
+//                "<button type=\"submit\">Submit</button>";
+//
+//            writeResponse(response, message);
         }
         // user doesn't exist
         else if (!userIdExists) {
