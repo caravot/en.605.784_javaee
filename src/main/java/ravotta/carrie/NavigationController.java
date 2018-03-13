@@ -1,13 +1,20 @@
 package ravotta.carrie;
 
-import javax.enterprise.context.RequestScoped;
-import javax.faces.bean.ManagedBean;
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
 import java.io.Serializable;
 
-@ManagedBean(name="navigationController")
-@RequestScoped
+@Named
+@SessionScoped
 public class NavigationController implements Serializable {
     private boolean authenticated = false;
+
+    // attempts left to attempt login
+    private int loginAttemptsLeft;
+
+    @Inject
+    private StudentInfo studentInfo;
 
     /**
      * Creates a new instance of NavigationController
@@ -15,31 +22,42 @@ public class NavigationController implements Serializable {
     public NavigationController() {
     }
 
-    public String pageA() {
-        return "navA";
-    }
-
-    public String pageB() {
-        return "navB";
-    }
-
     /**
-     * Utilizing implicit navigation, a page name can be returned from an
-     * action method rather than listing a navigation-rule within faces-config.xml
-     *
-     * @return
-     */
-    public String nextPage() {
-        // Perform some task, then implicitly list a page to render
-        return "navC";
-    }
-
-    /**
-     * Demonstrates the use of conditional navigation
+     * Attempt login
      */
     public void login() {
-        // Perform some task
-        setAuthenticated(true);
+        // database commands
+        Database database = new Database();
+
+        // verify if the userid exists in the database
+        boolean userIdExists = database.validUserid(studentInfo.getUserid());
+
+        // decrease login attempts user has left
+        this.loginAttemptsLeft--;
+
+        this.authenticated = userIdExists;
+    }
+
+    /**
+     * Log user out
+     */
+    public void logout() {
+        this.authenticated = false;
+    }
+
+    /**
+     * @return number of login attempts left
+     */
+    public int loginAttemptsLeft() {
+        return loginAttemptsLeft;
+    }
+
+    public int getLoginAttemptsLeft() {
+        return loginAttemptsLeft;
+    }
+
+    public void setLoginAttemptsLeft(int loginAttemptsLeft) {
+        this.loginAttemptsLeft = loginAttemptsLeft;
     }
 
     /**
@@ -49,10 +67,15 @@ public class NavigationController implements Serializable {
         return authenticated;
     }
 
-    /**
-     * @param authenticated the authenticated to set
-     */
-    public void setAuthenticated(boolean authenticated) {
-        this.authenticated = authenticated;
+    public StudentInfo getStudentInfo() {
+        return studentInfo;
+    }
+
+    public void setStudentInfo(StudentInfo studentInfo) {
+        this.studentInfo = studentInfo;
+    }
+
+    public String nextPage(String action) {
+        return action;
     }
 }

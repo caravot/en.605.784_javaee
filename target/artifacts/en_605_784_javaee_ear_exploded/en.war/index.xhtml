@@ -16,20 +16,25 @@
     <ui:define name="content">
         <h1>Welcome to the Student Registration System</h1>
         <h3>If you already have an account, please log in.</h3>
+
+        <h:panelGroup rendered="#{navigationController.loginAttemptsLeft > 0}">
+            Invalid userid/password combination. Please try again.
+        </h:panelGroup>
+
         dmedfort, BUD97QPX
-        <form id="loginForm" method="post" action="registrationcontroller">
+        <h:form id="loginForm">
             <h:inputHidden id="action" value="login"/>
             <h:panelGrid columns="2">
                 <h:outputLabel for="userid">User Id: </h:outputLabel>
-                <h:inputText id="userid" size="15" maxlength="30" value="dmedfort"
-                             p:autofocus="true" p:required="true" p:type="text"/>
+                <h:inputText id="userid" size="15" maxlength="8"
+                             value="#{navigationController.studentInfo.userid}"/>
 
                 <h:outputLabel for="password">Password: </h:outputLabel>
-                <h:inputText id="password" size="15" maxlength="8" value="BUD97QPX"
-                             p:autofocus="true" p:required="true" p:type="password"/>
+                <h:inputText id="password" size="15" maxlength="8"
+                             value="#{navigationController.studentInfo.password}"/>
             </h:panelGrid>
-            <h:commandButton id="login" value="Login" action="login"/>
-        </form>
+            <h:commandButton id="login" value="Login" action="#{navigationController.login}"/>
+        </h:form>
 
         <h:form prependId="false">
             <h3>For new users, please register first.</h3>

@@ -1,5 +1,6 @@
 package ravotta.carrie;
 
+import javax.faces.bean.ManagedBean;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -11,25 +12,14 @@ import java.util.List;
 /**
  * All database methods/commands
  */
+@ManagedBean
 public class Database {
     private static Connection conn = null;
     private static Statement stmt = null;
     private static Context ctx = null;
     private static javax.sql.DataSource ds = null;
-    private static String DATASOURCE_NAME = null;
-    private static String WLS_URL = null;
-
-    /**
-     *
-     * Create a database
-     *
-     * @param dns Datasource name
-     * @param wlsUrl Weblogic Server URL
-     */
-    public Database(String dns, String wlsUrl) {
-        DATASOURCE_NAME = dns;
-        WLS_URL = wlsUrl;
-    }
+    private static String DATASOURCE_NAME = "jhuDataSource2";
+    private static String WLS_URL = "t3://localhost:7001";
 
     /**
      * Create a database
@@ -63,7 +53,6 @@ public class Database {
                     conn = ds.getConnection();
                 } catch (Exception except) {
                     except.printStackTrace();
-                    System.exit(-1);
                 }
             }
         } catch (SQLException e) {

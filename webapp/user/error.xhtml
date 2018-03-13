@@ -7,9 +7,10 @@
 <body>
 <ui:composition template="/template.xhtml">
     <ui:define name="title">
-        <h1>Welcome to the site, #{studentInfo.first_name} #{studentInfo.last_name}!</h1>
+        <h1>Course Registration - Error</h1>
     </ui:define>
     <ui:define name="content">
+        Sorry, you have not been registered for "#{courses.selectedCourse}", the course is full.
     </ui:define>
 </ui:composition>
 </body>

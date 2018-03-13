@@ -1,15 +1,60 @@
 package ravotta.carrie;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
+import java.io.Serializable;
+
 /**
  * Support bean for registering a student to a course
  */
-public class RegistrationSupportBean {
+@ManagedBean
+@SessionScoped
+public class RegistrationSupportBean implements Serializable {
     private static Database database;
-    private int CourseCapacity;
+    private int courseCapacity = 2;
     private String courseName;
     private String courseId;
-    public static String dsName;
-    public static String wlsUrl;
+    private boolean isRegistered = false;
+
+    @ManagedProperty(value="#{courses}")
+    private CoursesSupportBean coursesSupportBean;
+
+    /**
+     * Get courses bean
+     *
+     * @return Courses bean
+     */
+    public CoursesSupportBean getCoursesSupportBean() {
+        return coursesSupportBean;
+    }
+
+    /**
+     * Set the courses bean
+     *
+     * @param coursesSupportBean
+     */
+    public void setCoursesSupportBean(CoursesSupportBean coursesSupportBean) {
+        this.coursesSupportBean = coursesSupportBean;
+    }
+
+    /**
+     * Check if the user was registered
+     *
+     * @return User was registered
+     */
+    public boolean isRegistered() {
+        return isRegistered;
+    }
+
+    /**
+     * Set if teh user was registered
+     *
+     * @param registered
+     */
+    public void setRegistered(boolean registered) {
+        isRegistered = registered;
+    }
 
     /**
      * Set the course the user is trying to register for
@@ -29,7 +74,16 @@ public class RegistrationSupportBean {
      * @param courseCapacity integer
      */
     public void setCourseCapacity(int courseCapacity) {
-        CourseCapacity = courseCapacity;
+        this.courseCapacity = courseCapacity;
+    }
+
+    /**
+     * Get current course capacity
+     *
+     * @return Current course capacity
+     */
+    public int getCourseCapacity() {
+        return courseCapacity;
     }
 
     /**
@@ -37,21 +91,24 @@ public class RegistrationSupportBean {
      *
      * @return message to user
      */
-    public String addRegistrar() {
+    public void addRegistrar() {
         database = new Database();
+
+        // set course information
+        setCourse(getCoursesSupportBean().getSelectedCourse());
 
         // get number of students currently registered
         int currentRegistered = database.selectRegistrar(courseId);
 
         // registration is still open; add student
-        if (currentRegistered < CourseCapacity) {
+        if (currentRegistered < getCourseCapacity()) {
             database.addRegistrar(courseId, currentRegistered + 1);
 
-            return "You have been registered to " + courseId + " " + courseName;
+            setRegistered(true);
         }
         // registration is full
         else {
-            return "Sorry, the registration to this course has been closed based on availability";
+            setRegistered(false);
         }
     }
 }

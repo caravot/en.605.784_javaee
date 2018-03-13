@@ -1,48 +1,4 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!--
-
-    DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-    Copyright (c) 1997-2013 Oracle and/or its affiliates. All rights reserved.
-
-    The contents of this file are subject to the terms of either the GNU
-    General Public License Version 2 only ("GPL") or the Common Development
-    and Distribution License("CDDL") (collectively, the "License").  You
-    may not use this file except in compliance with the License.  You can
-    obtain a copy of the License at
-    https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html
-    or packager/legal/LICENSE.txt.  See the License for the specific
-    language governing permissions and limitations under the License.
-
-    When distributing the software, include this License Header Notice in each
-    file and include the License file at packager/legal/LICENSE.txt.
-
-    GPL Classpath Exception:
-    Oracle designates this particular file as subject to the "Classpath"
-    exception as provided by Oracle in the GPL Version 2 section of the License
-    file that accompanied this code.
-
-    Modifications:
-    If applicable, add the following below the License Header, with the fields
-    enclosed by brackets [] replaced by your own identifying information:
-    "Portions Copyright [year] [name of copyright owner]"
-
-    Contributor(s):
-    If you wish your version of this file to be governed by only the CDDL or
-    only the GPL Version 2, indicate your decision by adding "[Contributor]
-    elects to include this software in this distribution under the [CDDL or GPL
-    Version 2] license."  If you don't indicate a single choice of license, a
-    recipient has the option to distribute your version of this file under
-    either the CDDL, the GPL Version 2 or to extend the choice of license to
-    its licensees as provided above.  However, if you add GPL Version 2 code
-    and therefore, elected the GPL Version 2 license, then the option applies
-    only if the new code is made subject to such option by the copyright
-    holder.
-
--->
-
-
-<!-- =========== FULL CONFIGURATION FILE ================================== -->
 
 <faces-config version="2.2"
               xmlns="http://xmlns.jcp.org/xml/ns/javaee"
@@ -61,16 +17,80 @@
             </contract-mapping>
         </resource-library-contracts>
     </application>
+    
+    <managed-bean>
+        <managed-bean-name>Database</managed-bean-name>
+        <managed-bean-class>ravotta.carrie.Database</managed-bean-class>
+        <managed-bean-scope>application</managed-bean-scope>
+        <managed-property>
+            <property-name>DATASOURCE_NAME</property-name>
+            <value>jhuDataSource2</value>
+        </managed-property>
+        <managed-property>
+            <property-name>WLS_URL</property-name>
+            <value>t3://localhost:7001</value>
+        </managed-property>
+    </managed-bean>
+
+    <!-- User not logged in -->
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <!-- user is logged in -->
+        <navigation-case>
+            <from-action>#{navigationController.login}</from-action>
+            <if>#{navigationController.authenticated}</if>
+            <to-view-id>/user/index.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+        <!-- invalid user login -->
+        <navigation-case>
+            <from-action>#{navigationController.login}</from-action>
+            <if>#{!navigationController.loginAttemptsLeft > 0}</if>
+            <to-view-id>/index.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+        <!-- invalid user login -->
+        <navigation-case>
+            <from-action>#{navigationController.login}</from-action>
+            <if>#{!navigationController.authenticated}</if>
+            <to-view-id>/index.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+
+    <!-- User logged in -->
+    <navigation-rule>
+        <from-view-id>/user/index.xhtml</from-view-id>
+        <!-- log user out -->
+        <navigation-case>
+            <from-action>#{navigationController.nextPage}</from-action>
+            <to-view-id>/index.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+        <!-- log user out -->
+        <navigation-case>
+            <from-action>#{navigationController.logout}</from-action>
+            <to-view-id>/index.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+
 
     <navigation-rule>
-        <from-view-id>index.xhtml</from-view-id>
+        <from-view-id>/user/courses.xhtml</from-view-id>
+        <!-- registration added -->
         <navigation-case>
-            <from-outcome>login</from-outcome>
-            <if>#{navigationController.authenticated}</if>
-            <to-view-id>user/index.xhtml</to-view-id>
-            <else>
-                <to-view-id>index.xhtml</to-view-id>
-            </else>
+            <from-action>#{registrationSupportBean.addRegistrar}</from-action>
+            <if>#{registrationSupportBean.registered}</if>
+            <to-view-id>/user/success.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+        <!-- registration closed -->
+        <navigation-case>
+            <from-action>#{registrationSupportBean.addRegistrar}</from-action>
+            <if>#{!registrationSupportBean.registered}</if>
+            <to-view-id>/user/error.xhtml</to-view-id>
+            <redirect />
         </navigation-case>
     </navigation-rule>
 </faces-config>

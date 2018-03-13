@@ -1,24 +1,22 @@
 package ravotta.carrie;
 
-import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.flow.FlowScoped;
 import javax.inject.Named;
 import java.io.Serializable;
 
 /**
  * Student information
  */
-@Named(value = "studentInfo")
+@Named
 @SessionScoped
-@ManagedBean
-@FlowScoped("signup")
+//@ManagedBean
+//@FlowScoped("signup")
 public class StudentInfo implements Serializable {
     private String first_name = "Carrie";
     private String last_name = "Ravotta";
     private String ssn = "555555555";
     private String email = "carrie@gmail.com";
-    private String userid = "weblogic";
+    private String userid = "weblogid";
     private String password = "asdfghjk";
     private String address;
 
@@ -132,6 +130,24 @@ public class StudentInfo implements Serializable {
 
         return "return";
     }
+
+//    public StudentInfo loginStudent() {
+//        // database commands
+//        Database database = new Database();
+//
+//        // verify if the userid exists in the database
+//        boolean userIdExists = database.validUserid(this.userid);
+//
+//        // valid input; verify exist in database
+//        if (userIdExists) {
+//            StudentInfo si = database.selectStudent(userid, password);
+//
+//        } else {
+//
+//        }
+//
+//        return this;
+//    }
 
     @Override
     public String toString() {
