@@ -8,7 +8,7 @@
 <body>
 <ui:composition template="/template.xhtml">
     <ui:define name="title">
-        <h1>Hello Carrie</h1>
+        <h1>Registration Form B</h1>
     </ui:define>
 
     <ui:define name="content">
@@ -16,7 +16,7 @@
             <h:panelGrid columns="3">
                 <h:outputLabel for="street">Address:</h:outputLabel>
                 <h:inputText id="street"
-                             value="#{studentInfo.street}"
+                             value="#{StudentInfo.street}"
                              required="true"
                              requiredMessage="Enter an address">
                 </h:inputText>
@@ -25,10 +25,10 @@
                 <h:outputLabel for="city">City, State:</h:outputLabel>
                 <h:panelGrid columns="3">
                     <h:inputText id="city"
-                                 value="#{studentInfo.city}"
+                                 value="#{StudentInfo.city}"
                                  required="true"
                                  requiredMessage="Enter a city"/>,
-                    <h:selectOneMenu id="state" value="#{studentInfo.state}">
+                    <h:selectOneMenu id="state" value="#{StudentInfo.state}">
                         <f:selectItem itemValue="DE" itemLabel="Delaware"/>
                         <f:selectItem itemValue="MD" itemLabel="Maryland"/>
                         <f:selectItem itemValue="VA" itemLabel="Virginia"/>
@@ -39,7 +39,7 @@
 
                 <h:outputLabel for="zip">ZIP/Postal Code:</h:outputLabel>
                 <h:inputText id="zip"
-                             value="#{studentInfo.zip}"
+                             value="#{StudentInfo.zip}"
                              required="true"
                              maxlength="5"
                              validatorMessage="Must contain exactly 5 numbers"
@@ -52,7 +52,7 @@
 
             <p>
                 <h:commandButton value="Back" action="registration_a"></h:commandButton>
-                <h:commandButton value="Submit" action="#{studentInfo.addStudent}"></h:commandButton>
+                <h:commandButton value="Submit" action="#{StudentInfo.addStudent}"></h:commandButton>
             </p>
         </h:form>
     </ui:define>

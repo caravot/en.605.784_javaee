@@ -2,6 +2,7 @@ package ravotta.carrie;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.flow.FlowScoped;
 import java.io.Serializable;
 
 /**
@@ -10,7 +11,7 @@ import java.io.Serializable;
 @ManagedBean(name="StudentInfo")
 @SessionScoped
 //@ManagedBean
-//@FlowScoped("signup")
+@FlowScoped("signup")
 public class StudentInfo implements Serializable {
     private String first_name;
     private String last_name;

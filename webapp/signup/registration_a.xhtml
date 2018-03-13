@@ -8,16 +8,15 @@
 <body>
 <ui:composition template="/template.xhtml">
     <ui:define name="title">
-        <h1>Hello Carrie</h1>
+        <h1>Registration Form A</h1>
     </ui:define>
 
     <ui:define name="content">
-        <h2>Registration Form A</h2>
         <h:form prependId="false">
             <h:panelGrid columns="3">
                 <h:outputLabel for="userid">User Id:</h:outputLabel>
                 <h:inputText id="userid"
-                             value="#{studentInfo.userid}"
+                             value="#{StudentInfo.userid}"
                              required="true"
                              maxlength="8"
                              validatorMessage="Must be exactly 8 characters long"
@@ -26,28 +25,28 @@
                 </h:inputText>
                 <h:message for="userid" errorStyle="color: red;"/>
 
-                <!--<h:outputLabel for="password">Password:</h:outputLabel>-->
-                <!--<h:inputSecret id="password"-->
-                <!--value="#{studentInfo.password}"-->
-                <!--required="true"-->
-                <!--maxlength="8">-->
-                <!--<f:validateLength minimum="8" maximum="8"></f:validateLength>-->
-                <!--<f:validator validatorId="passwordValidate"/>-->
-                <!--</h:inputSecret>-->
-                <!--<h:message for="password" errorStyle="color: red;"/>-->
+                <h:outputLabel for="password">Password:</h:outputLabel>
+                <h:inputSecret id="password"
+                               value="#{StudentInfo.password}"
+                               required="true"
+                               maxlength="8">
+                    <f:validateLength minimum="8" maximum="8"></f:validateLength>
+                    <f:validator validatorId="passwordValidate"/>
+                </h:inputSecret>
+                <h:message for="password" errorStyle="color: red;"/>
 
-                <!--<h:outputLabel for="password_verify">Password (repeat):</h:outputLabel>-->
-                <!--<h:inputSecret id="password_verify"-->
-                <!--value="#{studentInfo.password}"-->
-                <!--required="true"-->
-                <!--maxlength="8">-->
-                <!--<f:validateLength minimum="8" maximum="8"></f:validateLength>-->
-                <!--</h:inputSecret>-->
-                <!--<h:message for="password_verify" errorStyle="color: red;"/>-->
+                <h:outputLabel for="password_verify">Password (repeat):</h:outputLabel>
+                <h:inputSecret id="password_verify"
+                               value="#{StudentInfo.password}"
+                               required="true"
+                               maxlength="8">
+                    <f:validateLength minimum="8" maximum="8"></f:validateLength>
+                </h:inputSecret>
+                <h:message for="password_verify" errorStyle="color: red;"/>
 
                 <h:outputLabel for="first_name">First name:</h:outputLabel>
                 <h:inputText id="first_name"
-                             value="#{studentInfo.first_name}"
+                             value="#{StudentInfo.first_name}"
                              required="true"
                              maxlength="8"
                              validatorMessage="Must be between 3 and 40 characters in length"
@@ -58,7 +57,7 @@
 
                 <h:outputLabel for="last_name">Last name:</h:outputLabel>
                 <h:inputText id="last_name"
-                             value="#{studentInfo.last_name}"
+                             value="#{StudentInfo.last_name}"
                              required="true"
                              maxlength="8"
                              validatorMessage="Must be between 3 and 40 characters in length"
@@ -69,7 +68,7 @@
 
                 <h:outputLabel for="ssn">Social Security Number:</h:outputLabel>
                 <h:inputText id="ssn"
-                             value="#{studentInfo.ssn}"
+                             value="#{StudentInfo.ssn}"
                              required="true"
                              maxlength="9"
                              requiredMessage="Please enter a SSN"
@@ -81,7 +80,7 @@
 
                 <h:outputLabel for="email">Email:</h:outputLabel>
                 <h:inputText id="email"
-                             value="#{studentInfo.email}"
+                             value="#{StudentInfo.email}"
                              required="true"
                              maxlength="40"
                              validatorMessage="Email address invalid"
