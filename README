@@ -4,7 +4,7 @@
 * To clear the database, recreate the tables, and insert the mock data run /src/main/java/ravotta/carrie/InsertRecords.java
 * Screenshots under /screenshots
 * Used libraries and the WLS application.xml file under /srs.resources
-
+* Valid userid and password are: dmedfort, BUD97QPX
 
 # Resource Links
 
@@ -13,3 +13,4 @@
 * Help with JSF password validation: https://www.mkyong.com/jsf2/multi-components-validator-in-jsf-2-0/
 * Navigation Case Help: https://dzone.com/articles/fluent-navigation-jsf-2
 * JSF Conditional Show Text: https://stackoverflow.com/questions/16965456/jsf-showing-conditional-text-in-a-clear-way
+* Logout help: http://www.icesoft.org/JForum/posts/list/3355.page#sthash.QCIF8kUb.7gmFG5gs.dpbs

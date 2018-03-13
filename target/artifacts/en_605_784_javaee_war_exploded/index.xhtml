@@ -10,18 +10,16 @@
 
 <ui:composition template="/template.xhtml">
     <ui:define name="title">
-        <h1>Student Registration System (SRS)</h1>
+        <h1>Welcome to the Student Registration System</h1>
     </ui:define>
 
     <ui:define name="content">
-        <h1>Welcome to the Student Registration System</h1>
         <h3>If you already have an account, please log in.</h3>
 
-        <h:panelGroup rendered="#{navigationController.loginAttemptsLeft > 0}">
-            Invalid userid/password combination. Please try again.
-        </h:panelGroup>
+        <!-- user attempted max tries -->
+        <h:outputText rendered="#{navigationController.loginAttemptsLeft != 1}"
+                      value="You have reached the maximum allowed attempts. Closing session."></h:outputText>
 
-        dmedfort, BUD97QPX
         <h:form id="loginForm">
             <h:inputHidden id="action" value="login"/>
             <h:panelGrid columns="2">

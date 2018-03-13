@@ -1,30 +1,47 @@
 package ravotta.carrie;
 
+import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.inject.Named;
 import java.io.Serializable;
 
 /**
  * Student information
  */
-@Named
+@ManagedBean(name="StudentInfo")
 @SessionScoped
 //@ManagedBean
 //@FlowScoped("signup")
 public class StudentInfo implements Serializable {
-    private String first_name = "Carrie";
-    private String last_name = "Ravotta";
-    private String ssn = "555555555";
-    private String email = "carrie@gmail.com";
-    private String userid = "weblogid";
-    private String password = "asdfghjk";
+    private String first_name;
+    private String last_name;
+    private String ssn;
+    private String email;
+    private String userid;
+    private String password;
     private String address;
 
-    // store address sub-attributes seperately to reference in form later
-    private String street = "2334 Chapel Hill";
-    private String city = "Laurel";
-    private String state = "MD";
-    private String zip = "55555";
+    // store address sub-attributes separately to reference in form later
+    private String street;
+    private String city;
+    private String state;
+    private String zip;
+
+    /**
+     * Delete student from session
+     */
+    public void clearStudent() {
+        this.first_name = null;
+        this.last_name = null;
+        this.ssn = null;
+        this.email = null;
+        this.userid = null;
+        this.password = null;
+        this.address = null;
+        this.street = null;
+        this.city = null;
+        this.state = null;
+        this.zip = null;
+    }
 
     public String getStreet() {
         return street;
@@ -114,6 +131,11 @@ public class StudentInfo implements Serializable {
         this.ssn = ssn;
     }
 
+    /**
+     * Add student to database
+     *
+     * @return next page to return to
+     */
     public String addStudent() {
         // database commands
         Database database = new Database();
@@ -131,23 +153,31 @@ public class StudentInfo implements Serializable {
         return "return";
     }
 
-//    public StudentInfo loginStudent() {
-//        // database commands
-//        Database database = new Database();
-//
-//        // verify if the userid exists in the database
-//        boolean userIdExists = database.validUserid(this.userid);
-//
-//        // valid input; verify exist in database
-//        if (userIdExists) {
-//            StudentInfo si = database.selectStudent(userid, password);
-//
-//        } else {
-//
-//        }
-//
-//        return this;
-//    }
+    /**
+     * Try to log user in
+     *
+     * @return is user logged in
+     */
+    public boolean loginStudent() {
+        // database commands
+        Database database = new Database();
+
+        // verify exist in database
+        StudentInfo student = database.selectStudent(userid, password);
+
+        // set database information to user object
+        if (student != null) {
+            setFirst_name(student.getFirst_name());
+            setLast_name(student.getLast_name());
+            setSsn(student.getSsn());
+            setAddress(student.getAddress());
+            setEmail(student.getEmail());
+
+            return true;
+        }
+
+        return false;
+    }
 
     @Override
     public String toString() {

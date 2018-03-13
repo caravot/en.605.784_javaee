@@ -45,13 +45,6 @@
         <!-- invalid user login -->
         <navigation-case>
             <from-action>#{navigationController.login}</from-action>
-            <if>#{!navigationController.loginAttemptsLeft > 0}</if>
-            <to-view-id>/index.xhtml</to-view-id>
-            <redirect />
-        </navigation-case>
-        <!-- invalid user login -->
-        <navigation-case>
-            <from-action>#{navigationController.login}</from-action>
             <if>#{!navigationController.authenticated}</if>
             <to-view-id>/index.xhtml</to-view-id>
             <redirect />
@@ -63,18 +56,12 @@
         <from-view-id>/user/index.xhtml</from-view-id>
         <!-- log user out -->
         <navigation-case>
-            <from-action>#{navigationController.nextPage}</from-action>
-            <to-view-id>/index.xhtml</to-view-id>
-            <redirect />
-        </navigation-case>
-        <!-- log user out -->
-        <navigation-case>
             <from-action>#{navigationController.logout}</from-action>
+            <if>#{!navigationController.authenticated}</if>
             <to-view-id>/index.xhtml</to-view-id>
             <redirect />
         </navigation-case>
     </navigation-rule>
-
 
     <navigation-rule>
         <from-view-id>/user/courses.xhtml</from-view-id>
