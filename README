@@ -1,0 +1,5 @@
+* Source code in /srs
+* Required Java libraries in /lib
+* Compiled class files in /build
+* Installable bean JAR in /dist
+* Screenshots in /screenshots
