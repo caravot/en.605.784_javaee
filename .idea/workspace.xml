@@ -1,0 +1,951 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="SRS:ear exploded" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e855c9a3-da08-4d0d-9143-a043b1d3a38e" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="JHU" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="JHU" type="feb32156:DbDataSourceImpl" />
+        <item name="CARRIE: schema" type="6aa84934:DerbyImplModel$Schema" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="application.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/srs.resources/META-INF/application.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="Jsp File" />
+        <option value="jsf" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>buildScripts</find>
+      <find>bind(</find>
+      <find>example</find>
+      <find>”</find>
+      <find>env(</find>
+      <find>forward</find>
+      <find>Scoped</find>
+      <find>CARRIE</find>
+      <find>jhuDataSource</find>
+      <find>msg</find>
+      <find>&lt;h</find>
+      <find>action</find>
+      <find>login</find>
+      <find>new Database()</find>
+      <find>request.</find>
+      <find>rd.</find>
+      <find>.include</find>
+      <find>database</find>
+      <find>`</find>
+      <find>validateForm</find>
+      <find>SRS</find>
+      <find>createContex</find>
+      <find>createConnection(</find>
+      <find>println</find>
+      <find>login.</find>
+      <find>RegistrationController</find>
+      <find>StudentInfo</find>
+      <find>RequestScoped</find>
+      <find>setAuthenticated</find>
+      <find>loginAttemptsLeft</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/src/main/java/examples/jndi</dir>
+      <dir>$PROJECT_DIR$/webapp/resources</dir>
+      <dir>$PROJECT_DIR$/webapp</dir>
+      <dir>$PROJECT_DIR$/src/main/java/examples</dir>
+      <dir>$PROJECT_DIR$</dir>
+      <dir>$PROJECT_DIR$/src/main/java/ravotta/carrie</dir>
+      <dir>$PROJECT_DIR$/src/main/java</dir>
+      <dir>$PROJECT_DIR$/src</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="mod3" />
+      </map>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/webapp/registration_b.xhtml" />
+        <option value="$PROJECT_DIR$/webapp/registration_a.xhtml" />
+        <option value="$PROJECT_DIR$/webapp/login.html" />
+        <option value="$PROJECT_DIR$/webapp/CoursesJSP.jsp" />
+        <option value="$PROJECT_DIR$/webapp/RegistrarCourse.jsp" />
+        <option value="$PROJECT_DIR$/Assignment.md" />
+        <option value="$PROJECT_DIR$/src/main/java/ravotta/carrie/PasswordValidator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ravotta/carrie/RegistrationServlet.java" />
+        <option value="$PROJECT_DIR$/webapp/signup/signup-flow.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/ravotta/carrie/InsertRecords.java" />
+        <option value="$PROJECT_DIR$/webapp/login.xhtml" />
+        <option value="$PROJECT_DIR$/webapp/css/wls_examples.css" />
+        <option value="$PROJECT_DIR$/webapp/template.xhtml" />
+        <option value="$PROJECT_DIR$/webapp/admin.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/java/ravotta/carrie/RegistrationController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ravotta/carrie/LoginServlet.java" />
+        <option value="$PROJECT_DIR$/webapp/index2.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/java/ravotta/carrie/UserController.java" />
+        <option value="$PROJECT_DIR$/webapp/WEB-INF/beans.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/ravotta/carrie/Database.java" />
+        <option value="$PROJECT_DIR$/webapp/user/RegistrarCourse.xhtml" />
+        <option value="$PROJECT_DIR$/webapp/user/courses.xhtml" />
+        <option value="$PROJECT_DIR$/webapp/user/success.xhtml" />
+        <option value="$PROJECT_DIR$/webapp/user/error.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/java/ravotta/carrie/RegistrationSupportBean.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ravotta/carrie/CoursesSupportBean.java" />
+        <option value="$PROJECT_DIR$/webapp/contracts/user/template.xhtml" />
+        <option value="$PROJECT_DIR$/webapp/contracts/default/template.xhtml" />
+        <option value="$PROJECT_DIR$/webapp/user/index.xhtml" />
+        <option value="$PROJECT_DIR$/webapp/WEB-INF/faces-config.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/ravotta/carrie/NavigationController.java" />
+        <option value="$PROJECT_DIR$/webapp/index.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/java/ravotta/carrie/StudentInfo.java" />
+        <option value="$PROJECT_DIR$/webapp/signup/registration_a.xhtml" />
+        <option value="$PROJECT_DIR$/webapp/signup/registration_b.xhtml" />
+        <option value="$PROJECT_DIR$/srs/TextProcessorBean.java" />
+        <option value="$PROJECT_DIR$/srs/TextProcessorLocal.java" />
+        <option value="$PROJECT_DIR$/srs/TextProcessor.java" />
+        <option value="$PROJECT_DIR$/srs/ClientTextProcessor.java" />
+        <option value="$PROJECT_DIR$/assignment.md" />
+        <option value="$PROJECT_DIR$/README" />
+        <option value="$PROJECT_DIR$/webapp/Status.html" />
+        <option value="$PROJECT_DIR$/src/main/java/ravotta/carrie/TextProcessor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ravotta/carrie/TextProcessorLocal.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ravotta/carrie/Status.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ravotta/carrie/TextProcessorBean.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ravotta/carrie/myServlet.java" />
+        <option value="$PROJECT_DIR$/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/ravotta/carrie/ClientTextProcessor.java" />
+        <option value="$PROJECT_DIR$/srs.resources/META-INF/application.xml" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="false" />
+    <option name="FILTER_DEBUG" value="false" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="569" />
+    <option name="y" value="47" />
+    <option name="width" value="1952" />
+    <option name="height" value="1355" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="AndroidView" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="en.605.784_javaee" type="b2602c69:ProjectViewProjectNode" />
+              <item name="en.605.784_javaee" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="en.605.784_javaee" type="b2602c69:ProjectViewProjectNode" />
+              <item name="en.605.784_javaee" type="462c0819:PsiDirectoryNode" />
+              <item name="srs.resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="en.605.784_javaee" type="b2602c69:ProjectViewProjectNode" />
+              <item name="en.605.784_javaee" type="462c0819:PsiDirectoryNode" />
+              <item name="srs.resources" type="462c0819:PsiDirectoryNode" />
+              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="en.605.784_javaee" type="b2602c69:ProjectViewProjectNode" />
+              <item name="en.605.784_javaee" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="en.605.784_javaee" type="b2602c69:ProjectViewProjectNode" />
+              <item name="en.605.784_javaee" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="en.605.784_javaee" type="b2602c69:ProjectViewProjectNode" />
+              <item name="en.605.784_javaee" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+              <item name="SRS_ear_exploded" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
+    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="en.605.784_javaee" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="add_unversioned_files" value="true" />
+    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="Derby (Embedded)&#10;Derby (Remote)" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="/usr/local/bin/node" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.21065573" />
+    <property name="settings.editor.selected.configurable" value="preferences.applicationServers" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/webapp/user" />
+      <recent name="$PROJECT_DIR$/webapp" />
+      <recent name="$PROJECT_DIR$/webapp/WEB-INF" />
+      <recent name="$PROJECT_DIR$/webapp/signup" />
+      <recent name="$PROJECT_DIR$/screenshots" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/srs.resources/lib" />
+      <recent name="$PROJECT_DIR$/src/main/java/ravotta/carrie" />
+      <recent name="$PROJECT_DIR$/screenshots" />
+      <recent name="$PROJECT_DIR$/webapp/user" />
+      <recent name="$PROJECT_DIR$/srs.resources" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <properties />
+      <listeners />
+    </configuration>
+    <configuration name="WLS-SRS" type="WebLogic Instance" factoryName="Local" activateToolWindowBeforeRun="false" APPLICATION_SERVER_NAME="WebLogic 12.2.1.3.0" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="PORT" value="7001" />
+      <option name="OPEN_IN_BROWSER" value="false" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="SRS:ear exploded">
+          <settings DEPLOYMENT_METHOD="Weblogic.Deployer">
+            <option name="CHECK_EJB_CMP_DATASOURCES" value="true" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="DOMAIN_PATH" value="$USER_HOME$/Oracle/wls12.2.1.2/user_projects/domains/car_domain" />
+        <option name="SERVER_NAME" value="AdminServer" />
+        <option name="DOMAIN_NAME" value="car_domain" />
+        <option name="ADMIN_SERVER_HOST" value="localhost" />
+        <option name="ADMIN_SERVER_PORT" value="7001" />
+        <option name="TARGET_TYPE_NAME" value="TYPE_SERVER" />
+        <option name="CLUSTER_NAME" value="mycluster" />
+        <option name="CONNECT_TO_MANAGED_SERVER" value="false" />
+        <option name="USERNAME" value="weblogic" />
+        <option name="PASSWORD" value="admin1admin" />
+      </server-settings>
+      <predefined_log_file id="WEBLOGIC_SERVER_LOG_FILE" enabled="true" />
+      <predefined_log_file id="WEBLOGIC_DOMAIN_LOG_FILE" enabled="true" />
+      <log_file alias="car_domain" path="$USER_HOME$/Oracle/wls12.2.1.2/user_projects/domains/car_domain/servers/AdminServer/logs/car_domain.log" />
+      <log_file alias="access" path="$USER_HOME$/Oracle/wls12.2.1.2/user_projects/domains/car_domain/servers/AdminServer/logs/access.log" />
+      <log_file alias="AdminServer" path="$USER_HOME$/Oracle/wls12.2.1.2/user_projects/domains/car_domain/servers/AdminServer/logs/AdminServer.log" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="49712" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTIONS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTIONS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTIONS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method>
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="SRS:ear exploded" />
+        </option>
+      </method>
+    </configuration>
+    <configuration default="true" type="WebLogic Instance" factoryName="Local" APPLICATION_SERVER_NAME="WebLogic 12.2.1.3.0" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="PORT" value="7001" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment />
+      <server-settings>
+        <option name="DOMAIN_PATH" value="$USER_HOME$/Oracle/wls12.2.1.2/user_projects/domains/car_domain" />
+        <option name="SERVER_NAME" value="AdminServer" />
+        <option name="DOMAIN_NAME" value="car_domain" />
+        <option name="ADMIN_SERVER_HOST" value="localhost" />
+        <option name="ADMIN_SERVER_PORT" value="7001" />
+        <option name="TARGET_TYPE_NAME" value="TYPE_SERVER" />
+        <option name="CLUSTER_NAME" value="mycluster" />
+        <option name="CONNECT_TO_MANAGED_SERVER" value="false" />
+        <option name="USERNAME" value="weblogic" />
+        <option name="PASSWORD" value="admin1admin" />
+      </server-settings>
+      <predefined_log_file id="WEBLOGIC_DOMAIN_LOG_FILE" enabled="true" />
+      <predefined_log_file id="WEBLOGIC_SERVER_LOG_FILE" enabled="true" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="49712" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTIONS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTIONS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTIONS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
+  </component>
+  <component name="SbtLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e855c9a3-da08-4d0d-9143-a043b1d3a38e" name="Default" comment="" />
+      <created>1517448425045</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1517448425045</updated>
+      <workItem from="1517448429708" duration="962000" />
+      <workItem from="1517609600494" duration="3156000" />
+      <workItem from="1517618836530" duration="697000" />
+      <workItem from="1517967349086" duration="645000" />
+      <workItem from="1518314622839" duration="236000" />
+      <workItem from="1518314896532" duration="13000" />
+      <workItem from="1518742440820" duration="81000" />
+      <workItem from="1518833806864" duration="11000" />
+      <workItem from="1518833834240" duration="8680000" />
+      <workItem from="1518919133187" duration="63000" />
+      <workItem from="1518919215078" duration="2737000" />
+      <workItem from="1518924549987" duration="18492000" />
+      <workItem from="1519163213243" duration="754000" />
+      <workItem from="1519180027072" duration="3526000" />
+      <workItem from="1519247015383" duration="840000" />
+      <workItem from="1519248662573" duration="857000" />
+      <workItem from="1519249541404" duration="200000" />
+      <workItem from="1519249760429" duration="4342000" />
+      <workItem from="1519283811889" duration="3226000" />
+      <workItem from="1519481512498" duration="61192000" />
+      <workItem from="1519913881867" duration="691000" />
+      <workItem from="1519914876342" duration="1298000" />
+      <workItem from="1520021916460" duration="179000" />
+      <workItem from="1520289956069" duration="235000" />
+      <workItem from="1520561915626" duration="7207000" />
+      <workItem from="1520737342178" duration="263000" />
+      <workItem from="1520737621385" duration="1261000" />
+      <workItem from="1520738915583" duration="44369000" />
+      <workItem from="1521292292060" duration="34000" />
+      <workItem from="1521292363665" duration="511000" />
+      <workItem from="1521753800026" duration="72000" />
+      <workItem from="1522352458635" duration="3494000" />
+      <workItem from="1522526117320" duration="7355000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="177679000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="569" y="47" width="1952" height="1355" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.3520148" side_tool="true" weight="0.3515302" />
+      <window_info anchor="right" id="Maven Projects" order="5" show_stripe_button="false" weight="0.27178082" />
+      <window_info anchor="bottom" id="Database Changes" order="12" weight="0.32955465" />
+      <window_info anchor="right" id="CDI" order="8" weight="0.32987687" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Designer" order="2" />
+      <window_info anchor="right" id="LuaJ" order="6" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="7" weight="0.1447942" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.24951394" />
+      <window_info anchor="right" id="JSF" order="8" weight="0.32987687" />
+      <window_info anchor="right" id="Ant Build" order="1" show_stripe_button="false" weight="0.25" />
+      <window_info id="UI Designer" order="4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32983378" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.32388663" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
+      <window_info id="Image Layers" order="6" />
+      <window_info anchor="bottom" id="Java Enterprise" order="9" show_stripe_button="false" weight="0.32978722" />
+      <window_info anchor="right" id="Capture Analysis" order="8" />
+      <window_info anchor="bottom" id="Version Control" internal_type="SLIDING" order="10" type="SLIDING" weight="0.32890365" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.64798516" weight="0.43562752" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49791232" visible="true" weight="0.2825911" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.492126" visible="true" weight="0.24397905" />
+      <window_info anchor="right" id="Bean Validation" order="9" />
+      <window_info id="Web" order="3" show_stripe_button="false" sideWeight="0.50542" side_tool="true" weight="0.31133503" />
+      <window_info id="JavaEE:App" order="7" show_stripe_button="false" sideWeight="0.507874" side_tool="true" weight="0.29952988" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info id="Favorites" order="5" show_stripe_button="false" side_tool="true" />
+      <window_info id="Persistence" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="SQL Generator" order="12" weight="0.32890365" />
+      <window_info anchor="right" id="SciView" order="8" />
+      <window_info anchor="bottom" id="Database Console" order="12" weight="0.3289689" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32754126" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info id="EJB" order="8" side_tool="true" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Persistence" order="9" side_tool="true" />
+      <window_info id="Designer" order="2" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="Database Console" order="13" weight="0.3289689" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.64798516" visible="true" weight="0.40052128" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" show_stripe_button="false" weight="0.25" />
+      <window_info anchor="right" id="JSF" order="9" weight="0.32987687" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" show_stripe_button="false" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49791232" weight="0.31885317" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info anchor="right" id="Capture Analysis" order="10" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="LuaJ" order="6" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.3520148" side_tool="true" weight="0.3515302" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.32406604" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32983378" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Java Enterprise" order="9" show_stripe_button="false" weight="0.32978722" />
+      <window_info id="EJB" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" internal_type="SLIDING" order="10" type="SLIDING" weight="0.32890365" />
+      <window_info anchor="right" id="Maven Projects" order="5" show_stripe_button="false" weight="0.27178082" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.492126" visible="true" weight="0.25576922" />
+      <window_info anchor="right" id="SciView" order="11" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="7" weight="0.1447942" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info id="JavaEE:App" order="8" show_stripe_button="false" sideWeight="0.507874" side_tool="true" weight="0.29952988" />
+      <window_info id="Web" order="3" show_stripe_button="false" sideWeight="0.50542" side_tool="true" weight="0.31133503" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="12" />
+      <window_info id="Structure" order="1" weight="0.24951394" />
+      <window_info id="Image Layers" order="7" />
+      <window_info anchor="right" id="CDI" order="8" weight="0.32987687" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32754126" />
+      <window_info anchor="bottom" id="SQL Generator" order="12" weight="0.32890365" />
+      <window_info anchor="right" id="Bean Validation" order="13" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/webapp/login.html" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/rt.jar!/java/util/Hashtable.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="604">
+          <caret line="189" selection-start-line="189" selection-end-line="189" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/mock_students.csv" />
+    <entry file="file://$PROJECT_DIR$/webapp/signup/confirm.xhtml" />
+    <entry file="file://$PROJECT_DIR$/webapp/signup/success.xhtml" />
+    <entry file="file://$PROJECT_DIR$/webapp/css/main.css" />
+    <entry file="file://$PROJECT_DIR$/webapp/template_admin.xhtml" />
+    <entry file="file://$PROJECT_DIR$/webapp/admin.xhtml" />
+    <entry file="file://$PROJECT_DIR$/webapp/template_old.xhtml" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/ravotta/carrie/RegistrationServlet.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/ravotta/carrie/LoginServlet.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/ravotta/carrie/RegistrationController.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/ravotta/carrie/UserController.java" />
+    <entry file="jar://$PROJECT_DIR$/srs.resources/lib/javax.servlet.jsp.jar!/javax/el/BeanELResolver.class" />
+    <entry file="file://$PROJECT_DIR$/webapp/user/CoursesJSP.jsp" />
+    <entry file="file://$PROJECT_DIR$/webapp/user/RegistrarCourse.jsp" />
+    <entry file="file://$PROJECT_DIR$/webapp/index2.xhtml" />
+    <entry file="file://$PROJECT_DIR$/webapp/user/success.xhtml" />
+    <entry file="file://$PROJECT_DIR$/webapp/user/registrar.xhtml" />
+    <entry file="file://$PROJECT_DIR$/webapp/user/error.xhtml" />
+    <entry file="file://$PROJECT_DIR$/webapp/user/courses.xhtml" />
+    <entry file="file://$PROJECT_DIR$/webapp/WEB-INF/beans.xml" />
+    <entry file="file://$PROJECT_DIR$/webapp/signup/signup-flow.xml" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/ravotta/carrie/PasswordValidator.java" />
+    <entry file="file://$PROJECT_DIR$/webapp/contracts/default/template.xhtml" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/ravotta/carrie/RegistrationSupportBean.java" />
+    <entry file="file://$PROJECT_DIR$/webapp/user/index.xhtml" />
+    <entry file="file://$PROJECT_DIR$/webapp/contracts/user/template.xhtml" />
+    <entry file="file://$PROJECT_DIR$/webapp/WEB-INF/faces-config.xml" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/ravotta/carrie/NavigationController.java" />
+    <entry file="file://$PROJECT_DIR$/webapp/signup/registration_b.xhtml" />
+    <entry file="file://$PROJECT_DIR$/webapp/signup/registration_a.xhtml" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/ravotta/carrie/StudentInfo.java" />
+    <entry file="file://$PROJECT_DIR$/Assignment.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SECOND">
+          <first_editor relative-caret-position="180">
+            <caret line="9" column="2" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ravotta/carrie/Database.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ravotta/carrie/InsertRecords.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ravotta/carrie/CoursesSupportBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="42" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ravotta/carrie/Status.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ravotta/carrie/TextProcessorBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ravotta/carrie/TextProcessorLocal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ravotta/carrie/TextProcessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="47" column="10" lean-forward="true" selection-start-line="47" selection-start-column="10" selection-end-line="47" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ravotta/carrie/myServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="1" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ravotta/carrie/ClientTextProcessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/Status.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/artifacts/en_605_784_javaee_Web_exploded.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/artifacts/j2e/META-INF/application.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/artifacts/en_605_784_javaee_war_exploded/META-INF/application.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/srs.resources/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/srs.resources/META-INF/application.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>SRS:ear exploded</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.21065573" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Web (en.605.784_javaee)|Web</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.21065573" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Python 2.7.10 (/usr/bin/python) interpreter library</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.23606557" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8.0_161</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.23606557" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Web|en.605.784_javaee</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.21065573" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>derby</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.29836065" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

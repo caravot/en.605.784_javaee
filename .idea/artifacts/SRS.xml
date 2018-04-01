@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="SRS">
+    <output-path>$PROJECT_DIR$/target/artifacts/SRS</output-path>
+    <root id="archive" name="SRS.war">
+      <element id="artifact" artifact-name="SRS:war exploded" />
+    </root>
+  </artifact>
+</component>

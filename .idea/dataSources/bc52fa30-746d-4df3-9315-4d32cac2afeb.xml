@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="JHU">
+  <database-model serializer="dbm" rdbms="DERBY" format-version="4.7">
+    <root id="1"/>
+    <schema id="2" parent="1" name="APP">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="CARRIE">
+      <Visible>1</Visible>
+    </schema>
+    <schema id="4" parent="1" name="NULLID"/>
+    <schema id="5" parent="1" name="SQLJ"/>
+    <schema id="6" parent="1" name="SYS"/>
+    <schema id="7" parent="1" name="SYSCAT"/>
+    <schema id="8" parent="1" name="SYSCS_DIAG"/>
+    <schema id="9" parent="1" name="SYSCS_UTIL"/>
+    <schema id="10" parent="1" name="SYSFUN"/>
+    <schema id="11" parent="1" name="SYSIBM"/>
+    <schema id="12" parent="1" name="SYSPROC"/>
+    <schema id="13" parent="1" name="SYSSTAT"/>
+    <table id="14" parent="3" name="COURSES"/>
+    <table id="15" parent="3" name="REGISTRAR"/>
+    <table id="16" parent="3" name="STUDENT"/>
+    <column id="17" parent="14" name="COURSEID">
+      <Position>1</Position>
+      <DataType>INTEGER(10)|4</DataType>
+    </column>
+    <column id="18" parent="14" name="COURSE_NAME">
+      <Position>2</Position>
+      <DataType>VARCHAR(40)|12</DataType>
+    </column>
+    <index id="19" parent="14" name="SQL180225112359810">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>COURSEID</ColNames>
+    </index>
+    <column id="20" parent="15" name="COURSEID">
+      <Position>1</Position>
+      <DataType>INTEGER(10)|4</DataType>
+    </column>
+    <column id="21" parent="15" name="NUMBER_STUDENTS_REGISTERED">
+      <Position>2</Position>
+      <DataType>INTEGER(10)|4</DataType>
+    </column>
+    <index id="22" parent="15" name="SQL180225112359820">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>COURSEID</ColNames>
+    </index>
+    <column id="23" parent="16" name="FIRST_NAME">
+      <Position>1</Position>
+      <DataType>VARCHAR(40)|12</DataType>
+    </column>
+    <column id="24" parent="16" name="LAST_NAME">
+      <Position>2</Position>
+      <DataType>VARCHAR(40)|12</DataType>
+    </column>
+    <column id="25" parent="16" name="SSN">
+      <Position>3</Position>
+      <DataType>CHAR(11)|1</DataType>
+    </column>
+    <column id="26" parent="16" name="EMAIL">
+      <Position>4</Position>
+      <DataType>VARCHAR(40)|12</DataType>
+    </column>
+    <column id="27" parent="16" name="ADDRESS">
+      <Position>5</Position>
+      <DataType>VARCHAR(40)|12</DataType>
+    </column>
+    <column id="28" parent="16" name="USERID">
+      <Position>6</Position>
+      <DataType>VARCHAR(8)|12</DataType>
+    </column>
+    <column id="29" parent="16" name="PASSWORD">
+      <Position>7</Position>
+      <DataType>VARCHAR(8)|12</DataType>
+    </column>
+    <index id="30" parent="16" name="SQL180225112359780">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>FIRST_NAME
+LAST_NAME</ColNames>
+    </index>
+  </database-model>
+</dataSource>

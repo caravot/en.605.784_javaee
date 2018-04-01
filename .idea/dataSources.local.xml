@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="JHU" uuid="bc52fa30-746d-4df3-9315-4d32cac2afeb">
+      <database-info product="Apache Derby" version="10.14.1.0 - (1808820)" jdbc-version="4.2" driver-name="Apache Derby Embedded JDBC Driver" driver-version="10.14.1.0 - (1808820)">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="upper" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <introspection-schemas>*:APP,CARRIE</introspection-schemas>
+    </data-source>
+  </component>
+</project>

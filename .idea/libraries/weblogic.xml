@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="weblogic">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Oracle/wls12.2.1.2/wlserver/server/lib/weblogic.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,20 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" build-on-make="true" name="SRS:war exploded">
+    <output-path>$PROJECT_DIR$/target/artifacts/SRS_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="en.605.784_javaee" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="derby" />
+          <element id="library" level="project" name="weblogic" />
+          <element id="library" level="project" name="lib" />
+        </element>
+      </element>
+      <element id="library" level="project" name="Java EE 6-Java EE 6" />
+      <element id="javaee-facet-resources" facet="en.605.784_javaee/web/Web" />
+      <element id="javaee-facet-resources" facet="en.605.784_javaee/javaeeApplication/javaEEApplication" />
+    </root>
+  </artifact>
+</component>

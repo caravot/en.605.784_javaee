@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="ear" build-on-make="true" name="SRS:ear">
+    <output-path>$PROJECT_DIR$/target/artifacts/SRS_ear</output-path>
+    <root id="archive" name="SRS_ear.ear">
+      <element id="artifact" artifact-name="SRS:ear exploded" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/srs.resources/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>
