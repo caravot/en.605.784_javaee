@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+              http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+    <application>
+        <resource-library-contracts>
+            <contract-mapping>
+                <url-pattern>/user/*</url-pattern>
+                <contracts>user</contracts>
+            </contract-mapping>
+            <contract-mapping>
+                <url-pattern>*</url-pattern>
+                <contracts>default</contracts>
+            </contract-mapping>
+        </resource-library-contracts>
+    </application>
+    
+    <managed-bean>
+        <managed-bean-name>Database</managed-bean-name>
+        <managed-bean-class>ravotta.carrie.Database</managed-bean-class>
+        <managed-bean-scope>application</managed-bean-scope>
+        <managed-property>
+            <property-name>DATASOURCE_NAME</property-name>
+            <value>jhuDataSource2</value>
+        </managed-property>
+        <managed-property>
+            <property-name>WLS_URL</property-name>
+            <value>t3://localhost:7001</value>
+        </managed-property>
+    </managed-bean>
+
+    <!-- User not logged in -->
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <!-- user is logged in -->
+        <navigation-case>
+            <from-action>#{navigationController.login}</from-action>
+            <if>#{navigationController.authenticated}</if>
+            <to-view-id>/user/index.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+        <!-- invalid user login -->
+        <navigation-case>
+            <from-action>#{navigationController.login}</from-action>
+            <if>#{!navigationController.authenticated}</if>
+            <to-view-id>/index.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+
+    <!-- User logged in -->
+    <navigation-rule>
+        <from-view-id>/user/index.xhtml</from-view-id>
+        <!-- log user out -->
+        <navigation-case>
+            <from-action>#{navigationController.logout}</from-action>
+            <if>#{!navigationController.authenticated}</if>
+            <to-view-id>/index.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/user/courses.xhtml</from-view-id>
+        <!-- registration added -->
+        <navigation-case>
+            <from-action>#{registrationSupportBean.addRegistrar}</from-action>
+            <if>#{registrationSupportBean.registered}</if>
+            <to-view-id>/user/success.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+        <!-- registration closed -->
+        <navigation-case>
+            <from-action>#{registrationSupportBean.addRegistrar}</from-action>
+            <if>#{!registrationSupportBean.registered}</if>
+            <to-view-id>/user/error.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+</faces-config>

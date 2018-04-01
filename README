@@ -3,3 +3,20 @@
 * Compiled class files in /build
 * Installable bean JAR in /dist
 * Screenshots in /screenshots
+
+
+* Mock data provided by https://www.mockaroo.com/
+* Mock data files found in /resources
+* To clear the database, recreate the tables, and insert the mock data run /src/main/java/ravotta/carrie/InsertRecords.java
+* Screenshots under /screenshots
+* Used libraries and the WLS application.xml file under /srs.resources
+* Valid userid and password are: dmedfort, BUD97QPX
+
+# Resource Links
+
+* Help with JSF Validation: https://ssouris.github.io/2014/11/03/three-ways-to-implement-email-validation-on-jsf.html
+* Help with JSF password validation: http://balusc.omnifaces.org/2007/12/validator-for-multiple-fields.html
+* Help with JSF password validation: https://www.mkyong.com/jsf2/multi-components-validator-in-jsf-2-0/
+* Navigation Case Help: https://dzone.com/articles/fluent-navigation-jsf-2
+* JSF Conditional Show Text: https://stackoverflow.com/questions/16965456/jsf-showing-conditional-text-in-a-clear-way
+* Logout help: http://www.icesoft.org/JForum/posts/list/3355.page#sthash.QCIF8kUb.7gmFG5gs.dpbs
