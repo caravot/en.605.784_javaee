@@ -338,7 +338,7 @@ public class Database {
 
         try {
             stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            String selectQuery = "SELECT SELECT C.COURSEID, C.COURSE_NAME, R.NUMBER_STUDENTS_REGISTERED " +
+            String selectQuery = "SELECT C.COURSEID, C.COURSE_NAME, R.NUMBER_STUDENTS_REGISTERED " +
                     "FROM REGISTRAR R INNER JOIN COURSES C ON C.COURSEID=R.COURSEID " +
                     "WHERE C.COURSEID=?";
             PreparedStatement pstmt = conn.prepareStatement(selectQuery);

@@ -70,9 +70,9 @@ public class RegistrationServlet extends HttpServlet {
                 Course c = registrationList.get(i);
 
                 // create HTML table row string
-                htmlResult += "<tr><th>" + c.getCourseid() + "</th>" +
-                        "<th>" + c.getCourse_name() + "</th>" +
-                        "<th>" + c.getNumRegistered() + "</th>" +
+                htmlResult += "<tr><td>" + c.getCourseid() + "</td>" +
+                        "<td>" + c.getCourse_name() + "</td>" +
+                        "<td>" + c.getNumRegistered() + "</td>" +
                         "</tr>";
             }
 
