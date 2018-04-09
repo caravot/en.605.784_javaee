@@ -253,7 +253,7 @@ public class Database {
      */
     public static int selectRegistrar(String courseid) {
         ResultSet resultSet;
-        int studentsRegistered = 0;
+        int studentsRegistered = -1;
 
         // open database connection
         createConnection();
@@ -281,6 +281,87 @@ public class Database {
         }
 
         return studentsRegistered;
+    }
+
+    /**
+     * Get registration information for all course
+     *
+     * @return course and registration information
+     */
+    public List<Course> getRegistrationList() {
+        ResultSet resultSet;
+        List<Course> courseList = new ArrayList<>();
+
+        // open database connection
+        createConnection();
+
+        try {
+            stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            String insertQuery = "SELECT C.COURSEID, C.COURSE_NAME, R.NUMBER_STUDENTS_REGISTERED " +
+                    "FROM REGISTRAR R " +
+                    "RIGHT JOIN COURSES C ON C.COURSEID=R.COURSEID " +
+                    "ORDER BY C.COURSEID ASC";
+            PreparedStatement pstmt = conn.prepareStatement(insertQuery);
+
+            resultSet = pstmt.executeQuery();
+
+            try {
+                while (resultSet.next()) {
+                    Course course = new Course();
+                    course.setCourse_name(resultSet.getString("course_name"));
+                    course.setCourseid(resultSet.getInt("courseid"));
+                    course.setNumRegistered(resultSet.getInt("number_students_registered"));
+                    courseList.add(course);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } catch (SQLException sqlExcept) {
+            sqlExcept.printStackTrace();
+        }
+
+        return courseList;
+    }
+
+    /**
+     * Get registration information for a single course
+     *
+     * @param courseid Courseid to query for
+     * @return course and registration information
+     */
+    public List<Course> getRegistrationList(int courseid) {
+        ResultSet resultSet;
+        List<Course> courseList = new ArrayList<>();
+
+        // open database connection
+        createConnection();
+
+        try {
+            stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            String selectQuery = "SELECT SELECT C.COURSEID, C.COURSE_NAME, R.NUMBER_STUDENTS_REGISTERED " +
+                    "FROM REGISTRAR R INNER JOIN COURSES C ON C.COURSEID=R.COURSEID " +
+                    "WHERE C.COURSEID=?";
+            PreparedStatement pstmt = conn.prepareStatement(selectQuery);
+            pstmt.setInt(1, courseid);
+
+            resultSet = pstmt.executeQuery();
+
+            try {
+                while (resultSet.next()) {
+                    Course course = new Course();
+                    course.setCourse_name(resultSet.getString("course_name"));
+                    course.setCourseid(resultSet.getInt("courseid"));
+                    course.setNumRegistered(resultSet.getInt("number_students_registered"));
+                    courseList.add(course);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } catch (SQLException sqlExcept) {
+            sqlExcept.printStackTrace();
+        }
+
+        return courseList;
     }
 
     /**

@@ -30,7 +30,8 @@ public class InsertRecords {
         createContext();
         createConnection();
 //        removeStudents();
-        getStudents();
+//        getStudents();
+        getAllStatus();
 //        buildTables();
 //        readCSVFile("mock_students.csv", "students");
 //        readCSVFile("mock_courses.csv", "courses");
@@ -213,6 +214,34 @@ public class InsertRecords {
                     studentInfo.setUserid(resultSet.getString("userid"));
                     studentInfo.setPassword(resultSet.getString("password"));
                     System.out.println(studentInfo.toString());
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } catch (SQLException sqlExcept) {
+            sqlExcept.printStackTrace();
+        }
+    }
+
+    public static void getAllStatus() {
+        ResultSet resultSet;
+
+        try {
+            stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            String insertQuery = "SELECT C.COURSEID, C.COURSE_NAME " +
+                    "FROM REGISTRAR R RIGHT JOIN COURSES C ON C.COURSEID=R.COURSEID";
+//            String insertQuery = "SELECT * FROM REGISTRAR R INNER JOIN COURSES C ON C.COURSEID=R.COURSEID";
+            PreparedStatement pstmt = conn.prepareStatement(insertQuery);
+
+            resultSet = pstmt.executeQuery();
+
+            try {
+                while (resultSet.next()) {
+//                    System.out.println(resultSet.toString());
+//                    System.out.println(resultSet.getString("course_name"));
+                    System.out.println(resultSet.getInt("courseid"));
+//                    System.out.println(resultSet.getInt("number_students_registered"));
+                    System.out.println("=========");
                 }
             } catch (SQLException e) {
                 e.printStackTrace();

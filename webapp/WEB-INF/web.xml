@@ -33,12 +33,12 @@
 
     <!-- SRS servlets -->
     <servlet>
-        <servlet-name>TPApp</servlet-name>
-        <servlet-class>ravotta.carrie.myServlet</servlet-class>
+        <servlet-name>RegistrationServlet</servlet-name>
+        <servlet-class>ravotta.carrie.RegistrationServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>TPApp</servlet-name>
-        <url-pattern>tpapp</url-pattern>
+        <servlet-name>RegistrationServlet</servlet-name>
+        <url-pattern>/registration</url-pattern>
     </servlet-mapping>
 
     <!-- Default display page -->

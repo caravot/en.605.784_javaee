@@ -10,7 +10,6 @@ import java.io.Serializable;
  */
 @ManagedBean(name="StudentInfo")
 @SessionScoped
-//@ManagedBean
 @FlowScoped("signup")
 public class StudentInfo implements Serializable {
     private String first_name;
