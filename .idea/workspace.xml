@@ -6,7 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e855c9a3-da08-4d0d-9143-a043b1d3a38e" name="Default" comment="" />
+    <list default="true" id="e855c9a3-da08-4d0d-9143-a043b1d3a38e" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/README" beforeDir="false" afterPath="$PROJECT_DIR$/README" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,9 +43,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Screen Shot 2018-04-15 at 11.39.24 AM.png" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/screenshots/Screen Shot 2018-04-15 at 11.39.24 AM.png">
-          <provider selected="true" editor-type-id="images" />
+      <file leaf-file-name="README" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="27" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -165,9 +171,9 @@
         <option value="$PROJECT_DIR$/webapp/Status.html" />
         <option value="$PROJECT_DIR$/src/main/java/ravotta/carrie/InsertRecords.java" />
         <option value="$PROJECT_DIR$/Assignment.md" />
-        <option value="$PROJECT_DIR$/README" />
         <option value="$PROJECT_DIR$/src/main/java/ravotta/carrie/RegistrationServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/ravotta/carrie/Database.java" />
+        <option value="$PROJECT_DIR$/README" />
       </list>
     </option>
   </component>
@@ -549,12 +555,12 @@
       <workItem from="1523298436419" duration="6652000" />
       <workItem from="1523579499992" duration="6000" />
       <workItem from="1523579546043" duration="21000" />
-      <workItem from="1523807238123" duration="72000" />
+      <workItem from="1523807238123" duration="343000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="185167000" />
+    <option name="totallyTimeSpent" value="185438000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -567,6 +573,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="534" y="32" width="1706" height="1355" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.3520148" side_tool="true" weight="0.3515302" />
@@ -587,7 +594,7 @@
       <window_info anchor="right" id="Capture Analysis" order="8" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.64798516" weight="0.4242915" />
       <window_info anchor="bottom" id="Version Control" internal_type="SLIDING" order="10" type="SLIDING" weight="0.32890365" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49791232" weight="0.18623482" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49791232" visible="true" weight="0.18623482" />
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5316456" visible="true" weight="0.29326922" />
       <window_info id="Web" order="2" show_stripe_button="false" sideWeight="0.50542" side_tool="true" weight="0.31133503" />
       <window_info id="JavaEE:App" order="7" show_stripe_button="false" sideWeight="0.507874" side_tool="true" weight="0.29952988" />
@@ -689,29 +696,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/ravotta/carrie/Status.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ravotta/carrie/RegistrationServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="47" column="8" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/mock_students.csv" />
-    <entry file="file://$PROJECT_DIR$/webapp/signup/confirm.xhtml" />
-    <entry file="file://$PROJECT_DIR$/webapp/signup/success.xhtml" />
-    <entry file="file://$PROJECT_DIR$/webapp/css/main.css" />
-    <entry file="file://$PROJECT_DIR$/webapp/template_admin.xhtml" />
-    <entry file="file://$PROJECT_DIR$/webapp/admin.xhtml" />
-    <entry file="file://$PROJECT_DIR$/webapp/template_old.xhtml" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/ravotta/carrie/LoginServlet.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/ravotta/carrie/RegistrationController.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/ravotta/carrie/UserController.java" />
     <entry file="jar://$PROJECT_DIR$/srs.resources/lib/javax.servlet.jsp.jar!/javax/el/BeanELResolver.class" />
     <entry file="file://$PROJECT_DIR$/webapp/user/CoursesJSP.jsp" />
@@ -824,13 +808,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assignment.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SECOND">
@@ -864,8 +841,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/screenshots/Screen Shot 2018-04-15 at 11.39.24 AM.png">
+    <entry file="file://$PROJECT_DIR$/screenshots/revewService_homepage.png">
       <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/screenshots/ant_build_ej30.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/screenshots/wls_deployments.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/screenshots/showBooks_service.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/screenshots/addReview_service.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/screenshots/showSpecificMusic_session.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/screenshots/showBooks_session.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/screenshots/Screen Shot 2018-04-15 at 11.45.50 AM.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/screenshots/Screen Shot 2018-04-15 at 11.45.57 AM.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/screenshots/Screen Shot 2018-04-15 at 11.45.59 AM.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/screenshots/mdb.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/screenshots/addBooks_session_ejb21.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="27" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">
