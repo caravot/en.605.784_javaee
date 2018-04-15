@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+<body>
+<ui:composition template="/template.xhtml">
+    <ui:define name="title">
+        <h1>Registration Form B</h1>
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form>
+            <h:panelGrid columns="3">
+                <h:outputLabel for="street">Address:</h:outputLabel>
+                <h:inputText id="street"
+                             value="#{StudentInfo.street}"
+                             required="true"
+                             requiredMessage="Enter an address">
+                </h:inputText>
+                <h:message for="street" errorStyle="color: red;"/>
+
+                <h:outputLabel for="city">City, State:</h:outputLabel>
+                <h:panelGrid columns="3">
+                    <h:inputText id="city"
+                                 value="#{StudentInfo.city}"
+                                 required="true"
+                                 requiredMessage="Enter a city"/>,
+                    <h:selectOneMenu id="state" value="#{StudentInfo.state}">
+                        <f:selectItem itemValue="DE" itemLabel="Delaware"/>
+                        <f:selectItem itemValue="MD" itemLabel="Maryland"/>
+                        <f:selectItem itemValue="VA" itemLabel="Virginia"/>
+                        <f:selectItem itemValue="DC" itemLabel="Washington, DC"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:message for="city" errorStyle="color: red;"/>
+
+                <h:outputLabel for="zip">ZIP/Postal Code:</h:outputLabel>
+                <h:inputText id="zip"
+                             value="#{StudentInfo.zip}"
+                             required="true"
+                             maxlength="5"
+                             validatorMessage="Must contain exactly 5 numbers"
+                             requiredMessage="Please enter a zip code">
+                    <f:validateLength minimum="5" maximum="5"/>
+                    <f:validateRegex pattern="[0-9]{5}"/>
+                </h:inputText>
+                <h:message for="zip" errorStyle="color: red;"/>
+            </h:panelGrid>
+
+            <p>
+                <h:commandButton value="Back" action="registration_a"></h:commandButton>
+                <h:commandButton value="Submit" action="#{StudentInfo.addStudent}"></h:commandButton>
+            </p>
+        </h:form>
+    </ui:define>
+</ui:composition>
+</body>
+</html>

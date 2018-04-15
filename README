@@ -1,0 +1,13 @@
+* Source code in /srs
+* Required Java libraries in /lib
+* Compiled class files in /build
+* Installable bean JAR in /dist
+* Screenshots in /screenshots
+
+
+* Mock data provided by https://www.mockaroo.com/
+* Mock data files found in /resources
+* To clear the database, recreate the tables, and insert the mock data run /src/main/java/ravotta/carrie/InsertRecords.java
+* Screenshots under /screenshots
+
+# Resource Links
