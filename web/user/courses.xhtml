@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<body>
+<ui:composition template="/template.xhtml">
+    <ui:define name="title">
+        <h1>Course Registration</h1>
+    </ui:define>
+    <ui:define name="content">
+        <h:form prependId="false">
+            <h:selectOneMenu value="#{courses.selectedCourse}">
+                <f:selectItems value="#{courses.courses}"/>
+            </h:selectOneMenu>
+
+            <h:commandButton value="Register" action="#{registrationSupportBean.addRegistrar}"></h:commandButton>
+        </h:form>
+    </ui:define>
+</ui:composition>
+</body>
+</html>

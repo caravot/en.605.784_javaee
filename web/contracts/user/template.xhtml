@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <title>
+        Student Registration System (SRS)
+    </title>
+    <link rel="stylesheet" type="text/css" href="#{request.contextPath}/css/main.css"></link>
+</h:head>
+<body bgcolor="#C4BFBF">
+<ui:insert name="title"><h1>Default Title User</h1></ui:insert>
+<ui:insert name="nav">
+
+    <h:form>
+        <h:commandLink action="/user/courses" value="Register for a Course"></h:commandLink> |
+        <h:commandLink action="#{navigationController.logout}" value="Logout"></h:commandLink>
+    </h:form>
+</ui:insert>
+<hr></hr>
+<ui:insert name="content"></ui:insert>
+</body>
+</html>
