@@ -6,9 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e855c9a3-da08-4d0d-9143-a043b1d3a38e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/README" beforeDir="false" afterPath="$PROJECT_DIR$/README" afterDir="false" />
-    </list>
+    <list default="true" id="e855c9a3-da08-4d0d-9143-a043b1d3a38e" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +45,7 @@
         <entry file="file://$PROJECT_DIR$/README">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
-              <caret line="3" column="27" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
+              <caret line="3" column="27" lean-forward="true" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -555,12 +553,12 @@
       <workItem from="1523298436419" duration="6652000" />
       <workItem from="1523579499992" duration="6000" />
       <workItem from="1523579546043" duration="21000" />
-      <workItem from="1523807238123" duration="343000" />
+      <workItem from="1523807238123" duration="435000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="185438000" />
+    <option name="totallyTimeSpent" value="185530000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -594,8 +592,8 @@
       <window_info anchor="right" id="Capture Analysis" order="8" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.64798516" weight="0.4242915" />
       <window_info anchor="bottom" id="Version Control" internal_type="SLIDING" order="10" type="SLIDING" weight="0.32890365" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49791232" visible="true" weight="0.18623482" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5316456" visible="true" weight="0.29326922" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49791232" visible="true" weight="0.18623482" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5316456" visible="true" weight="0.29326922" />
       <window_info id="Web" order="2" show_stripe_button="false" sideWeight="0.50542" side_tool="true" weight="0.31133503" />
       <window_info id="JavaEE:App" order="7" show_stripe_button="false" sideWeight="0.507874" side_tool="true" weight="0.29952988" />
       <window_info anchor="right" id="Theme Preview" order="8" />
@@ -880,7 +878,7 @@
     <entry file="file://$PROJECT_DIR$/README">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
-          <caret line="3" column="27" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
+          <caret line="3" column="27" lean-forward="true" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
         </state>
       </provider>
     </entry>
