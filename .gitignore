@@ -7,3 +7,5 @@
 /.bundle/
 .Trashes
 target/
+out/
+.idea/libraries/
