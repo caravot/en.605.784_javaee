@@ -12,12 +12,12 @@ import java.util.List;
 @Stateless(mappedName = "StatusBean")
 public class Status {
     @PersistenceContext(unitName = "assignment10")
-    // database connection
-//    private static Database database;
     private EntityManager em;
 
+    /**
+     * no-arg constructor
+     */
     public Status() {
-        // do nothing
     }
 
     /**
@@ -38,12 +38,15 @@ public class Status {
      * @return list of single course information
      */
     public List<Courses> getAllStatus() {
+        // return course list
         List<Courses> finalCourseList = new ArrayList<Courses>();
 
         // get current courses
         List<Courses> courseList = (List<Courses>) em.createQuery("SELECT c FROM Courses c").getResultList();
 
+        // loop over all courses
         for (Courses c : courseList) {
+            // get specific course information
             Courses course = ((Courses) em.find(Courses.class, c.getCourseid()));
 
             // course doesn't have registration yet; create empty registrar
@@ -52,9 +55,11 @@ public class Status {
                 registrar.setCourseid(c.getCourseid());
                 registrar.setNumber_students_registered(0);
 
+                // add registrar bean to course bean
                 course.setRegistrar(registrar);
             }
 
+            // add course to return list
             finalCourseList.add(course);
         }
 
