@@ -8,7 +8,7 @@
         <jta-data-source>jhuDataSource2</jta-data-source>
         <non-jta-data-source>jhuDataSource2</non-jta-data-source>
         <class>ravotta.carrie.Courses</class>
-        <class>ravotta.carrie.Registrar</class>
+        <!--<class>ravotta.carrie.Registrar</class>-->
         <properties>
             <property name="openjpa.jdbc.DBDictionary" value="derby"/>
         </properties>

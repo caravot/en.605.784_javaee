@@ -1,22 +1,22 @@
 package ravotta.carrie;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+
+import static javax.persistence.CascadeType.ALL;
 
 /**
  * The persistent class for the REGISTRAR database table.
  *
  */
 @Entity
+@Table(name = "REGISTRAR")
 public class Registrar implements Serializable {
     private int courseid;
     private int number_students_registered;
 
     // no arg-constructor
     public Registrar() {
-
     }
 
     @Column(name="COURSEID")
@@ -42,7 +42,7 @@ public class Registrar implements Serializable {
     public String toString() {
         return "Course {" +
                 "courseid=" + this.courseid +
-                ", course_name='" + this.number_students_registered + '\'' +
+                ", number_students_registered='" + this.number_students_registered + '\'' +
                 '}';
     }
 }

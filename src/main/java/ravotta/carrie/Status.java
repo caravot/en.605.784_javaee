@@ -26,15 +26,9 @@ public class Status {
      * @param cid Course id to query for
      * @return list of course information
      */
-    public List<CourseOLD> getStatus(int cid) {
-//        database = new Database();
-//        return database.getRegistrationList(cid);
-        List<CourseOLD> cList = new ArrayList<CourseOLD>();
-        Courses courseBean = ((Courses) em.find(Courses.class, cid));
-        Registrar registrarBean = ((Registrar) em.find(Registrar.class, cid));
-        System.out.println(registrarBean.toString());
-        System.out.println(courseBean.toString());
-        //cList.add(courseBean);
+    public List<Courses> getStatus(int cid) {
+        List<Courses> cList = new ArrayList<Courses>();
+        cList.add(((Courses) em.find(Courses.class, cid)));
         return cList;
     }
 
@@ -43,18 +37,27 @@ public class Status {
      *
      * @return list of single course information
      */
-    public List<CourseOLD> getAllStatus() {
-        List<CourseOLD> cList = new ArrayList<CourseOLD>();
-        List<Courses> courses = (List<Courses>) em.createQuery("SELECT c FROM COURSES c").getResultList();
+    public List<Courses> getAllStatus() {
+        List<Courses> finalCourseList = new ArrayList<Courses>();
 
-        for (Courses c : courses) {
-            System.out.println(c.toString());
-            Registrar registrarBean = ((Registrar) em.find(Registrar.class, c.getCourseid()));
-            System.out.println(registrarBean.toString());
-            System.out.println(c.toString());
+        // get current courses
+        List<Courses> courseList = (List<Courses>) em.createQuery("SELECT c FROM Courses c").getResultList();
+
+        for (Courses c : courseList) {
+            Courses course = ((Courses) em.find(Courses.class, c.getCourseid()));
+
+            // course doesn't have registration yet; create empty registrar
+            if (course.getRegistrar() == null) {
+                Registrar registrar = new Registrar();
+                registrar.setCourseid(c.getCourseid());
+                registrar.setNumber_students_registered(0);
+
+                course.setRegistrar(registrar);
+            }
+
+            finalCourseList.add(course);
         }
-        return cList;
-//        database = new Database();
-//        return database.getRegistrationList();
+
+        return finalCourseList;
     }
 }

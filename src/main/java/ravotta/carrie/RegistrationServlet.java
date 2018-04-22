@@ -54,13 +54,12 @@ public class RegistrationServlet extends HttpServlet {
 
         // validate course id
         if (validateForm(courseID)) {
-            List<CourseOLD> registrationList = null;
+            List<Courses> registrationList = null;
             String htmlResult = "<h1>Status Report</h1>\n" +
                     "<table border='1'><tr><th>ID</th><th>Title</th><th>Student Registered</th></tr>";
 
             // only select one course
             if (courseID.length() > 0) {
-                System.out.println("COURSEID: " + courseID);
                 registrationList  = status.getStatus(Integer.parseInt(courseID));
             } else {
                 registrationList = status.getAllStatus();
@@ -68,12 +67,12 @@ public class RegistrationServlet extends HttpServlet {
 
             // loop over results from status report request and generate table output
             for(int i = 0; i < registrationList.size(); i++){
-                CourseOLD c = registrationList.get(i);
+                Courses c = registrationList.get(i);
 
                 // create HTML table row string
                 htmlResult += "<tr><td>" + c.getCourseid() + "</td>" +
                         "<td>" + c.getCourse_name() + "</td>" +
-                        "<td>" + c.getNumRegistered() + "</td>" +
+                        "<td>" + c.getRegistrar().getNumber_students_registered() + "</td>" +
                         "</tr>";
             }
 

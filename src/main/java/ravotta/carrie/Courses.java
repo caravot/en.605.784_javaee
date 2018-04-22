@@ -8,13 +8,15 @@ import java.io.Serializable;
  *
  */
 @Entity
+@Table(name = "COURSES")
 public class Courses implements Serializable {
     private int courseid;
     private String course_name;
 
+    private Registrar registrar;
+
     // no arg-constructor
     public Courses() {
-
     }
 
     @Column(name="COURSEID")
@@ -36,11 +38,23 @@ public class Courses implements Serializable {
         this.course_name = course_name;
     }
 
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(updatable = false, insertable = false, name = "courseid", referencedColumnName = "courseid")
+
+    public Registrar getRegistrar() {
+        return this.registrar;
+    }
+
+    public void setRegistrar(Registrar registrar) {
+        this.registrar = registrar;
+    }
+
     @Override
     public String toString() {
         return "Course {" +
                 "courseid=" + this.courseid +
-                ", course_name='" + this.course_name + '\'' +
+                ", course_name='" + this.course_name +
+                ", registrar='NOT SET'" +
                 '}';
     }
 }
