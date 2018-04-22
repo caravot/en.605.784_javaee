@@ -10,6 +10,7 @@
         <element id="library" level="project" name="Mojarra-1.2" />
         <element id="library" level="project" name="lib" />
       </element>
+      <element id="jpa-descriptors" facet="en.605.784_javaee/jpa/JPA" />
     </root>
   </artifact>
 </component>

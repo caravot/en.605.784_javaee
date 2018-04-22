@@ -6,6 +6,7 @@
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="en.605.784_javaee" />
+          <element id="jpa-descriptors" facet="en.605.784_javaee/jpa/JPA" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Mojarra-1.2" />
@@ -13,6 +14,7 @@
         </element>
       </element>
       <element id="javaee-facet-resources" facet="en.605.784_javaee/javaeeApplication/javaEEApplication" />
+      <element id="jpa-descriptors" facet="en.605.784_javaee/jpa/JPA" />
     </root>
   </artifact>
 </component>

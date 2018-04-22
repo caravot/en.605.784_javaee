@@ -288,9 +288,9 @@ public class Database {
      *
      * @return course and registration information
      */
-    public List<Course> getRegistrationList() {
+    public List<CourseOLD> getRegistrationList() {
         ResultSet resultSet;
-        List<Course> courseList = new ArrayList<>();
+        List<CourseOLD> courseList = new ArrayList<>();
 
         // open database connection
         createConnection();
@@ -307,7 +307,7 @@ public class Database {
 
             try {
                 while (resultSet.next()) {
-                    Course course = new Course();
+                    CourseOLD course = new CourseOLD();
                     course.setCourse_name(resultSet.getString("course_name"));
                     course.setCourseid(resultSet.getInt("courseid"));
                     course.setNumRegistered(resultSet.getInt("number_students_registered"));
@@ -329,9 +329,9 @@ public class Database {
      * @param courseid Courseid to query for
      * @return course and registration information
      */
-    public List<Course> getRegistrationList(int courseid) {
+    public List<CourseOLD> getRegistrationList(int courseid) {
         ResultSet resultSet;
-        List<Course> courseList = new ArrayList<>();
+        List<CourseOLD> courseList = new ArrayList<>();
 
         // open database connection
         createConnection();
@@ -348,7 +348,7 @@ public class Database {
 
             try {
                 while (resultSet.next()) {
-                    Course course = new Course();
+                    CourseOLD course = new CourseOLD();
                     course.setCourse_name(resultSet.getString("course_name"));
                     course.setCourseid(resultSet.getInt("courseid"));
                     course.setNumRegistered(resultSet.getInt("number_students_registered"));

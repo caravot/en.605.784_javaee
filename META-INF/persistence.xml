@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+             http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+             xmlns="http://java.sun.com/xml/ns/persistence"
+             version="1.0">
+    <persistence-unit name="assignment10" transaction-type="JTA">
+        <jta-data-source>jhuDataSource2</jta-data-source>
+        <non-jta-data-source>jhuDataSource2</non-jta-data-source>
+        <class>ravotta.carrie.Courses</class>
+        <class>ravotta.carrie.Registrar</class>
+        <properties>
+            <property name="openjpa.jdbc.DBDictionary" value="derby"/>
+        </properties>
+    </persistence-unit>
+</persistence>

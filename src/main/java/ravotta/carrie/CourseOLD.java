@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Course information
  */
-public class Course implements Serializable {
+public class CourseOLD implements Serializable {
     private int courseid;
     private int numRegistered;
     private String course_name;
