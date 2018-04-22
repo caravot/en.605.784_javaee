@@ -9,17 +9,17 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "COURSES")
-public class Courses implements Serializable {
+public class CoursesBean implements Serializable {
     private int courseid;
     private String course_name;
 
     // links to registrar
-    private Registrar registrar;
+    private RegistrarBean registrar;
 
     /**
      * no arg-constructor
      */
-    public Courses() {
+    public CoursesBean() {
     }
 
     /**
@@ -68,7 +68,7 @@ public class Courses implements Serializable {
      *
      * @return registrar bean
      */
-    public Registrar getRegistrar() {
+    public RegistrarBean getRegistrar() {
         return this.registrar;
     }
 
@@ -77,7 +77,7 @@ public class Courses implements Serializable {
      *
      * @param registrar bean
      */
-    public void setRegistrar(Registrar registrar) {
+    public void setRegistrar(RegistrarBean registrar) {
         this.registrar = registrar;
     }
 

@@ -9,14 +9,14 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "REGISTRAR")
-public class Registrar implements Serializable {
+public class RegistrarBean implements Serializable {
     private int courseid;
     private int number_students_registered;
 
     /**
      * no arg-constructor
      */
-    public Registrar() {
+    public RegistrarBean() {
     }
 
     /**

@@ -54,7 +54,7 @@ public class RegistrationServlet extends HttpServlet {
 
         // validate course id
         if (validateForm(courseID)) {
-            List<Courses> registrationList = null;
+            List<CoursesBean> registrationList = null;
             String htmlResult = "<h1>Status Report</h1>\n" +
                     "<table border='1'><tr><th>ID</th><th>Title</th><th>Student Registered</th></tr>";
 
@@ -67,7 +67,7 @@ public class RegistrationServlet extends HttpServlet {
 
             // loop over results from status report request and generate table output
             for(int i = 0; i < registrationList.size(); i++){
-                Courses c = registrationList.get(i);
+                CoursesBean c = registrationList.get(i);
 
                 // create HTML table row string
                 htmlResult += "<tr><td>" + c.getCourseid() + "</td>" +

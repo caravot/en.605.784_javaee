@@ -26,9 +26,9 @@ public class Status {
      * @param cid Course id to query for
      * @return list of course information
      */
-    public List<Courses> getStatus(int cid) {
-        List<Courses> cList = new ArrayList<Courses>();
-        cList.add(((Courses) em.find(Courses.class, cid)));
+    public List<CoursesBean> getStatus(int cid) {
+        List<CoursesBean> cList = new ArrayList<CoursesBean>();
+        cList.add(((CoursesBean) em.find(CoursesBean.class, cid)));
         return cList;
     }
 
@@ -37,21 +37,21 @@ public class Status {
      *
      * @return list of single course information
      */
-    public List<Courses> getAllStatus() {
+    public List<CoursesBean> getAllStatus() {
         // return course list
-        List<Courses> finalCourseList = new ArrayList<Courses>();
+        List<CoursesBean> finalCourseList = new ArrayList<CoursesBean>();
 
         // get current courses
-        List<Courses> courseList = (List<Courses>) em.createQuery("SELECT c FROM Courses c").getResultList();
+        List<CoursesBean> courseList = (List<CoursesBean>) em.createQuery("SELECT c FROM CoursesBean c").getResultList();
 
         // loop over all courses
-        for (Courses c : courseList) {
+        for (CoursesBean c : courseList) {
             // get specific course information
-            Courses course = ((Courses) em.find(Courses.class, c.getCourseid()));
+            CoursesBean course = ((CoursesBean) em.find(CoursesBean.class, c.getCourseid()));
 
             // course doesn't have registration yet; create empty registrar
             if (course.getRegistrar() == null) {
-                Registrar registrar = new Registrar();
+                RegistrarBean registrar = new RegistrarBean();
                 registrar.setCourseid(c.getCourseid());
                 registrar.setNumber_students_registered(0);
 

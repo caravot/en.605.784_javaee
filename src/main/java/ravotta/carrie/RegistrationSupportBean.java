@@ -23,7 +23,7 @@ public class RegistrationSupportBean implements Serializable {
     /**
      * Get courses bean
      *
-     * @return Courses bean
+     * @return CoursesBean bean
      */
     public CoursesSupportBean getCoursesSupportBean() {
         return coursesSupportBean;
