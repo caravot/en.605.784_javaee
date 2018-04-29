@@ -3,12 +3,10 @@
 * Compiled class files in /build
 * Installable bean JAR in /dist
 * Screenshots in /screenshots
-
-
-* Mock data provided by https://www.mockaroo.com/
 * Mock data files found in /resources
 * To clear the database, recreate the tables, and insert the mock data run /src/main/java/ravotta/carrie/InsertRecords.java
-* Screenshots under /screenshots
 
 # Resource Links
-https://stackoverflow.com/questions/10845842/multi-column-join-in-hibernate-jpa-annotations
+* Mock data provided by https://www.mockaroo.com/
+* https://docs.oracle.com/middleware/11119/wls/WLMDB/dist_topics.htm
+* Getting JSP to use EJB: https://stackoverflow.com/questions/18104003/accessing-a-managed-bean-from-a-jsp-tag-file

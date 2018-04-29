@@ -16,7 +16,8 @@
 <ui:insert name="nav">
 
     <h:form>
-        <h:commandLink action="/user/courses" value="Register for a Course"></h:commandLink> |
+        <h:commandLink action="/user/courses" value="Register for a Course (JSF)"></h:commandLink> |
+        <a href="#{request.contextPath}/user/RegistrarCourse.jsp">Register for a Course (JSP)</a> |
         <h:commandLink action="#{navigationController.logout}" value="Logout"></h:commandLink>
     </h:form>
 </ui:insert>

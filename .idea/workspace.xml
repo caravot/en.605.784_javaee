@@ -8,6 +8,18 @@
   <component name="ChangeListManager">
     <list default="true" id="43c542e3-2d73-440f-9981-12ec5e331224" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README" beforeDir="false" afterPath="$PROJECT_DIR$/README" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/en.605.784_javaee.iml" beforeDir="false" afterPath="$PROJECT_DIR$/en.605.784_javaee.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ravotta/carrie/InsertRecords.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ravotta/carrie/InsertRecords.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ravotta/carrie/MessageReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ravotta/carrie/MessageReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ravotta/carrie/RegistrationServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ravotta/carrie/RegistrationServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ravotta/carrie/RegistrationSupportBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ravotta/carrie/RegistrationSupportBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/faces-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/faces-config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/contracts/user/template.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/web/contracts/user/template.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/user/error.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/web/user/error.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/user/success.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/web/user/success.xhtml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,43 +45,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="assignment.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assignment.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-            <state split_layout="SECOND">
-              <first_editor relative-caret-position="255">
-                <caret line="14" selection-start-line="14" selection-end-line="14" />
-              </first_editor>
-              <second_editor>
-                <markdownNavigatorState />
-              </second_editor>
+      <file leaf-file-name="RegistrarCourse.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/user/RegistrarCourse.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-738">
+              <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MessageReader.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ravotta/carrie/MessageReader.java">
+      <file leaf-file-name="RegistrationServlet.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ravotta/carrie/RegistrationServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="664">
-              <caret line="64" column="37" selection-start-line="64" selection-start-column="37" selection-end-line="64" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jms.jsp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/jms.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="persistence.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/META-INF/persistence.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+            <state relative-caret-position="386">
+              <caret line="95" lean-forward="true" selection-start-line="95" selection-end-line="95" />
             </state>
           </provider>
         </entry>
@@ -80,7 +69,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Jsp File" />
+        <option value="HTML File" />
         <option value="jsf" />
+        <option value="cdi.beans_1_1" />
       </list>
     </option>
   </component>
@@ -90,11 +82,19 @@
       <find>status</find>
       <find>coursebean</find>
       <find>OLD</find>
+      <find />
+      <find>NavigationController</find>
+      <find>navigationController</find>
+      <find>h:inputText</find>
+      <find>request.</find>
+      <find>url</find>
+      <find>session</find>
     </findStrings>
     <replaceStrings>
       <replace />
     </replaceStrings>
     <dirStrings>
+      <dir>$PROJECT_DIR$/web</dir>
       <dir>$PROJECT_DIR$/src/main/java/ravotta/carrie</dir>
     </dirStrings>
   </component>
@@ -104,22 +104,36 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/main/java/ravotta/carrie/CourseBean.java" />
         <option value="$PROJECT_DIR$/src/main/java/ravotta/carrie/RegistrarBean.java" />
         <option value="$PROJECT_DIR$/src/main/java/ravotta/carrie/Database.java" />
         <option value="$PROJECT_DIR$/web/Status.html" />
-        <option value="$PROJECT_DIR$/src/main/java/ravotta/carrie/RegistrationServlet.java" />
-        <option value="$PROJECT_DIR$/README" />
         <option value="$PROJECT_DIR$/src/main/java/ravotta/carrie/Registrar.java" />
         <option value="$PROJECT_DIR$/src/main/java/ravotta/carrie/Courses.java" />
         <option value="$PROJECT_DIR$/src/main/java/ravotta/carrie/Status.java" />
         <option value="$PROJECT_DIR$/META-INF/persistence.xml" />
         <option value="$PROJECT_DIR$/assignment.md" />
-        <option value="$PROJECT_DIR$/src/main/java/ravotta/carrie/MessageReader.java" />
         <option value="$PROJECT_DIR$/web/jms.jsp.xhtml" />
         <option value="$PROJECT_DIR$/web/jms.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/ravotta/carrie/InsertRecords.java" />
+        <option value="$PROJECT_DIR$/web/login.html" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/ravotta/carrie/StudentInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ravotta/carrie/NavigationController.java" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/faces-config.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/ravotta/carrie/RegistrationSupportBean.java" />
+        <option value="$PROJECT_DIR$/web/user/success.xhtml" />
+        <option value="$PROJECT_DIR$/web/user/error.xhtml" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/beans.xml" />
+        <option value="$PROJECT_DIR$/web/index.xhtml" />
+        <option value="$PROJECT_DIR$/README" />
+        <option value="$PROJECT_DIR$/src/main/java/ravotta/carrie/MessageReader.java" />
+        <option value="$PROJECT_DIR$/web/user/courses.xhtml" />
+        <option value="$PROJECT_DIR$/web/RegistrarCourse.jsp" />
+        <option value="$PROJECT_DIR$/web/contracts/user/template.xhtml" />
+        <option value="$PROJECT_DIR$/web/user/RegistrarCourse.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/ravotta/carrie/RegistrationServlet.java" />
       </list>
     </option>
   </component>
@@ -140,9 +154,9 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1002" />
-    <option name="y" value="35" />
-    <option name="width" value="1544" />
+    <option name="x" value="680" />
+    <option name="y" value="45" />
+    <option name="width" value="1602" />
     <option name="height" value="1365" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -159,6 +173,11 @@
             <path>
               <item name="en.605.784_javaee" type="b2602c69:ProjectViewProjectNode" />
               <item name="en.605.784_javaee" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="en.605.784_javaee" type="b2602c69:ProjectViewProjectNode" />
+              <item name="en.605.784_javaee" type="462c0819:PsiDirectoryNode" />
+              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="en.605.784_javaee" type="b2602c69:ProjectViewProjectNode" />
@@ -200,6 +219,31 @@
               <item name="en.605.784_javaee" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="en.605.784_javaee" type="b2602c69:ProjectViewProjectNode" />
+              <item name="en.605.784_javaee" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="contracts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="en.605.784_javaee" type="b2602c69:ProjectViewProjectNode" />
+              <item name="en.605.784_javaee" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="contracts" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="en.605.784_javaee" type="b2602c69:ProjectViewProjectNode" />
+              <item name="en.605.784_javaee" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="en.605.784_javaee" type="b2602c69:ProjectViewProjectNode" />
+              <item name="en.605.784_javaee" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -210,24 +254,28 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SearchEverywhereHistoryKey" value="_ {&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="/usr/local/bin/node" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.14972144" />
     <property name="project.structure.side.proportion" value="0.28866994" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/screenshots" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/srs.resources/lib" />
       <recent name="$PROJECT_DIR$/web/META-INF" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/web" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/web/user" />
+      <recent name="$PROJECT_DIR$/web" />
+      <recent name="$PROJECT_DIR$/screenshots" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -242,9 +290,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="WebLogic Server.WebLogic 12.2.1.3.0">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+    </configuration>
+    <configuration name="InsertRecords" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ravotta.carrie.InsertRecords" />
+      <module name="en.605.784_javaee" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ravotta.carrie.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -291,7 +350,6 @@
       <option name="PORT" value="7001" />
       <option name="OPEN_IN_BROWSER" value="false" />
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:7001/index.xhtml" />
-      <option name="UPDATING_POLICY" value="redeploy-artifacts" />
       <deployment>
         <artifact name="en.605.784_javaee:ear exploded">
           <settings DEPLOYMENT_METHOD="Weblogic.Deployer">
@@ -382,6 +440,15 @@
       <predefined_log_file id="idea.log" enabled="true" />
       <method />
     </configuration>
+    <list>
+      <item itemvalue="WebLogic Server.WebLogic 12.2.1.3.0" />
+      <item itemvalue="Application.InsertRecords" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.InsertRecords" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -393,15 +460,15 @@
       <workItem from="1523824908038" duration="1293000" />
       <workItem from="1524079674256" duration="10641000" />
       <workItem from="1524409800204" duration="11000" />
-      <workItem from="1524916968566" duration="4249000" />
+      <workItem from="1524916968566" duration="20361000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16194000" />
+    <option name="totallyTimeSpent" value="32306000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1002" y="35" width="1544" height="1365" extended-state="0" />
+    <frame x="933" y="58" width="1602" height="1365" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -419,18 +486,19 @@
       <window_info id="UI Designer" order="4" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="8" weight="0.32793522" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.32771084" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info id="Image Layers" order="6" />
       <window_info anchor="bottom" id="Java Enterprise" order="9" show_stripe_button="false" weight="0.32978722" />
       <window_info anchor="right" id="Capture Analysis" order="8" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30361447" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.39839357" />
       <window_info anchor="bottom" id="Version Control" internal_type="SLIDING" order="10" type="SLIDING" weight="0.32894737" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.27710843" />
       <window_info id="Persistence" order="7" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49457994" visible="true" weight="0.27163783" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49457994" visible="true" weight="0.22692308" />
       <window_info anchor="right" id="Bean Validation" order="8" />
       <window_info id="Web" order="3" show_stripe_button="false" sideWeight="0.50542" side_tool="true" weight="0.31133503" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32793522" />
       <window_info anchor="right" id="SciView" />
       <window_info id="JavaEE:App" order="6" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="8" />
@@ -440,7 +508,6 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32793522" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -495,13 +562,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../cravott1_hw13/instructions.md" />
-    <entry file="file://$PROJECT_DIR$/META-INF/application.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -509,49 +569,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ravotta/carrie/InsertRecords.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="91" column="53" lean-forward="true" selection-start-line="91" selection-start-column="53" selection-end-line="93" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ravotta/carrie/RegistrationSupportBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="30" lean-forward="true" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="596">
-          <caret line="46" column="24" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ravotta/carrie/CourseOLD.java" />
-    <entry file="file://$PROJECT_DIR$/web/Status.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="60" selection-start-line="9" selection-start-column="60" selection-end-line="9" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ravotta/carrie/Database.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="295" column="13" lean-forward="true" selection-start-line="295" selection-start-column="13" selection-end-line="295" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="91" selection-start-line="13" selection-start-column="91" selection-end-line="13" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ravotta/carrie/Status.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -570,24 +588,135 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ravotta/carrie/CoursesBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1320">
-          <caret line="88" column="20" lean-forward="true" selection-start-line="88" selection-start-column="20" selection-end-line="88" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ravotta/carrie/RegistrationServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1155">
-          <caret line="77" lean-forward="true" selection-start-line="77" selection-end-line="77" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/META-INF/persistence.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/signup/registration_a.xhtml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/srs.resources/lib/weblogic.jar!/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="7" lean-forward="true" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ravotta/carrie/StudentInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/Status.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="60" selection-start-line="9" selection-start-column="60" selection-end-line="9" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/user/success.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ravotta/carrie/Database.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4">
+          <caret line="231" column="20" lean-forward="true" selection-start-line="231" selection-start-column="20" selection-end-line="231" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/jms.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="4" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/META-INF/application.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/beans.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="66" selection-start-line="9" selection-start-column="66" selection-end-line="9" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/user/error.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="43" selection-start-line="12" selection-start-column="43" selection-end-line="12" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/contracts/default/template.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ravotta/carrie/InsertRecords.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="39" column="5" lean-forward="true" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/index.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="61" selection-start-line="25" selection-start-column="61" selection-end-line="25" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ravotta/carrie/NavigationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="33" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/user/index.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="79" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="115" selection-start-line="11" selection-start-column="115" selection-end-line="11" selection-end-column="115" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ravotta/carrie/MessageReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -603,17 +732,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ravotta/carrie/MessageReader.java">
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/faces-config.xml">
+      <provider editor-type-id="com.intellij.jsf.yfilesGraph.editor.FacesNavigationFileEditorProvider" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="664">
-          <caret line="64" column="37" selection-start-line="64" selection-start-column="37" selection-end-line="64" selection-end-column="37" />
+        <state relative-caret-position="-468">
+          <caret line="10" column="31" lean-forward="true" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/jms.jsp">
+    <entry file="file://$PROJECT_DIR$/web/user/courses.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+        <state relative-caret-position="90">
+          <caret line="6" column="6" lean-forward="true" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ravotta/carrie/RegistrationSupportBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="940">
+          <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ravotta/carrie/CoursesBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1300">
+          <caret line="88" column="20" lean-forward="true" selection-start-line="88" selection-start-column="20" selection-end-line="88" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/contracts/user/template.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="7" lean-forward="true" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ravotta/carrie/CoursesSupportBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="37" lean-forward="true" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="30" column="42" lean-forward="true" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/user/RegistrarCourse.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-738">
+          <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ravotta/carrie/RegistrationServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="95" lean-forward="true" selection-start-line="95" selection-end-line="95" />
         </state>
       </provider>
     </entry>
@@ -623,7 +802,7 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited>en.605.784_javaee:war exploded</last-edited>
+          <last-edited />
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -636,7 +815,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited>Web (en.605.784_javaee)|Web</last-edited>
+          <last-edited />
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -648,7 +827,7 @@
       </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
-          <last-edited>Python 2.7.10 (/usr/bin/python) interpreter library</last-edited>
+          <last-edited />
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -696,7 +875,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>lib</last-edited>
+          <last-edited>weblogic</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

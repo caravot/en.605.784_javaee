@@ -2,11 +2,13 @@ package ravotta.carrie;
 
 import javax.ejb.EJB;
 import javax.faces.bean.SessionScoped;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -44,43 +46,94 @@ public class RegistrationServlet extends HttpServlet {
      * @throws ServletException
      * @throws IOException
      */
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String action = request.getParameter("action");
+
+        // complete course registration
+        if (action.equalsIgnoreCase("register")) {
+            String course = request.getParameter("course");
+            RegistrationSupportBean registrationSupportBean = new RegistrationSupportBean();
+
+            // set course information
+            registrationSupportBean.setCourse(course);
+
+            // get course ID
+            String courseId = registrationSupportBean.getCourseId();
+
+            // get number of students currently registered
+            int currentRegistered = database.selectRegistrar(courseId);
+
+            // registration is still open; add student
+            if (currentRegistered < registrationSupportBean.getCourseCapacity()) {
+                database.addRegistrar(courseId, currentRegistered + 1);
+
+                // send user to success page
+                RequestDispatcher rd = request.getRequestDispatcher("/user/success.xhtml");
+                rd.include(request, response);
+            }
+            // registration is full
+            else {
+                // send user to error page
+                RequestDispatcher rd = request.getRequestDispatcher("/user/error.xhtml");
+                rd.include(request, response);
+            }
+        }
+    }
+
+    /**
+     * Handle get action requests from user
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String courseID = request.getParameter("courseID");
+        HttpSession session = request.getSession(false);
+        String isPost = (String) session.getAttribute("isPost");
 
-        // write response to user
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
+        // redirect to doPost
+        if (isPost != null && isPost.equalsIgnoreCase("true")) {
+            this.doPost(request, response);
+        } else {
+            String courseID = request.getParameter("courseID");
 
-        // validate course id
-        if (validateForm(courseID)) {
-            List<CoursesBean> registrationList = null;
-            String htmlResult = "<h1>Status Report</h1>\n" +
-                    "<table border='1'><tr><th>ID</th><th>Title</th><th>Student Registered</th></tr>";
+            // write response to user
+            response.setContentType("text/html");
+            PrintWriter out = response.getWriter();
 
-            // only select one course
-            if (courseID.length() > 0) {
-                registrationList  = status.getStatus(Integer.parseInt(courseID));
-            } else {
-                registrationList = status.getAllStatus();
+            // validate course id
+            if (validateForm(courseID)) {
+                List<CoursesBean> registrationList = null;
+                String htmlResult = "<h1>Status Report</h1>\n" +
+                        "<table border='1'><tr><th>ID</th><th>Title</th><th>Student Registered</th></tr>";
+
+                // only select one course
+                if (courseID.length() > 0) {
+                    registrationList = status.getStatus(Integer.parseInt(courseID));
+                } else {
+                    registrationList = status.getAllStatus();
+                }
+
+                // loop over results from status report request and generate table output
+                for (int i = 0; i < registrationList.size(); i++) {
+                    CoursesBean c = registrationList.get(i);
+
+                    // create HTML table row string
+                    htmlResult += "<tr><td>" + c.getCourseid() + "</td>" +
+                            "<td>" + c.getCourse_name() + "</td>" +
+                            "<td>" + c.getRegistrar().getNumber_students_registered() + "</td>" +
+                            "</tr>";
+                }
+
+                out.println(htmlResult + "</table>");
             }
-
-            // loop over results from status report request and generate table output
-            for(int i = 0; i < registrationList.size(); i++){
-                CoursesBean c = registrationList.get(i);
-
-                // create HTML table row string
-                htmlResult += "<tr><td>" + c.getCourseid() + "</td>" +
-                        "<td>" + c.getCourse_name() + "</td>" +
-                        "<td>" + c.getRegistrar().getNumber_students_registered() + "</td>" +
-                        "</tr>";
+            // course id provided by user not found
+            else {
+                out.println("Error: Invalid course ID.");
             }
-
-            out.println(htmlResult + "</table>");
-        }
-        // course id provided by user not found
-        else {
-            out.println("Error: Invalid course ID.");
         }
     }
 

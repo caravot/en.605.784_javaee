@@ -87,6 +87,15 @@ public class RegistrationSupportBean implements Serializable {
     }
 
     /**
+     * Get current course ID
+     *
+     * @return Current course ID
+     */
+    public String getCourseId() {
+        return this.courseId;
+    }
+
+    /**
      * Add student to course specified
      *
      * @return message to user

@@ -1,11 +1,18 @@
 package ravotta.carrie;
 
-import java.io.*;
 import java.util.*;
+import javax.ejb.ActivationConfigProperty;
+import javax.ejb.MessageDriven;
 import javax.naming.*;
 import javax.jms.*;
 import javax.rmi.PortableRemoteObject;
 
+@MessageDriven(
+        activationConfig = {
+                @ActivationConfigProperty(propertyName="destinationType", propertyValue="javax.jms.Topic") ,
+                @ActivationConfigProperty(propertyName="destinationJndiName", propertyValue="testTopic")
+        }
+)
 public class MessageReader implements MessageListener {
     public final static String JNDI_FACTORY = "weblogic.jndi.WLInitialContextFactory";
     public final static String connectionFactory = "weblogic.jms.ConnectionFactory";
@@ -27,7 +34,7 @@ public class MessageReader implements MessageListener {
                 msgText = msg.toString();
             }
 
-            System.out.println("JMS recieved: " + msgText);
+            System.out.println("JMS received: " + msgText);
 
             if (msgText.equalsIgnoreCase("quite")) {
                 synchronized (this) {
@@ -58,6 +65,7 @@ public class MessageReader implements MessageListener {
     }
 
     public void init(Context ctx, String topicName) throws NamingException, JMSException {
+        System.out.println("Hello1");
         tconFactory = (TopicConnectionFactory) PortableRemoteObject.narrow(ctx.lookup(connectionFactory),
                 TopicConnectionFactory.class);
         tcon = tconFactory.createTopicConnection();
@@ -75,6 +83,7 @@ public class MessageReader implements MessageListener {
     }
 
     private static InitialContext getInitialContext(String url) throws NamingException {
+        System.out.println("Hello2");
         Hashtable env = new Hashtable();
         env.put(Context.INITIAL_CONTEXT_FACTORY, JNDI_FACTORY);
         env.put(Context.PROVIDER_URL, url);

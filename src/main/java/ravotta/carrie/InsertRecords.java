@@ -30,8 +30,8 @@ public class InsertRecords {
         createContext();
         createConnection();
 //        removeStudents();
-//        getStudents();
-        getAllStatus();
+        getStudents();
+//        getAllStatus();
 //        buildTables();
 //        readCSVFile("mock_students.csv", "students");
 //        readCSVFile("mock_courses.csv", "courses");
@@ -48,6 +48,7 @@ public class InsertRecords {
             conn = ds.getConnection();
         } catch (Exception except) {
             except.printStackTrace();
+            System.exit(-1);
         }
     }
 
@@ -278,18 +279,18 @@ public class InsertRecords {
 
             // specifies the factory to be used to create the context
             env.put(Context.INITIAL_CONTEXT_FACTORY, "weblogic.jndi.WLInitialContextFactory");
-
-            if (url != null) {
-                // specifies the URL of the WebLogic Server. Defaults to t3://localhost:7001
-                env.put(Context.PROVIDER_URL, url);
-            }
+            // specifies the URL of the WebLogic Server
+            env.put(Context.PROVIDER_URL, "t3://localhost:7001");
+            env.put("weblogic.jndi.createIntermediateContexts", "true");
 
             ctx = new InitialContext(env);
             System.out.println("Initial context created");
         } catch (NamingException e) {
             System.out.println(e.toString());
+            System.exit(-1);
         } catch (Exception e) {
             System.out.println(e.getMessage());
+            System.exit(-1);
         }
     }
 

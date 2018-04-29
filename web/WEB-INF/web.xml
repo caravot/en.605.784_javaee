@@ -43,6 +43,6 @@
 
     <!-- Default display page -->
     <welcome-file-list>
-        <welcome-file>/Status.html</welcome-file>
+        <welcome-file>/index.xhtml</welcome-file>
     </welcome-file-list>
 </web-app>
