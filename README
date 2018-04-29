@@ -1,3 +1,4 @@
+* Server domain configuration in /resources/config.xml
 * Source code in /srs
 * Required Java libraries in /lib
 * Compiled class files in /build

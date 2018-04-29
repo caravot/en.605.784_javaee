@@ -10,13 +10,13 @@ import javax.rmi.PortableRemoteObject;
 @MessageDriven(
         activationConfig = {
                 @ActivationConfigProperty(propertyName="destinationType", propertyValue="javax.jms.Topic") ,
-                @ActivationConfigProperty(propertyName="destinationJndiName", propertyValue="testTopic")
+                @ActivationConfigProperty(propertyName="destinationJndiName", propertyValue="RegCourseTopic")
         }
 )
 public class MessageReader implements MessageListener {
     public final static String JNDI_FACTORY = "weblogic.jndi.WLInitialContextFactory";
     public final static String connectionFactory = "weblogic.jms.ConnectionFactory";
-    public final static String topicName = "testTopic";
+    public final static String topicName = "RegCourseTopic";
     private TopicConnectionFactory tconFactory;
     private TopicSubscriber tsubscriber;
     private TopicConnection tcon;

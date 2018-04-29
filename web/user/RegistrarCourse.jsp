@@ -18,7 +18,7 @@
     if (action != null && action.equalsIgnoreCase("register")) {
         String url = "t3://localhost:7001";
         String JNDI_FACTORY = "weblogic.jndi.WLInitialContextFactory";
-        String TOPIC = "testTopic";
+        String TOPIC = "RegCourseTopic";
         String JMS_FACTORY = "weblogic.jms.ConnectionFactory";
 
         Hashtable env = new Hashtable();
