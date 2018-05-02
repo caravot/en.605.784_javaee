@@ -36,7 +36,7 @@
             TopicSession tsession = tcon.createTopicSession(false, Session.AUTO_ACKNOWLEDGE);
             Topic topic = (Topic) PortableRemoteObject.narrow(ctx.lookup(TOPIC), Topic.class);
             TopicPublisher tpublisher = tsession.createPublisher(topic);
-            TextMessage msg = tsession.createTextMessage();
+            MapMessage msg = tsession.createMapMessage();
             
             // get session scoped bean
             HttpSession hsession = request.getSession();
@@ -50,17 +50,16 @@
             String courseName = parts[1];
 
             // create logging message
-            String message = "User attempted to register: ";
-            message += "UserId: " + studentInfo.getUserid();
-            message += ", Student_Name: " + studentInfo.getFirst_name() + " " + studentInfo.getLast_name();
-            message += ", Course_ID: " + courseId;
-            message += ", Course_Name: " + courseName;
-            message += ", Date_of_Registration: " + new Date();
+            msg.setString("Intro", "User attempted to register: ");
+            msg.setString("UserId", studentInfo.getUserid());
+            msg.setString("Student_Name", studentInfo.getFirst_name() + " " + studentInfo.getLast_name());
+            msg.setString("Course_ID", courseId);
+            msg.setString("Course_Name", courseName);
+            msg.setString("Date_of_Registration", new Date().toString());
 
-            System.out.println("JMS sent: " + message);
+            System.out.println("JMS sent: " + msg.toString());
 
             tcon.start();
-            msg.setText(message);
             tpublisher.publish(msg);
             tpublisher.close();
             tsession.close();

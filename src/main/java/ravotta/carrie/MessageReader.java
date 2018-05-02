@@ -30,6 +30,18 @@ public class MessageReader implements MessageListener {
 
             if (msg instanceof TextMessage) {
                 msgText = ((TextMessage)msg).getText();
+            } else if (msg instanceof MapMessage) {
+                MapMessage msg2 = (MapMessage) msg;
+                msgText = String.format("UserId: {}, " +
+                                "Student_Name: {}, " +
+                                "Course_ID: {}, " +
+                                "Course_Name: {}, " +
+                                "Date_of_Registration: {}",
+                        msg2.getString("UserId"),
+                        msg2.getString("Student_Name"),
+                        msg2.getString("Course_ID"),
+                        msg2.getString("Course_Name"),
+                        msg2.getString("Date_of_Registration"));
             } else {
                 msgText = msg.toString();
             }
