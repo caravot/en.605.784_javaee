@@ -1,42 +1,54 @@
 package ravotta.carrie;
 
-import java.util.*;
-import javax.ejb.ActivationConfigProperty;
-import javax.ejb.MessageDriven;
-import javax.naming.*;
+import javax.ejb.MessageDrivenBean;
+import javax.ejb.MessageDrivenContext;
 import javax.jms.*;
-import javax.rmi.PortableRemoteObject;
 
+import weblogic.ejbgen.Constants;
+import weblogic.ejbgen.MessageDriven;
+
+/**
+ * Demonstrates usage of a Message-Driven EJB. * *
+ * @author Copyright (c) 1999-2006 by BEA Systems, Inc. All Rights Reserved.
+ */
 @MessageDriven(
-        activationConfig = {
-                @ActivationConfigProperty(propertyName="destinationType", propertyValue="javax.jms.Topic") ,
-                @ActivationConfigProperty(propertyName="destinationJndiName", propertyValue="RegCourseTopic")
-        }
+        maxBeansInFreePool = "1",
+        destinationType = "javax.jms.Topic",
+        initialBeansInFreePool = "1",
+        transTimeoutSeconds = "2",
+        defaultTransaction = MessageDriven.DefaultTransaction.REQUIRED,
+        durable = Constants.Bool.FALSE,
+        ejbName = "MessageReader",
+        destinationJndiName = "RegCourseTopic"
 )
-public class MessageReader implements MessageListener {
-    public final static String JNDI_FACTORY = "weblogic.jndi.WLInitialContextFactory";
-    public final static String connectionFactory = "weblogic.jms.ConnectionFactory";
-    public final static String topicName = "RegCourseTopic";
-    private TopicConnectionFactory tconFactory;
-    private TopicSubscriber tsubscriber;
-    private TopicConnection tcon;
-    private TopicSession tsession;
-    private Topic topic;
-    private boolean quit = false;
+public class MessageReader implements MessageDrivenBean, MessageListener {
+    private static final boolean VERBOSE = true;
+    private MessageDrivenContext m_context;
+    private int m_tradeLimit;
 
+    /**
+     * Sets the session context. * * @param ctx MessageDrivenContext Context for session
+     */
+    public void setMessageDrivenContext(MessageDrivenContext ctx) {
+        m_context = ctx;
+    }
+
+    /**
+     * Retrieve the int value of the TextMessage and * increment the RMI counter by that much.
+     */
     public void onMessage(Message msg) {
+        String msgText;
         try {
-            String msgText;
-
             if (msg instanceof TextMessage) {
-                msgText = ((TextMessage)msg).getText();
+                msgText = ((TextMessage) msg).getText();
             } else if (msg instanceof MapMessage) {
                 MapMessage msg2 = (MapMessage) msg;
-                msgText = String.format("UserId: {}, " +
-                                "Student_Name: {}, " +
-                                "Course_ID: {}, " +
-                                "Course_Name: {}, " +
-                                "Date_of_Registration: {}",
+
+                msgText = String.format("UserId: {%s}, " +
+                                "Student_Name: {%s}, " +
+                                "Course_ID: {%s}, " +
+                                "Course_Name: {%s}, " +
+                                "Date_of_Registration: {%s}",
                         msg2.getString("UserId"),
                         msg2.getString("Student_Name"),
                         msg2.getString("Course_ID"),
@@ -47,60 +59,30 @@ public class MessageReader implements MessageListener {
             }
 
             System.out.println("JMS received: " + msgText);
+        } catch (Exception ex) {
+            System.err.println("An exception occurred: " + ex.getMessage());
 
-            if (msgText.equalsIgnoreCase("quite")) {
-                synchronized (this) {
-                    quit = true;
-                    this.notifyAll();
-                }
-            }
-        } catch (JMSException jmse) {
-            jmse.printStackTrace();
         }
     }
 
-    public static void main(String[] args) throws Exception {
-        MessageReader mr = new MessageReader();
-        InitialContext ic = getInitialContext("t3://localhost:7001");
-        mr.init(ic, topicName);
-        System.out.println("JMS consumer setup");
-
-        synchronized (mr) {
-            while (!mr.quit) {
-                try {
-                    mr.wait();
-                } catch (InterruptedException ie) { }
-            }
-        }
-
-        mr.close();
+    /**
+     * This method is required by the EJB Specification, * but is not used by this example.
+     */
+    public void ejbCreate() {
+         System.out.println("Encountered the following naming exception: ");
     }
 
-    public void init(Context ctx, String topicName) throws NamingException, JMSException {
-        System.out.println("Hello1");
-        tconFactory = (TopicConnectionFactory) PortableRemoteObject.narrow(ctx.lookup(connectionFactory),
-                TopicConnectionFactory.class);
-        tcon = tconFactory.createTopicConnection();
-        tsession = tcon.createTopicSession(false, Session.AUTO_ACKNOWLEDGE);
-        topic = (Topic) PortableRemoteObject.narrow(ctx.lookup(topicName), Topic.class);
-        tsubscriber = tsession.createSubscriber(topic);
-        tsubscriber.setMessageListener(this);
-        tcon.start();
+    /**
+     * This method is required by the EJB Specification, * but is not used by this example.
+     */
+    public void ejbRemove() {
     }
 
-    public void close() throws JMSException {
-        tsubscriber.close();
-        tsession.close();
-        tcon.close();
+    static void p(String s) {
+        System.out.println("*** " + s);
     }
 
-    private static InitialContext getInitialContext(String url) throws NamingException {
-        System.out.println("Hello2");
-        Hashtable env = new Hashtable();
-        env.put(Context.INITIAL_CONTEXT_FACTORY, JNDI_FACTORY);
-        env.put(Context.PROVIDER_URL, url);
-        env.put("weblogic.jndi.createIntermediateContexts", "true");
-        return new InitialContext(env);
-
+    private void log(String s) {
+        if (VERBOSE) System.out.println(s);
     }
 }

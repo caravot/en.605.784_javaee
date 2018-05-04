@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<weblogic-ejb-jar
+        xmlns="http://www.oracle.com/technology/weblogic/weblogic-ejb-jar" xmlns:j2ee="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.oracle.com/technology/weblogic/weblogic-ejb-jar http://www.oracle.com/technology/weblogic/weblogic-ejb-jar/1.1/weblogic-ejb-jar.xsd">
+    <weblogic-enterprise-bean>
+        <ejb-name>MessageReader</ejb-name>
+        <message-driven-descriptor>
+            <pool>
+                <max-beans-in-free-pool>1000</max-beans-in-free-pool>
+                <initial-beans-in-free-pool>0</initial-beans-in-free-pool>
+            </pool>
+            <destination-jndi-name>RegCourseTopic</destination-jndi-name>
+            <init-suspend-seconds>0</init-suspend-seconds>
+            <max-suspend-seconds>0</max-suspend-seconds>
+        </message-driven-descriptor>
+        <transaction-descriptor>
+            <trans-timeout-seconds>600</trans-timeout-seconds>
+        </transaction-descriptor>
+        <jndi-name>RegCourseTopic</jndi-name>
+    </weblogic-enterprise-bean>
+</weblogic-ejb-jar>
