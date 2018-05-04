@@ -227,7 +227,7 @@ public class Database {
             String q;
             stmt = conn.createStatement();
 
-            if (totalRegistered == 1) {
+            if (totalRegistered < 1) {
                 q = "INSERT INTO REGISTRAR (number_students_registered, courseid) VALUES (?, ?)";
             } else {
                 q = "UPDATE REGISTRAR SET number_students_registered = ? WHERE courseid = ?";
