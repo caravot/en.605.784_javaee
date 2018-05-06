@@ -6,9 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="43c542e3-2d73-440f-9981-12ec5e331224" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/ravotta/carrie/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ravotta/carrie/Database.java" afterDir="false" />
-    </list>
+    <list default="true" id="43c542e3-2d73-440f-9981-12ec5e331224" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,26 +30,7 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="config.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/config.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="754">
-              <caret line="101" column="9" selection-start-line="101" selection-start-column="9" selection-end-line="101" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="115" selection-start-line="12" selection-start-column="115" selection-end-line="12" selection-end-column="115" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -415,16 +394,15 @@
       <workItem from="1524409800204" duration="11000" />
       <workItem from="1524916968566" duration="20917000" />
       <workItem from="1525294981913" duration="7452000" />
-      <workItem from="1525328461066" duration="607000" />
+      <workItem from="1525328461066" duration="708000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42002000" />
+    <option name="totallyTimeSpent" value="42103000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="524" y="40" width="1921" height="1365" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -448,9 +426,9 @@
       <window_info anchor="right" id="Capture Analysis" order="8" />
       <window_info anchor="bottom" id="Version Control" internal_type="SLIDING" order="10" type="SLIDING" weight="0.32894737" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.2931727" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.28433734" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.28433734" />
       <window_info id="Persistence" order="7" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49457994" visible="true" weight="0.17722192" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49457994" visible="true" weight="0.17722192" />
       <window_info anchor="right" id="Bean Validation" order="8" />
       <window_info id="Web" order="3" show_stripe_button="false" sideWeight="0.50542" side_tool="true" weight="0.31133503" />
       <window_info anchor="right" id="SciView" order="10" />
@@ -781,17 +759,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/README">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="93" lean-forward="true" selection-start-line="12" selection-start-column="93" selection-end-line="12" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/config.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="754">
           <caret line="101" column="9" selection-start-line="101" selection-start-column="9" selection-end-line="101" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="115" selection-start-line="12" selection-start-column="115" selection-end-line="12" selection-end-column="115" />
         </state>
       </provider>
     </entry>
