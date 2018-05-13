@@ -32,46 +32,25 @@ public class InsertRecords {
         createContext();
         createConnection();
 
-//        try {
-//            UserTransaction ut = (UserTransaction) ctx.lookup("javax/transaction/UserTransaction");
-//            ut.setTransactionTimeout(1);
-//            ut.begin();
-//            Thread.sleep(3000);
-//            ut.commit();
-//        } catch (NotSupportedException | RollbackException | HeuristicRollbackException |
-//                SystemException | HeuristicMixedException e) {
-//            System.out.println("ERROR ERROR: exceptionClause()");
-//            e.printStackTrace();
-//        } catch (InterruptedException e) {
-//            System.out.println("ERROR ERROR: InterruptedException()");
-//            e.printStackTrace();
-//        } catch (NamingException e) {
-//            System.out.println("ERROR ERROR: NamingException()");
-//            e.printStackTrace();
-//        }
-
 //        removeStudents();
 //        getStudents();
 //        getAllStatus();
 //        buildTables();
 //        readCSVFile("mock_students.csv", "students");
 //        readCSVFile("mock_courses.csv", "courses");
-        //simulateRegistrarCourseBean();
+        simulateRegistrarCourseBean();
         //getRegistrar();
-        RegistrarCourseBean registrarCourseBean = new RegistrarCourseBean();
-        registrarCourseBean.addRegistrar();
         shutdown();
         closeContext();
     }
 
     private static void simulateRegistrarCourseBean() {
-        try {
-            // 15 seconds sleep
-            Thread.sleep(15000);
-        } catch (InterruptedException ie) {
-            ie.printStackTrace();
-            throw new EJBException(ie);
-        }
+        RegistrarCourseBean registrarCourseBean = new RegistrarCourseBean();
+        registrarCourseBean.addRegistrar(31000);
+
+//        RegistrarCourseBean registrarCourseBean2 = new RegistrarCourseBean();
+//        registrarCourseBean2.addRegistrar(6000);
+
     }
 
     /**

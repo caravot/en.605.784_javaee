@@ -20,11 +20,11 @@ import java.util.Hashtable;
 /**
  * Support bean for registering a student to a course
  */
-@Local
-@Stateless
-@TransactionAttribute(TransactionAttributeType.REQUIRED)
-@TransactionManagement(TransactionManagementType.BEAN)
-public class RegistrarCourseBean {
+@ManagedBean
+@SessionScoped
+//@TransactionAttribute(TransactionAttributeType.REQUIRED)
+//@TransactionManagement(TransactionManagementType.BEAN)
+public class RegistrarCourseBean implements Serializable {
     private static Database database;
     private int courseId;
     private int currentRegistered;
@@ -50,58 +50,33 @@ public class RegistrarCourseBean {
      *
      * @return message to user
      */
-    public void addRegistrar() {
+    public void addRegistrar(int timeout) {
         database = new Database();
         this.setCourseId(1);
         this.setCurrentRegistered(1);
 
-        Hashtable env = new Hashtable();
-        env.put(Context.INITIAL_CONTEXT_FACTORY, "weblogic.jndi.WLInitialContextFactory");
-        env.put(Context.PROVIDER_URL, "t3://localhost:7001");
-        Context ctx = null;
-
         try {
-            ctx = new InitialContext(env);
-        } catch (NamingException e) {
-            e.printStackTrace();
+            System.out.println("Start");
+            Thread.sleep(31000);
+        } catch (InterruptedException ie) {
+            System.out.println("Got an error");
+            ie.printStackTrace();
+            throw new EJBException(ie);
         }
 
-        System.out.println("Hello from addRegistrar()");
-        try {
-            UserTransaction ut = (UserTransaction) ctx.lookup("javax/transaction/UserTransaction");
-            ut.setTransactionTimeout(1);
-            ut.begin();
-            System.out.println("\tStart");
-            Thread.sleep(3000);
-            System.out.println("End");
-            ut.commit();
-        } catch (NotSupportedException | RollbackException | HeuristicRollbackException |
-                SystemException | HeuristicMixedException e) {
-            System.out.println("ERROR ERROR: exceptionClause()");
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            System.out.println("ERROR ERROR: InterruptedException()");
-            e.printStackTrace();
-        } catch (NamingException e) {
-            System.out.println("ERROR ERROR: NamingException()");
-            e.printStackTrace();
-        }
 
-//        try {
-//            utx.setTransactionTimeout(1);
-//            utx.begin();
-//            System.out.println(">>> Executing");
-//            Thread.sleep(3000);
-//            utx.commit();
-//            System.out.println(">>> Completed");
-//        } catch (NotSupportedException | RollbackException | HeuristicRollbackException |
-//                SystemException | HeuristicMixedException e) {
-//            System.out.println("ERROR ERROR: exceptionClause()");
-//            e.printStackTrace();
-//        } catch (InterruptedException e) {
-//            System.out.println("ERROR ERROR: InterruptedException()");
-//            e.printStackTrace();
-//        }
+        database.addRegistrar("1", 2);
+    }
+
+    /**
+     * Add student to course specified
+     *
+     * @return message to user
+     */
+    public void addRegistrar2() {
+        database = new Database();
+        this.setCourseId(1);
+        this.setCurrentRegistered(1);
 
         // set course information
 //        setCourse(getCoursesSupportBean().getSelectedCourse());
