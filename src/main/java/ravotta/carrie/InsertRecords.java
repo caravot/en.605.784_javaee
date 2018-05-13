@@ -1,8 +1,10 @@
 package ravotta.carrie;
 
+import javax.ejb.EJBException;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.transaction.*;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -26,17 +28,50 @@ public class InsertRecords {
      * @param args
      * @throws NoSuchMethodException
      */
-    public static void main(String[] args) throws NoSuchMethodException {
+    public static void main(String[] args) throws NoSuchMethodException, InterruptedException {
         createContext();
         createConnection();
+
+//        try {
+//            UserTransaction ut = (UserTransaction) ctx.lookup("javax/transaction/UserTransaction");
+//            ut.setTransactionTimeout(1);
+//            ut.begin();
+//            Thread.sleep(3000);
+//            ut.commit();
+//        } catch (NotSupportedException | RollbackException | HeuristicRollbackException |
+//                SystemException | HeuristicMixedException e) {
+//            System.out.println("ERROR ERROR: exceptionClause()");
+//            e.printStackTrace();
+//        } catch (InterruptedException e) {
+//            System.out.println("ERROR ERROR: InterruptedException()");
+//            e.printStackTrace();
+//        } catch (NamingException e) {
+//            System.out.println("ERROR ERROR: NamingException()");
+//            e.printStackTrace();
+//        }
+
 //        removeStudents();
-        getStudents();
+//        getStudents();
 //        getAllStatus();
 //        buildTables();
 //        readCSVFile("mock_students.csv", "students");
 //        readCSVFile("mock_courses.csv", "courses");
+        //simulateRegistrarCourseBean();
+        //getRegistrar();
+        RegistrarCourseBean registrarCourseBean = new RegistrarCourseBean();
+        registrarCourseBean.addRegistrar();
         shutdown();
         closeContext();
+    }
+
+    private static void simulateRegistrarCourseBean() {
+        try {
+            // 15 seconds sleep
+            Thread.sleep(15000);
+        } catch (InterruptedException ie) {
+            ie.printStackTrace();
+            throw new EJBException(ie);
+        }
     }
 
     /**
@@ -188,6 +223,32 @@ public class InsertRecords {
             pstmt.setString(1, "Carrie");
 
             pstmt.execute();
+        } catch (SQLException sqlExcept) {
+            sqlExcept.printStackTrace();
+        }
+    }
+
+    public static void getRegistrar() {
+        ResultSet resultSet;
+        RegistrarCourseBean registrarCourseBean = null;
+
+        try {
+            stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            String insertQuery = "SELECT * FROM REGISTRAR";
+            PreparedStatement pstmt = conn.prepareStatement(insertQuery);
+
+            resultSet = pstmt.executeQuery();
+
+            try {
+                while (resultSet.next()) {
+                    registrarCourseBean = new RegistrarCourseBean();
+                    registrarCourseBean.setCourseId(resultSet.getInt("COURSEID"));
+                    registrarCourseBean.setCurrentRegistered(resultSet.getInt("number_students_registered"));
+                    System.out.println(registrarCourseBean.toString());
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         } catch (SQLException sqlExcept) {
             sqlExcept.printStackTrace();
         }

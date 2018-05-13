@@ -4,6 +4,9 @@ import javax.faces.bean.ManagedBean;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.persistence.Table;
+import javax.transaction.*;
+import javax.transaction.UserTransaction;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Hashtable;
@@ -32,7 +35,7 @@ public class Database {
      * Create connection to the database
      *
      */
-    private static void createConnection() {
+    public static void createConnection() {
         // don't establish new connections if we have some already
         try {
             if (conn == null || conn.isClosed()) {
@@ -213,6 +216,44 @@ public class Database {
         return courseList;
     }
 
+    public static UserTransaction getUserTransaction() {
+        UserTransaction ut = new UserTransaction() {
+            @Override
+            public void begin() throws NotSupportedException, SystemException {
+                System.out.println("Hello from begin()");
+            }
+
+            @Override
+            public void commit() throws RollbackException, HeuristicMixedException, HeuristicRollbackException,
+                    SecurityException, IllegalStateException, SystemException {
+                System.out.println("Hello from commit()");
+            }
+
+            @Override
+            public void rollback() throws IllegalStateException, SecurityException, SystemException {
+                System.out.println("Hello from rollback()");
+            }
+
+            @Override
+            public void setRollbackOnly() throws IllegalStateException, SystemException {
+                System.out.println("Hello from setRollbackOnly()");
+            }
+
+            @Override
+            public int getStatus() throws SystemException {
+                System.out.println("Hello from getStatus()");
+                return 0;
+            }
+
+            @Override
+            public void setTransactionTimeout(int i) throws SystemException {
+                System.out.println("Hello from setTransactionTimeout()");
+            }
+        };
+
+        return ut;
+    }
+
     /**
      * Register a student for a course
      *
@@ -223,7 +264,13 @@ public class Database {
         // open database connection
         createConnection();
 
+        UserTransaction utx = getUserTransaction();
+
         try {
+            utx.setTransactionTimeout(1);
+            utx.begin();
+            Thread.sleep(3000);
+
             String q;
             stmt = conn.createStatement();
 
@@ -237,9 +284,12 @@ public class Database {
             pstmt.setInt(1, totalRegistered);
             pstmt.setString(2, courseid);
             pstmt.execute();
-        } catch (SQLException sqlExcept) {
+            utx.commit();
+        } catch (SQLException | HeuristicRollbackException | HeuristicMixedException | InterruptedException |
+                SystemException | NotSupportedException | RollbackException sqlExcept) {
             sqlExcept.printStackTrace();
         } finally {
+            System.out.println("Hello from the addRegistrar finally statement");
             // close connection when done
             shutdown();
         }

@@ -15,6 +15,7 @@
                 </activation-config-property>
             </activation-config>
         </message-driven>
+
     </enterprise-beans>
     <assembly-descriptor>
         <container-transaction>
@@ -24,5 +25,12 @@
             </method>
             <trans-attribute>Required</trans-attribute>
         </container-transaction>
+        <!--<container-transaction>-->
+            <!--<method>-->
+                <!--<ejb-name>RegistrarCourseBean</ejb-name>-->
+                <!--<method-name>*</method-name>-->
+            <!--</method>-->
+            <!--<trans-attribute>Required</trans-attribute>-->
+        <!--</container-transaction>-->
     </assembly-descriptor>
 </ejb-jar>

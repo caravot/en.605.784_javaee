@@ -66,7 +66,11 @@ public class RegistrationServlet extends HttpServlet {
 
             // registration is still open; add student
             if (currentRegistered < registrationSupportBean.getCourseCapacity()) {
-                database.addRegistrar(courseId, currentRegistered + 1);
+                try {
+                    database.addRegistrar(courseId, currentRegistered + 1);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
                 // send user to success page
                 RequestDispatcher rd = request.getRequestDispatcher("/user/success.xhtml");

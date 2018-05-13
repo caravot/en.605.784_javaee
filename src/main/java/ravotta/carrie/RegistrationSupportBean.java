@@ -100,7 +100,7 @@ public class RegistrationSupportBean implements Serializable {
      *
      * @return message to user
      */
-    public void addRegistrar() {
+    public void addRegistrar() throws Exception {
         database = new Database();
 
         // set course information
