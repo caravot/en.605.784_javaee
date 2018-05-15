@@ -41,6 +41,33 @@
     <node-manager-username>weblogic</node-manager-username>
     <node-manager-password-encrypted>{AES}t5yj/oS+p10zw7FyPcCnN+GlAfA+4H5uLoLqy8nlL+U=</node-manager-password-encrypted>
   </security-configuration>
+  <jta>
+    <timeout-seconds>5</timeout-seconds>
+    <abandon-timeout-seconds>86400</abandon-timeout-seconds>
+    <completion-timeout-seconds>5</completion-timeout-seconds>
+    <forget-heuristics>true</forget-heuristics>
+    <before-completion-iteration-limit>10</before-completion-iteration-limit>
+    <max-transactions>10000</max-transactions>
+    <max-unique-name-statistics>1000</max-unique-name-statistics>
+    <max-resource-requests-on-server>50</max-resource-requests-on-server>
+    <max-xa-call-millis>120000</max-xa-call-millis>
+    <max-resource-unavailable-millis>1800000</max-resource-unavailable-millis>
+    <checkpoint-interval-seconds>300</checkpoint-interval-seconds>
+    <parallel-xa-enabled>true</parallel-xa-enabled>
+    <unregister-resource-grace-period>30</unregister-resource-grace-period>
+    <security-interop-mode>default</security-interop-mode>
+    <wsat-transport-security-mode>SSLNotRequired</wsat-transport-security-mode>
+    <wsat-issued-token-enabled>false</wsat-issued-token-enabled>
+    <two-phase-enabled>true</two-phase-enabled>
+    <clusterwide-recovery-enabled>false</clusterwide-recovery-enabled>
+    <tightly-coupled-transactions-enabled>false</tightly-coupled-transactions-enabled>
+    <determiner>WebLogic_JMS</determiner>
+    <determiner>jhuDS_car_domain</determiner>
+    <tlog-write-when-determiner-exists-enabled>false</tlog-write-when-determiner-exists-enabled>
+    <cross-site-recovery-retry-interval>60</cross-site-recovery-retry-interval>
+    <cross-site-recovery-lease-expiration>30</cross-site-recovery-lease-expiration>
+    <cross-site-recovery-lease-update>10</cross-site-recovery-lease-update>
+  </jta>
   <server>
     <name>AdminServer</name>
     <listen-address></listen-address>
