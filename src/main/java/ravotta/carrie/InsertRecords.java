@@ -1,6 +1,8 @@
 package ravotta.carrie;
 
+import javax.ejb.EJB;
 import javax.ejb.EJBException;
+import javax.faces.bean.ManagedProperty;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -22,6 +24,10 @@ public class InsertRecords {
     private static Context ctx = null;
     private static javax.sql.DataSource ds = null;
 
+
+    @EJB
+    static RegistrarCourseBean registrarCourseBean;
+
     /**
      * Run all functions to recreate database
      *
@@ -38,19 +44,9 @@ public class InsertRecords {
 //        buildTables();
 //        readCSVFile("mock_students.csv", "students");
 //        readCSVFile("mock_courses.csv", "courses");
-        simulateRegistrarCourseBean();
-        //getRegistrar();
+        getRegistrar();
         shutdown();
         closeContext();
-    }
-
-    private static void simulateRegistrarCourseBean() {
-        RegistrarCourseBean registrarCourseBean = new RegistrarCourseBean();
-        registrarCourseBean.addRegistrar(31000);
-
-//        RegistrarCourseBean registrarCourseBean2 = new RegistrarCourseBean();
-//        registrarCourseBean2.addRegistrar(6000);
-
     }
 
     /**

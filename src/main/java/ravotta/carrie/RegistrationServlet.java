@@ -1,6 +1,7 @@
 package ravotta.carrie;
 
 import javax.ejb.EJB;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -23,6 +24,9 @@ public class RegistrationServlet extends HttpServlet {
 
     @EJB
     Status status;
+
+    @EJB
+    RegistrarCourseBean registrarCourseBean;
 
     /**
      * Initialize the servlet
@@ -51,7 +55,7 @@ public class RegistrationServlet extends HttpServlet {
         String action = request.getParameter("action");
 
         // complete course registration
-        if (action.equalsIgnoreCase("register")) {
+        if (action.equalsIgnoreCase("registerORIG")) {
             String course = request.getParameter("course");
             RegistrationSupportBean registrationSupportBean = new RegistrationSupportBean();
 
@@ -81,6 +85,41 @@ public class RegistrationServlet extends HttpServlet {
                 // send user to error page
                 RequestDispatcher rd = request.getRequestDispatcher("/user/error.xhtml");
                 rd.include(request, response);
+            }
+        }
+        else if (action.equalsIgnoreCase("register")) {
+            String course = request.getParameter("course");
+
+            RegistrationSupportBean registrationSupportBean = new RegistrationSupportBean();
+
+            // set course information
+            registrationSupportBean.setCourse(course);
+
+            // get course ID
+            String courseId = registrationSupportBean.getCourseId();
+
+            registrarCourseBean.setCourseId(Integer.parseInt(courseId));
+
+            for (int i = 0; i < 5; i++) {
+                int timeout = 15000;
+
+                if (i % 2 == 0) {
+                    timeout = 2000;
+                }
+
+                // get number of students currently registered
+                int currentRegistered = database.selectRegistrar(courseId);
+
+
+                System.out.println("+++++++++++++++++++++");
+                System.out.println("Timeout: " + timeout);
+                System.out.println("Total registered before insert: " + currentRegistered);
+
+                registrarCourseBean.setCurrentRegistered(currentRegistered);
+                registrarCourseBean.addRegistrar(timeout);
+
+                int currentRegisteredAfter = database.selectRegistrar(courseId);
+                System.out.println("Total registered after insert: " + currentRegisteredAfter);
             }
         }
     }

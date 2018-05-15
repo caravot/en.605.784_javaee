@@ -10,11 +10,12 @@
 </head>
 <body>
 <h1>Course Registration</h1>
-<form action="/registration" method="post">
+<form action="<%= request.getContextPath() %>/registration" method="post">
     <input type="hidden" name="action" value="register">
     <select id="course" name="course">
         <%
             CoursesSupportBean coursesSupportBean = new CoursesSupportBean();
+
             List<String> courses = coursesSupportBean.getCourses();
             for (String cname : courses) {
         %>
